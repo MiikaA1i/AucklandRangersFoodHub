@@ -1,18 +1,34 @@
+using Android.Content;
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "@string/app_name", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        Button ButtonMenu;
+        Button ButtonCart;
+        Button ButtonContactUs;
+        Button ButtonProfile;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
+            ButtonProfile.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
         }
         void OnButtonCartClicked(object sender, EventArgs e)
         {
-
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)
         {
@@ -30,7 +46,49 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Cart Page")]
     public class CartActivity : Activity
     {
+        Button ButtonMenu;
+        Button ButtonCart;
+        Button ButtonProfile;
+        Button ButtonContactUs;
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            
+            SetContentView(Resource.Layout.CartPage);
 
+
+
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
+            ButtonProfile.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)
+        {
+
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)
+        {
+
+        }
     }
     [Activity(Label = "Contact Us page")]
     public class ContactUsActivity : Activity

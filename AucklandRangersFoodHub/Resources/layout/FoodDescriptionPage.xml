@@ -16,7 +16,7 @@
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="10dp"
-        android:id="@+id/logo" />
+        />
 
     />
       <!--Profile Icon button-->
@@ -26,7 +26,7 @@
         android:layout_height="50dp"
         android:layout_x="340dp"
         android:layout_y="10dp"
-        android:id="@+id/profileicon" />
+        />
 
      <!--Back Icon button-->
     <Button
@@ -34,7 +34,7 @@
         android:layout_height="50dp"
         android:layout_x="10dp"
         android:layout_y="10dp"
-        android:id="@+id/arrowicon" />
+        />
 
  <!--Middle Of Page-->
     <ImageView
@@ -43,7 +43,7 @@
         android:background="#ffe0e0e0"
         android:layout_x="125dp"
         android:layout_y="150dp"
-        android:id="@+id/FoodDescImg"/>
+        />
 
     <TextView
         android:text="Dish Ingredients: "
@@ -51,7 +51,7 @@
         android:layout_height="50dp"
         android:layout_x="150dp"
         android:layout_y="320dp"
-        android:id="@+id/"/>
+        />
 
      <TextView
         android:text="Dish Recipe: "

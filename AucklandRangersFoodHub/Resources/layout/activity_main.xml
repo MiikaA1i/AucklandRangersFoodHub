@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@android:color/white"
     android:layout_height="match_parent">
 
-<!--Top Of page-->
+    <!--Top Of page-->
 
       <!--Restruants top logo-->
     <TextView 
@@ -15,6 +16,7 @@
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="10dp"
+        android:textColor="@android:color/black"
         android:id="@+id/logo" />
 
     />
@@ -45,11 +47,12 @@
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="90dp"
+        android:textColor="@android:color/black"
         android:id="@+id/recom1" />
 
     <!--Recommendation Images-->
     <ImageButton
-        android:src="@drawable/imagebutton1" 
+        
         android:layout_width="220dp"
         android:layout_alignParentRight="true"
         android:id="@+id/recom2"
@@ -80,10 +83,10 @@
 
      <!--Category Icons-->
 
-    <HorizontalScrollView
+    <!--HorizontalScrollView
         android:layout_width=""
         android:layout_height="" />
-    
+    -->
      <Button
         
         android:layout_width="95dp"
