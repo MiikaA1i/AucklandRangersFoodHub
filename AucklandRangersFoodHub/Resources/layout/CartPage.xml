@@ -55,13 +55,26 @@
         android:id="@+id/TextView2" />
 
     <ListView
-        android:layout_width="300dp"
-        android:layout_height="140dp"
+        android:layout_width="340dp"
+        android:layout_height="90dp"
         android:layout_x="20dp"
         android:layout_y="190dp"
         android:background="#ffe0e0e0"
         />
 
+    <Button
+        android:text="Credit Card"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_y="450dp"
+        android:layout_x="115dp"/>
+
+    <Button
+        android:text="Cash"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_y="520dp"
+        android:layout_x="115dp"/>
 
 
  <!--Bottom Of Page-->
