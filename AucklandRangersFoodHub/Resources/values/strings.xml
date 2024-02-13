@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">AucklandRangersFoodHub</string>
-    <string name="app_text">Hello, Android!</string>
+	<string name="app_name">_10screens</string>
+	<string name="app_text">Hello, Android!</string>
+	<string name="Auckland_Rangers">Auckland Rangers</string>
+	<string name="Menu_Button">Menu</string>
+	<string name="Cart_button">Cart</string>
+	<string name="Profile_Button">Profile</string>
+	<string name="Contact_Us_Button">
+		Contact
+		us
+	</string>
 </resources>
