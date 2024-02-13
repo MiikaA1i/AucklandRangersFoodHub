@@ -35,3 +35,94 @@
         android:layout_x="10dp"
         android:layout_y="10dp"
         android:id="@+id/arrowicon" />
+
+
+
+ 
+ <!--Middle of Page-->
+
+    <TextView
+        android:layout_width=""
+        android:layout_height=""/>
+
+
+    <!--Image View-->
+    <ImageView
+        android:layout_width="160dp"
+        android:id="@+id/imageview"
+        android:onClick="clickNew"
+        android:layout_height="150dp"
+        android:layout_y="230dp"
+        android:layout_x="30dp"
+        android:background="#ffe0e0e0"
+    />
+
+    <!--Food Description button-->
+    <Button
+        android:text="Food Description"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_x="10dp"
+        android:layout_y="400dp"
+        android:id="@+id/fooddescription" />
+
+    <!--Quantity button-->
+
+
+
+    <!--Add to cart button-->
+    <Button
+        android:text="Add to cart"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_x="130dp"
+        android:layout_y="520dp"
+        android:id="@+id/addtocart" />
+
+
+
+ <!--Bottom Of Page-->
+
+    <!--Menu button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="Menu"
+        android:layout_x="10dp"
+        android:layout_y="600dp"
+        android:textColor="#ff000000"
+        android:background="#ffe0e0e0"
+        android:textSize="15dp"
+        />
+<!--Contact us button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="Contact us"
+        android:layout_x="105dp"
+        android:layout_y="600dp"
+        android:textColor="#ff000000"
+        android:background="#ffe0e0e0"/>
+ <!--Profile button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="Profile"
+        android:layout_x="200dp"
+        android:layout_y="600dp"
+        android:textColor="#ff000000"
+        android:background="#ffe0e0e0"/>
+<!--Cart button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="Cart"
+        android:layout_x="295dp"
+        android:layout_y="600dp"
+        android:textColor="#ff000000"
+        android:background="#ffe0e0e0"
+        />
+
+
+
+</AbsoluteLayout>
