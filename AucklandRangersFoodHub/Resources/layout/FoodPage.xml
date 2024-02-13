@@ -42,8 +42,13 @@
  <!--Middle of Page-->
 
     <TextView
-        android:layout_width=""
-        android:layout_height=""/>
+        android:text="Price:"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_x="230dp"
+        android:textSize="20dp"
+        android:layout_y="250dp"
+        android:id="@+id/pricetxt" />
 
 
     <!--Image View-->
@@ -67,7 +72,13 @@
         android:id="@+id/fooddescription" />
 
     <!--Quantity button-->
-
+    <Button
+        android:text="+"
+        android:layout_width="50dp"
+        android:layout_height="10dp"
+        android:layout_x="250dp"
+        android:layout_y="350dp"
+        android:id="@+id/plusbtn" />
 
 
     <!--Add to cart button-->
