@@ -35,6 +35,36 @@
         android:layout_y="10dp"
         android:id="@+id/arrowicon" />
 
+<!--Middle of page-->
+    <EditText
+        android:id = "@+id/Password"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:inputType = "textPassword"
+        android:layout_x="169dp"
+        android:layout_y="250dp"/>
+
+    <EditText
+        android:id = "@+id/userName"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_x="169dp"
+        android:layout_y="180dp"/>
+/>
+    <Button
+        android:text="Sign in"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_y="350dp"
+        android:layout_x="115dp"/>
+
+    <Button
+        android:text="Sign Up"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_y="420dp"
+        android:layout_x="115dp"/>
+
     <!--Menu button-->
     <Button
         android:layout_width="wrap_content"

@@ -7,6 +7,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+     <!--Top Of page-->
+
+      <!--Restruants top logo-->
+    <TextView 
+        android:text="Auckland Rangers"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_x="80dp"
+        android:textSize="30dp"
+        android:layout_y="10dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/logo" />
+
+    />
+      <!--Profile Icon button-->
+    <Button
+        
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_x="340dp"
+        android:layout_y="10dp"
+        android:id="@+id/profileicon" />
+
+     <!--Back Icon button-->
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_x="10dp"
+        android:layout_y="10dp"
+        android:id="@+id/arrowicon" />
+<!--Middle of page-->
+
+    <ImageView
+        android:layout_width="390dp"
+        android:layout_height="190dp"
+        android:layout_y="80dp"
+        android:background="#ffe0e0e0"/>
+
+    <ImageView
+        android:layout_width="390dp"
+        android:layout_height="150dp"
+        android:layout_y="420dp"
+        android:background="#ffe0e0e0"/>
+
     <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
