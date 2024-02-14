@@ -172,7 +172,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
@@ -183,7 +184,8 @@
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -193,7 +195,8 @@
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -203,7 +206,8 @@
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 
 

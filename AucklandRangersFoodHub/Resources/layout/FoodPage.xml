@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
 <!--Top Of page-->
 
@@ -16,7 +17,8 @@
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="10dp"
-        android:id="@+id/logo" />
+        android:id="@+id/logo" 
+        android:textColor="@android:color/black"/>
 
     />
       <!--Profile Icon button-->
@@ -40,7 +42,16 @@
 
  
  <!--Middle of Page-->
-
+    <!--Dish name text-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dish name"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:layout_x="30dp"
+        android:layout_y="190dp"/>
+    <!--Price Text-->
     <TextView
         android:text="Price:"
         android:layout_width="500dp"
@@ -48,7 +59,8 @@
         android:layout_x="230dp"
         android:textSize="20dp"
         android:layout_y="250dp"
-        android:id="@+id/pricetxt" />
+        android:id="@+id/pricetxt" 
+        android:textColor="@android:color/black"/>
 
 
     <!--Image View-->
@@ -62,24 +74,50 @@
         android:background="#ffe0e0e0"
     />
 
-    <!--Food Description button-->
+    <!--View Description button Should take to Food Description page-->
     <Button
-        android:text="Food Description"
+        android:text="View Description"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_x="10dp"
         android:layout_y="400dp"
-        android:id="@+id/fooddescription" />
-
-    <!--Quantity button-->
+        android:textColor="@android:color/holo_blue_dark"
+        android:background="@android:color/white"
+        android:id="@+id/ButtonFoodDescription"
+        style="?android:attr/borderlessButtonStyle"        />
+    <!--Quantity text-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qty:"
+        android:textColor="@android:color/black"
+        android:layout_y="360dp"
+        android:layout_x="210dp"
+        android:textSize="20dp"/>
+    <!--Quantity plus button-->
     <Button
         android:text="+"
         android:layout_width="50dp"
-        android:layout_height="10dp"
-        android:layout_x="250dp"
+        android:layout_height="wrap_content"
+        android:layout_x="270dp"
         android:layout_y="350dp"
-        android:id="@+id/plusbtn" />
-
+        android:id="@+id/plusbtn"
+        android:textSize="20dp"
+        android:background="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"        
+        android:textColor="@android:color/black"/>
+    <!--Quantity minus button-->
+    <Button
+        android:text="-"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_x="320dp"
+        android:layout_y="350dp"
+        android:id="@+id/pn"
+        android:textSize="25dp"
+        android:background="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"        
+        android:textColor="@android:color/black"/>
 
     <!--Add to cart button-->
     <Button
@@ -88,7 +126,9 @@
         android:layout_height="50dp"
         android:layout_x="130dp"
         android:layout_y="520dp"
-        android:id="@+id/addtocart" />
+        android:id="@+id/addtocart"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"/>
 
 
 
@@ -102,7 +142,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
@@ -113,7 +154,8 @@
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -123,7 +165,8 @@
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -133,7 +176,8 @@
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 
 

@@ -46,25 +46,26 @@
     <!--My reservartions button-->
     <Button
         android:text="My reservations"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="147"
+        android:layout_height="80"
         android:id="@+id/ButtonMyReservations"
-        android:backgroundTint="#ff000000"
-        android:layout_x="100dp"
+        android:background="@drawable/roundbuttonblack"
+        android:layout_x="120dp"
         android:layout_y="250dp"
-        android:padding="30dp"
         android:textColor="#ffffffff" 
+        android:padding="10dp"
+
         />
     <!--Book A Reservation Button-->
     <Button
         android:text="Book a reservation"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="147dp"
+        android:layout_height="80dp"
         android:id="@+id/ButtonBookAReservation"
-        android:backgroundTint="#ff000000"
-        android:layout_x="100dp"
+        android:background="@drawable/roundbuttonblack"
+        android:layout_x="120dp"
         android:layout_y="400dp"
-        android:padding="30dp" 
+        android:padding="10dp"
         android:textColor="#ffffffff"/>
     <!--Menu button-->
     <Button
@@ -74,7 +75,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@+id/ButtonMenu"/>
     <!--Contact us button-->
@@ -86,7 +88,8 @@ us"
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -96,7 +99,8 @@ us"
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -106,6 +110,7 @@ us"
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/ButtonCart"/>
 </AbsoluteLayout>

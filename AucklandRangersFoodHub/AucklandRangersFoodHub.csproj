@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-android</TargetFramework>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
@@ -10,6 +10,9 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\drawable\roundbutton.xml" />
+    <None Remove="Resources\drawable\roundbuttonblack.xml" />
+    <None Remove="Resources\drawable\Underline.xml" />
     <None Remove="Resources\layout\CartPage.xml" />
     <None Remove="Resources\layout\ContactUsPage.xml" />
     <None Remove="Resources\layout\FoodDescriptionPage.xml" />

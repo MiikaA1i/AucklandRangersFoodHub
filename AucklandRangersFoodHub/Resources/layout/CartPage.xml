@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@android:color/white"
     android:layout_height="match_parent">
 
 <!--Top Of page-->
@@ -15,7 +16,8 @@
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="10dp"
-        android:id="@+id/logo" />
+        android:id="@id/logo"
+        android:textColor="@android:color/black"/>
 
     />
       <!--Profile Icon button-->
@@ -43,7 +45,8 @@
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="100dp"
-        android:id="@+id/TextView1" />
+        android:id="@+id/textView1"
+        android:textColor="@android:color/black"/>
 
     <TextView 
         android:text="Total Price:"
@@ -52,7 +55,8 @@
         android:layout_x="10dp"
         android:textSize="20dp"
         android:layout_y="150dp"
-        android:id="@+id/TextView2" />
+        android:id="@+id/textView2"
+        android:textColor="@android:color/black"/>
 
     <ListView
         android:layout_width="340dp"
@@ -66,15 +70,17 @@
         android:text="Credit Card"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_y="450dp"
-        android:layout_x="115dp"/>
+        android:layout_y="430dp"
+        android:layout_x="115dp"
+        android:background="@android:color/black"/>
 
     <Button
         android:text="Cash"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_y="520dp"
-        android:layout_x="115dp"/>
+        android:layout_y="510dp"
+        android:layout_x="115dp"
+        android:background="@android:color/black"/>
 
 
  <!--Bottom Of Page-->
@@ -87,7 +93,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
@@ -98,7 +105,8 @@
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -108,7 +116,8 @@
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -118,7 +127,8 @@
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 
 

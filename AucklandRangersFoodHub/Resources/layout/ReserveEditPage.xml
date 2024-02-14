@@ -46,8 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="edit"
-        android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
         android:layout_x="90dp"
         android:layout_y="450dp"/>
     <!--Add button-->
@@ -55,8 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="add"
-        android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
         android:layout_x="225dp"
         android:layout_y="450dp"/>
     <!--Menu button-->
@@ -67,7 +67,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
@@ -78,7 +79,8 @@
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -88,7 +90,8 @@
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -98,6 +101,7 @@
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 </AbsoluteLayout>

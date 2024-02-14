@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@android:color/white"
     android:layout_height="match_parent">
 
 <!--Top Of page-->
@@ -13,6 +14,7 @@
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="10dp"
@@ -37,6 +39,14 @@
         />
 
  <!--Middle Of Page-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="Dish name"
+        android:layout_y="100dp"
+        android:layout_x="120dp"
+        android:textSize="25dp"/>
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -44,28 +54,31 @@
         android:layout_x="125dp"
         android:layout_y="150dp"
         />
-
+    <!--Dish ingredients text-->
     <TextView
         android:text="Dish Ingredients: "
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_x="150dp"
         android:layout_y="320dp"
+        android:textColor="@android:color/black"
         />
-
+    <!--Dish recipe text-->
      <TextView
         android:text="Dish Recipe: "
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_x="160dp"
-        android:layout_y="380dp"/>
-
+        android:layout_y="380dp"
+        android:textColor="@android:color/black"/>
+        <!--Nutritional value text-->
      <TextView
         android:text="Dish Nutritional Value: "
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_x="130dp"
-        android:layout_y="450dp"/>
+        android:layout_y="450dp"
+        android:textColor="@android:color/black"/>
 
  <!--Bottom Of Page-->
 
@@ -77,7 +90,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
@@ -88,7 +102,8 @@
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -98,7 +113,8 @@
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -108,7 +124,8 @@
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"        
         android:id="@id/ButtonCart"/>
 
 

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
 <!--Top Of page-->
 
@@ -19,7 +20,6 @@
         android:textColor="@android:color/black"
         android:id="@+id/logo" />
 
-    />
       <!--Profile Icon button-->
     <Button
         
@@ -38,49 +38,76 @@
         android:id="@+id/arrowicon" />
 
 <!--Middle of page-->
+
+    <!--Username-->
     <EditText
         android:id = "@+id/user"
-        android:layout_width = "wrap_content"
+        android:layout_width = "150dp"
         android:layout_height = "wrap_content"
         android:inputType = "textPassword"
-        android:layout_x="169dp"
-        android:layout_y="180dp"/>
-
+        android:layout_x="120dp"
+        android:layout_y="180dp"
+        android:hint="Username"
+        android:background="@drawable/Underline"        
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"/>
+    <!--Password input-->
     <EditText
         android:id = "@+id/password"
-        android:layout_width = "wrap_content"
+        android:layout_width = "150dp"
         android:layout_height = "wrap_content"
-        android:layout_x="169dp"
-        android:layout_y="230dp"/>
-
+        android:layout_x="120dp"
+        android:layout_y="230dp"
+        android:hint="Password"
+        android:background="@drawable/Underline"        
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"        />
+    <!--Id input-->
     <EditText
         android:id = "@+id/ID"
-        android:layout_width = "wrap_content"
+        android:layout_width = "150dp"
         android:layout_height = "wrap_content"
-        android:layout_x="169dp"
-        android:layout_y="270dp"/>
-
+        android:layout_x="120dp"
+        android:layout_y="270dp"
+        android:hint="Id"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"   
+        android:background="@drawable/Underline"        />
+    <!--mobile number input-->
     <EditText
         android:id = "@+id/Mobile"
-        android:layout_width = "wrap_content"
+        android:layout_width = "150dp"
         android:layout_height = "wrap_content"
-        android:layout_x="169dp"
-        android:layout_y="310dp"/>
-
+        android:layout_x="120dp"
+        android:layout_y="310dp"
+        android:hint="Mobile"
+        android:inputType="phone"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"   
+        android:background="@drawable/Underline"        />
+    <!--email input-->
     <EditText
         android:id = "@+id/Email"
-        android:layout_width = "wrap_content"
+        android:layout_width = "150dp"
         android:layout_height = "wrap_content"
-        android:layout_x="169dp"
-        android:layout_y="350dp"/>
+        android:layout_x="120dp"
+        android:layout_y="350dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"
+        android:background="@drawable/Underline"        
+        android:textColorHint="@android:color/black"/>
 
-
+    <!--submit button-->
     <Button
         android:text="Submit"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:layout_y="420dp"
-        android:layout_x="115dp"/>
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_y="430dp"
+        android:layout_x="115dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        />
 
 
 
@@ -94,7 +121,8 @@
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
@@ -105,7 +133,8 @@
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
     <Button
@@ -115,7 +144,8 @@
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
@@ -125,6 +155,7 @@
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"
+        android:background="@drawable/roundbutton"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 </AbsoluteLayout>
