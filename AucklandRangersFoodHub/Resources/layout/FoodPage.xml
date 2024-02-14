@@ -98,41 +98,43 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="Menu"
+        android:text="@string/Menu_Button"
         android:layout_x="10dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
         android:background="#ffe0e0e0"
         android:textSize="15dp"
-        />
-<!--Contact us button-->
+        android:id="@id/ButtonMenu"/>
+    <!--Contact us button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="Contact us"
+        android:text="@string/Contact_Us_Button"
         android:layout_x="105dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"/>
- <!--Profile button-->
+        android:background="#ffe0e0e0"
+        android:id="@id/ButtonContactUs"/>
+    <!--Profile button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="Profile"
+        android:text="@string/Profile_Button"
         android:layout_x="200dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"/>
-<!--Cart button-->
+        android:background="#ffe0e0e0"
+        android:id="@id/ButtonProfile"/>
+    <!--Cart button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="Cart"
+        android:text="@string/Cart_button"
         android:layout_x="295dp"
         android:layout_y="600dp"
         android:textColor="#ff000000"
         android:background="#ffe0e0e0"
-        />
+        android:id="@id/ButtonCart"/>
 
 
 
