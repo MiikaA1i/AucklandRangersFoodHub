@@ -72,7 +72,6 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
-
         }
         void OnButtonCartClicked(object sender, EventArgs e)
         {
@@ -100,11 +99,16 @@ namespace AucklandRangersFoodHub
     {
         Button ButtonMenu;
         Button ButtonCart;
-        Button ButtonContactUs;
         Button ButtonProfile;
+        Button ButtonContactUs;
         protected override void OnCreate(Bundle bundle)
         {
+            base.OnCreate(bundle);
+
             SetContentView(Resource.Layout.ContactUsPage);
+
+
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -116,6 +120,7 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
+
         }
         void OnButtonCartClicked(object sender, EventArgs e)
         {
@@ -145,9 +150,11 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
-            SetContentView(Resource.Layout.FoodDescriptionPage);//FIgure this out later
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -186,11 +193,16 @@ namespace AucklandRangersFoodHub
     {
         Button ButtonMenu;
         Button ButtonCart;
-        Button ButtonContactUs;
         Button ButtonProfile;
+        Button ButtonContactUs;
         protected override void OnCreate(Bundle bundle)
         {
+            base.OnCreate(bundle);
+
             SetContentView(Resource.Layout.ProfilePage);
+
+
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -202,6 +214,7 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
+
         }
         void OnButtonCartClicked(object sender, EventArgs e)
         {
@@ -231,9 +244,11 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
-            SetContentView(Resource.Layout.ReservationScreenPage);
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -274,9 +289,11 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
-            SetContentView(Resource.Layout.ReserveEditPage);
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -317,9 +334,11 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
-            SetContentView(Resource.Layout.SignInPage);
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -360,9 +379,11 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
-            SetContentView(Resource.Layout.SignUpPage);
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
