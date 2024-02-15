@@ -275,6 +275,8 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
+        Button ButtonSignOut;
+        Button ButtonViewReservation;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonProfile;
@@ -284,8 +286,6 @@ namespace AucklandRangersFoodHub
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.ProfilePage);
-
-
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -299,6 +299,21 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
+            ButtonViewReservation = FindViewById<Button>(Resource.Id.ButtonViewReservation);
+            ButtonViewReservation.Click += OnButtonViewReservationClicked;
+
+            ButtonSignOut = FindViewById<Button>(Resource.Id.ButtonSignOut);
+            ButtonSignOut.Click += OnButtonSignOutClicked;
+        }
+        void OnButtonSignOutClicked(object sender, EventArgs e) 
+        {
+            Intent intent = new Intent(this, typeof(SignInActivity));
+            StartActivity(intent);
+        }
+        void OnButtonViewReservationClicked(object sender, EventArgs args)
+        {
+            Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
@@ -324,6 +339,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reservations page")]
     public class ReservationsScreenActivity : Activity
     {
+        Button ButtonProfileIcon;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -331,7 +347,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.ReservationScreenPage);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -344,6 +360,9 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonProfileIcon = FindViewById<Button>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
@@ -414,6 +433,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Sign in page")]
     public class SignInActivity : Activity
     {
+        Button ButtonSignUp;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -421,7 +441,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.SignInPage);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -434,6 +454,14 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonSignUp = FindViewById<Button>(Resource.Id.ButtonSignUp);
+            ButtonSignUp.Click += OnButtonSignUpClicked;
+        }
+        void OnButtonSignUpClicked(object send, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(SignUpActivity));
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
@@ -459,6 +487,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Sign up page")]
     public class SignUpActivity : Activity
     {
+        Button ButtonAlreadyHaveAnAccount;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -466,7 +495,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.SignUpPage);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -479,6 +508,14 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonAlreadyHaveAnAccount = FindViewById<Button>(Resource.Id.ButtonAlreadyHaveAnAccount);
+            ButtonAlreadyHaveAnAccount.Click += OnButtonAlreadyHaveAnAccount;
+        }
+        void OnButtonAlreadyHaveAnAccount(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(SignInActivity));
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {

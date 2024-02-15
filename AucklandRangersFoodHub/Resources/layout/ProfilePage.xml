@@ -118,7 +118,14 @@
         android:background="@android:color/darker_gray"
         android:layout_x="310dp"
         android:layout_y="380dp"/>
-
+    <!--Sign out button-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign out"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:id="@+id/ButtonSignOut"/>
     <!--Update button-->
     <Button
         android:layout_width="wrap_content"
@@ -138,7 +145,8 @@
         android:background="@android:color/black"
         android:layout_x="120dp"
         android:layout_y="480dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:id="@+id/ButtonViewReservation"/>
     <!--Delete account-->
         <Button
         android:layout_width="wrap_content"

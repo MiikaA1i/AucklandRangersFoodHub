@@ -5,17 +5,16 @@
     android:layout_width="match_parent"
     android:background="@android:color/white"
     android:layout_height="match_parent">
-<!--Auckland rangers text-->
-    <TextView
-        android:textColor="@android:color/black"
+      <!--Restruants top logo-->
+    <TextView 
+        android:text="Auckland Rangers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Auckland Rangers"
-        android:textSize="25dp"
-        android:layout_x="100dp"
-        android:layout_y="40dp"
-        android:id="@+id/TextAucklandRangers"/>
+        android:layout_x="80dp"
+        android:textSize="30dp"
+        android:layout_y="10dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/logo" />
     <!--Back button-->
     <ImageButton
         android:layout_width="wrap_content"

@@ -71,6 +71,7 @@
         android:layout_y="350dp"
         android:layout_x="140dp"
         android:id="@+id/ButtonSignIn"
+        android:textColor="@android:color/white"
         android:background="@android:color/black"/>
 
         <!--Sign up button-->
@@ -81,6 +82,7 @@
         android:layout_y="430dp"
         android:layout_x="140dp"
         android:id="@+id/ButtonSignUp"
+        android:textColor="@android:color/white"
         android:background="@android:color/black"/>/>
 
     <!--Menu button-->

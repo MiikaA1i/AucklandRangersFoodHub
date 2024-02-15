@@ -108,8 +108,18 @@
         android:textColor="@android:color/white"
         android:background="@android:color/black"
         />
-
-
+    <!--Already have an account text-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_x="110dp"
+        android:layout_y="500dp"
+        android:id="@+id/ButtonAlreadyHaveAnAccount"
+        android:background="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"        />
+        
 
 <!--Bottom of Page-->
 
