@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 
-
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
 
-     <!--Top Of page-->
+<!--Top Of page-->
 
       <!--Restruants top logo-->
     <TextView 
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_x="80dp"
         android:textSize="30dp"
         android:layout_y="10dp"
-        android:textColor="@android:color/black"
-        android:id="@+id/logo" />
+        />
 
     />
       <!--Profile Icon button-->
@@ -29,7 +28,7 @@
         android:layout_height="50dp"
         android:layout_x="340dp"
         android:layout_y="10dp"
-        android:id="@+id/ButtonProfileIcon" />
+        />
 
      <!--Back Icon button-->
     <Button
@@ -37,47 +36,53 @@
         android:layout_height="50dp"
         android:layout_x="10dp"
         android:layout_y="10dp"
-        android:id="@+id/arrowicon" />
-<!--Middle of page-->
-    <!--Opening hours text-->
+        android:id="@+id/ButtonBackButton"/>
+
+ <!--Middle Of Page-->
+
+    <!--Dish Name text-->
     <TextView
-        android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Opening hours:"
         android:textColor="@android:color/black"
-        android:layout_x="150dp"
-        android:layout_y="240dp"/>
-    <!--Phone number text-->
-    <TextView
-        android:textSize="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone number:"
-        android:textColor="@android:color/black"
-        android:layout_x="150dp"
-        android:layout_y="300dp"/>
-    <!--Email text-->
-        <TextView
-        android:textSize="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email:"
-        android:textColor="@android:color/black"
-        android:layout_x="150dp"
-        android:layout_y="340dp"/>
-    <!--Top image-->
+        android:text="Burger"
+        android:layout_y="100dp"
+        android:layout_x="120dp"
+        android:textSize="25dp"/>
     <ImageView
-        android:layout_width="390dp"
-        android:layout_height="140dp"
-        android:layout_y="80dp"
-        android:background="#ffe0e0e0"/>
-    <!--Map view image-->
-    <ImageView
-        android:layout_width="390dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_y="420dp"
-        android:background="#ffe0e0e0"/>
+        android:background="#ffe0e0e0"
+        android:layout_x="125dp"
+        android:layout_y="150dp"
+        />
+    <!--Dish ingredients text-->
+    <TextView
+        android:text="Dish Ingredients: "
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_x="150dp"
+        android:layout_y="320dp"
+        android:textColor="@android:color/black"
+        />
+    <!--Dish recipe text-->
+     <TextView
+        android:text="Dish Recipe: "
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_x="160dp"
+        android:layout_y="380dp"
+        android:textColor="@android:color/black"/>
+        <!--Nutritional value text-->
+     <TextView
+        android:text="Dish Nutritional Value: "
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_x="130dp"
+        android:layout_y="450dp"
+        android:textColor="@android:color/black"/>
+
+ <!--Bottom Of Page-->
 
     <!--Menu button-->
     <Button
@@ -122,6 +127,8 @@
         android:layout_y="600dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
-        style="?android:attr/borderlessButtonStyle"
+        style="?android:attr/borderlessButtonStyle"        
         android:id="@id/ButtonCart"/>
+
+
 </AbsoluteLayout>

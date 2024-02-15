@@ -25,14 +25,14 @@
         android:id="@+id/imageButtonBackButton"
      />
 
-    <!--Profile icon button-->
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_x="300dp"
-        android:layout_y="30dp"
-        android:id="@+id/imageButtonProfileButton"/>
+    <!--Profile Icon button-->
+    <Button
+        
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_x="340dp"
+        android:layout_y="10dp"
+        android:id="@+id/ButtonProfileIcon" />
     <!--Book your reservation text-->
     <TextView
         android:layout_width="wrap_content"
@@ -46,8 +46,8 @@
     <!--My reservartions button-->
     <Button
         android:text="My reservations"
-        android:layout_width="147"
-        android:layout_height="80"
+        android:layout_width="147dp"
+        android:layout_height="80dp"
         android:id="@+id/ButtonMyReservations"
         android:background="@drawable/roundbuttonblack"
         android:layout_x="120dp"

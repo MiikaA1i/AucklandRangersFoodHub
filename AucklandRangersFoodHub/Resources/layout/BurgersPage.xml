@@ -28,7 +28,7 @@
         android:layout_height="50dp"
         android:layout_x="340dp"
         android:layout_y="10dp"
-        android:id="@+id/ButtonProfileIcon" />
+        android:id="@+id/profileicon" />
 
      <!--Back Icon button-->
     <Button
@@ -36,7 +36,7 @@
         android:layout_height="50dp"
         android:layout_x="10dp"
         android:layout_y="10dp"
-        android:id="@+id/arrowicon" />
+        android:id="@+id/ButtonBackButton" />
 
 
 
@@ -53,10 +53,10 @@
         android:layout_y="190dp"/>
     <!--Price Text-->
     <TextView
-        android:text="Price:"
+        android:text="Price: $10"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="230dp"
+        android:layout_x="200dp"
         android:textSize="20dp"
         android:layout_y="250dp"
         android:id="@+id/pricetxt" 
@@ -92,17 +92,19 @@
         android:layout_height="wrap_content"
         android:text="Qty:"
         android:textColor="@android:color/black"
-        android:layout_y="360dp"
+        android:layout_y="310dp"
         android:layout_x="210dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:id="@+id/TextViewQuantity"/>
+        T
     <!--Quantity plus button-->
     <Button
         android:text="+"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_x="270dp"
-        android:layout_y="350dp"
-        android:id="@+id/plusbtn"
+        android:layout_y="300dp"
+        android:id="@+id/ButtonPlus"
         android:textSize="20dp"
         android:background="@android:color/white"
         style="?android:attr/borderlessButtonStyle"        
@@ -113,12 +115,23 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_x="320dp"
-        android:layout_y="350dp"
-        android:id="@+id/pn"
+        android:layout_y="300dp"
+        android:id="@+id/ButtonMinus"
         android:textSize="25dp"
         android:background="@android:color/white"
         style="?android:attr/borderlessButtonStyle"        
         android:textColor="@android:color/black"/>
+    <!--Total price text-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:id="@+id/TextViewTotalPrice"
+        android:layout_x="200dp"
+        android:layout_y="350dp"
+        android:text="Total price:"
+        android:textSize="20dp"/>
+        
 
     <!--Add to cart button-->
     <Button

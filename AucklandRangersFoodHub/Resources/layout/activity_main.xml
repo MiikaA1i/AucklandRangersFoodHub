@@ -27,7 +27,7 @@
         android:layout_height="50dp"
         android:layout_x="340dp"
         android:layout_y="10dp"
-        android:id="@+id/profileicon" />
+        android:id="@+id/ButtonProfileIcon" />
 
      <!--Back Icon button-->
     <Button
@@ -42,7 +42,7 @@
     <!--RECOMMENDATION-->
     <TextView 
         android:text="Recommendation"
-        android:layout_width="500dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="80dp"
         android:textSize="30dp"
@@ -87,23 +87,27 @@
         android:layout_width=""
         android:layout_height="" />
     -->
+
+    <!--Burgers image button-->
      <Button
         
         android:layout_width="95dp"
         android:layout_height="90dp"
         android:layout_x="30dp"
         android:layout_y="310dp"
-        android:id="@+id/burgers" />
-
+        android:id="@+id/ButtonBurgers" />
+    <!--Burger text-->
     <TextView 
         android:text="Burgers"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="40dp"
         android:textSize="20dp"
         android:layout_y="400dp"
-        android:id="@+id/burger2" />
+        android:id="@+id/TextBurger" 
+        android:textColor="@android:color/black"/>
 
+        <!--Seafood image button-->
     <Button
         
         android:layout_width="95dp"
@@ -111,16 +115,18 @@
         android:layout_x="150dp"
         android:layout_y="310dp"
         android:id="@+id/seafood" />
-
+        <!--Seafood text-->
     <TextView 
         android:text="Seafood"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="160dp"
         android:textSize="20dp"
         android:layout_y="400dp"
-        android:id="@+id/seafood2" />
-
+        android:id="@+id/seafood2"
+        android:textColor="@android:color/black"/>
+        
+    <!--Vegetarian image button-->
     <Button
         
         android:layout_width="95dp"
@@ -128,15 +134,16 @@
         android:layout_x="275dp"
         android:layout_y="310dp"
         android:id="@+id/vegeterian" />
-
+    <!--Vegetarian text-->
     <TextView 
         android:text="Vegeterian"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="275dp"
         android:textSize="20dp"
         android:layout_y="400dp"
-        android:id="@+id/vegeterian2" />
+        android:id="@+id/vegeterian2"
+        android:textColor="@android:color/black"/>
     
      <!--Food Icons-->
     <Button
@@ -146,6 +153,8 @@
         android:layout_x="30dp"
         android:layout_y="450dp"
         android:id="@+id/firstfoodicon" />
+
+        <!--Image button-->
     <Button
         
         android:layout_width="80dp"
@@ -153,6 +162,8 @@
         android:layout_x="158dp"
         android:layout_y="450dp"
         android:id="@+id/secondfoodicon" />
+
+        <!--Image button-->
     <Button
         
         android:layout_width="80dp"

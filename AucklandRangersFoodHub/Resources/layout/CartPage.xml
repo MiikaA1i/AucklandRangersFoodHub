@@ -27,7 +27,7 @@
         android:layout_height="50dp"
         android:layout_x="340dp"
         android:layout_y="10dp"
-        android:id="@+id/profileicon" />
+        android:id="@id/ButtonProfileIcon" />
 
      <!--Back Icon button-->
     <Button
@@ -65,22 +65,24 @@
         android:layout_y="190dp"
         android:background="#ffe0e0e0"
         />
-
+    <!--Credit card button-->
     <Button
         android:text="Credit Card"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_y="430dp"
         android:layout_x="115dp"
+        android:textColor="@android:color/white"
         android:background="@android:color/black"/>
-
+    <!--Cash button-->
     <Button
         android:text="Cash"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_y="510dp"
         android:layout_x="115dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"/>
 
 
  <!--Bottom Of Page-->
