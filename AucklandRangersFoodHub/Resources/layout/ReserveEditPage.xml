@@ -16,6 +16,30 @@
         android:layout_x="100dp"
         android:layout_y="40dp"
     />
+
+          <!--Profile Icon button-->
+    <ImageButton
+        android:background="@android:color/white"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_x="340dp"
+        android:layout_y="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profileicon"
+        android:id="@+id/ButtonProfileIcon" />
+
+
+         <!--Back Icon button-->
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_x="10dp"
+        android:layout_y="20dp"
+        android:background="@android:color/white"
+        android:scaleType="fitCenter"
+        android:id="@+id/arrowicon" 
+        android:src="@drawable/backbutton"/>
+
     <!--Reservations Text-->
     <TextView
         android:layout_width="wrap_content"

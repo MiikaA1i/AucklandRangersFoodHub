@@ -23,21 +23,26 @@
 
     />
       <!--Profile Icon button-->
-    <Button
-        
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <ImageButton
+        android:background="@android:color/white"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_x="340dp"
-        android:layout_y="10dp"
+        android:layout_y="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profileicon"
         android:id="@+id/ButtonProfileIcon" />
 
      <!--Back Icon button-->
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_x="10dp"
-        android:layout_y="10dp"
-        android:id="@+id/arrowicon" />
+        android:layout_y="20dp"
+        android:background="@android:color/white"
+        android:scaleType="fitCenter"
+        android:id="@+id/arrowicon" 
+        android:src="@drawable/backbutton"/>
 <!--Middle of page-->
     <!--Opening hours text-->
     <TextView

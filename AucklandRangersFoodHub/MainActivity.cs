@@ -5,7 +5,7 @@ namespace AucklandRangersFoodHub
     public class MainActivity : Activity
     {
 
-        Button ButtonProfileIcon;
+        ImageButton ButtonProfileIcon;
         TextView TextBurger;
         Button ButtonBurgers;
         Button ButtonMenu;
@@ -35,7 +35,7 @@ namespace AucklandRangersFoodHub
             TextBurger = FindViewById<TextView>(Resource.Id.TextBurger);
             TextBurger.Click += OnButtonBurgersClicked;
 
-            ButtonProfileIcon = FindViewById<Button>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
         }
         void OnButtonBurgersClicked(Object sender, EventArgs e)//Goes to the burger page
@@ -67,7 +67,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Cart Page")]
     public class CartActivity : Activity
     {
-        Button ButtonProfileIcon;
+        ImageButton ButtonProfileIcon;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonProfile;
@@ -92,7 +92,7 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonProfileIcon = FindViewById<Button>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
@@ -119,7 +119,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Contact Us page")]
     public class ContactUsActivity : Activity
     {
-        Button ButtonProfileIcon;
+        ImageButton ButtonProfileIcon;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonProfile;
@@ -144,7 +144,7 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonProfileIcon = FindViewById<Button>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
 
         }
@@ -172,7 +172,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Food page")]
     public class FoodActivity : Activity
     {
-        Button ButtonProfileIcon;
+        ImageButton ButtonProfileIcon;
         Button ButtonViewDescription; //Goes to FoodDescription
         Button ButtonMenu;
         Button ButtonCart;
@@ -181,7 +181,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.FoodPage);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -198,7 +198,7 @@ namespace AucklandRangersFoodHub
             ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
             ButtonViewDescription.Click += OnButtonViewDescriptionClicked;
 
-            ButtonProfileIcon = FindViewById<Button>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
@@ -233,7 +233,7 @@ namespace AucklandRangersFoodHub
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
-        Button ButtonProfile;
+        ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -245,8 +245,8 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -275,11 +275,12 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
+        Button ButtonDeleteAccount;
         Button ButtonSignOut;
         Button ButtonViewReservation;
         Button ButtonMenu;
         Button ButtonCart;
-        Button ButtonProfile;
+        //ImageButton ButtonProfileIcon;
         Button ButtonContactUs;
         protected override void OnCreate(Bundle bundle)
         {
@@ -293,8 +294,8 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            //ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
+            //ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -304,6 +305,14 @@ namespace AucklandRangersFoodHub
 
             ButtonSignOut = FindViewById<Button>(Resource.Id.ButtonSignOut);
             ButtonSignOut.Click += OnButtonSignOutClicked;
+
+            ButtonDeleteAccount = FindViewById<Button>(Resource.Id.ButtonDeleteAccount);
+            ButtonDeleteAccount.Click += OnButtonDeleteAccountClicked;
+        }
+        void OnButtonDeleteAccountClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
         }
         void OnButtonSignOutClicked(object sender, EventArgs e) 
         {
@@ -339,7 +348,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reservations page")]
     public class ReservationsScreenActivity : Activity
     {
-        Button ButtonProfileIcon;
+        ImageButton ButtonProfileIcon;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -361,7 +370,7 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonProfileIcon = FindViewById<Button>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
@@ -391,7 +400,7 @@ namespace AucklandRangersFoodHub
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
-        Button ButtonProfile;
+        ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -403,8 +412,8 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -433,11 +442,8 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Sign in page")]
     public class SignInActivity : Activity
     {
-        Button ButtonSignUp;
-        Button ButtonMenu;
-        Button ButtonCart;
-        Button ButtonContactUs;
-        Button ButtonProfile;
+        Button? ButtonSignUp, ButtonMenu, ButtonCart, ButtonContactUs, ButtonSignIn;
+        //ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -449,14 +455,22 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            /*ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;*/
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
             ButtonSignUp = FindViewById<Button>(Resource.Id.ButtonSignUp);
             ButtonSignUp.Click += OnButtonSignUpClicked;
+
+            ButtonSignIn = FindViewById<Button>(Resource.Id.ButtonSignIn);
+            ButtonSignIn.Click += OnButtonSignInClicked;
+        }
+        void OnButtonSignInClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
         }
         void OnButtonSignUpClicked(object send, EventArgs e)
         {
@@ -487,11 +501,12 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Sign up page")]
     public class SignUpActivity : Activity
     {
+        Button ButtonSubmit;
         Button ButtonAlreadyHaveAnAccount;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
-        Button ButtonProfile;
+        //ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -503,14 +518,22 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            //ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
+            //ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
             ButtonAlreadyHaveAnAccount = FindViewById<Button>(Resource.Id.ButtonAlreadyHaveAnAccount);
             ButtonAlreadyHaveAnAccount.Click += OnButtonAlreadyHaveAnAccount;
+
+            ButtonSubmit = FindViewById<Button>(Resource.Id.ButtonSubmit);
+            ButtonSubmit.Click += OnButtonSubmitClicked;
+        }
+        void OnButtonSubmitClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(SignInActivity));
+            StartActivity(intent);
         }
         void OnButtonAlreadyHaveAnAccount(object sender, EventArgs e)
         {
@@ -532,11 +555,11 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(ContactUsActivity));
             StartActivity(intent);
         }
-        void OnButtonProfileClicked(object sender, EventArgs e)
+/*        void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
             StartActivity(intent);
-        }
+        }*/
     }
     [Activity(Label = "Burgers Page")]
     public class BurgersActivity : Activity
@@ -556,7 +579,7 @@ namespace AucklandRangersFoodHub
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
-        Button ButtonProfile;
+        ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -568,8 +591,8 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -587,8 +610,8 @@ namespace AucklandRangersFoodHub
             ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
             ButtonViewDescription.Click += OnButtonViewDescription;
 
-            ButtonBackButton = FindViewById<Button>(Resource.Id.ButtonBackButton);
-            ButtonBackButton.Click += OnButtonBackButtonClicked;
+            //ButtonBackButton = FindViewById<Button>(Resource.Id.ButtonBackButton);
+            //ButtonBackButton.Click += OnButtonBackButtonClicked;
         }
         void OnButtonBackButtonClicked(object sender, EventArgs e)
         {
@@ -642,7 +665,7 @@ namespace AucklandRangersFoodHub
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
-        Button ButtonProfile;
+        ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -654,14 +677,14 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
-            ButtonProfile.Click += OnButtonProfileClicked;
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonBackButton = FindViewById<Button>(Resource.Id.ButtonBackButton);
-            ButtonBackButton.Click += OnButtonBackButtonClicked;
+            //ButtonBackButton = FindViewById<Button>(Resource.Id.ButtonBackButton);
+            //ButtonBackButton.Click += OnButtonBackButtonClicked;
         }
         void OnButtonBackButtonClicked(object sender, EventArgs e)
         {

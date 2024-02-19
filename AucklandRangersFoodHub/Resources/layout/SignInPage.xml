@@ -20,22 +20,7 @@
         android:textColor="@android:color/black"/>
 
     />
-      <!--Profile Icon button-->
-    <Button
-        
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_x="340dp"
-        android:layout_y="10dp"
-        android:id="@+id/profileicon" />
 
-     <!--Back Icon button-->
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_x="10dp"
-        android:layout_y="10dp"
-        android:id="@+id/arrowicon" />
 
 <!--Middle of page-->
         <!--Password input-->

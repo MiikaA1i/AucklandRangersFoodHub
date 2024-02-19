@@ -9,4 +9,7 @@
 		Contact
 		us
 	</string>
+	<string name="Opening_Hours_Contact">Opening hours:</string>
+	<string name="Phone_Contact">Phone number:</string>
+	<string name="Email_Contact">Email:</string>
 </resources>

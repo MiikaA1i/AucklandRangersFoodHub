@@ -23,6 +23,8 @@
         android:layout_height="100dp"
         android:layout_x="150dp"
         android:layout_y="100dp"
+        android:src="@drawable/sadfasdfadsf"
+        
         android:background="@android:color/black"
         />
     <!--Username-->
@@ -156,7 +158,8 @@
         android:background="@android:color/black"
         android:layout_x="126dp"
         android:layout_y="540dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:id="@+id/ButtonDeleteAccount"/>
     <!--Menu button-->
     <Button
         android:layout_width="wrap_content"

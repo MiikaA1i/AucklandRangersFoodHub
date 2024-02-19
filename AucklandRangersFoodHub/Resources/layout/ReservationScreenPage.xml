@@ -15,23 +15,31 @@
         android:layout_y="10dp"
         android:textColor="@android:color/black"
         android:id="@+id/logo" />
-    <!--Back button-->
+
+
+     <!--Back Icon button-->
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="1dp"
-        android:layout_y="30dp"
-        android:id="@+id/imageButtonBackButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_x="10dp"
+        android:layout_y="20dp"
+        android:background="@android:color/white"
+        android:scaleType="fitCenter"
+        android:id="@+id/arrowicon" 
+        android:src="@drawable/backbutton"/>
      />
 
-    <!--Profile Icon button-->
-    <Button
-        
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+      <!--Profile Icon button-->
+    <ImageButton
+        android:background="@android:color/white"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_x="340dp"
-        android:layout_y="10dp"
+        android:layout_y="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profileicon"
         android:id="@+id/ButtonProfileIcon" />
+
     <!--Book your reservation text-->
     <TextView
         android:layout_width="wrap_content"
