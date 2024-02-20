@@ -1,5 +1,6 @@
 using Android.Content;
-using Java.Lang;
+
+
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = true)]
@@ -510,11 +511,14 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Sign up page")]
     public class SignUpActivity : Activity
     {
+        EditText? EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
         Button ButtonSubmit;
         Button ButtonAlreadyHaveAnAccount;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
+
+        DataManager dataManager;
         //ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
@@ -538,10 +542,33 @@ namespace AucklandRangersFoodHub
 
             ButtonSubmit = FindViewById<Button>(Resource.Id.ButtonSubmit);
             ButtonSubmit.Click += OnButtonSubmitClicked;
+
+            EditTextUserName = FindViewById<EditText>(Resource.Id.editTextUserName);
+            EditTextPassword = FindViewById<EditText>(Resource.Id.editTextPassword);
+            EditTextMobile = FindViewById<EditText>(Resource.Id.editTextMobile);
+            EditTextEmail = FindViewById<EditText>(Resource.Id.editTextEmail);
+
+            dataManager = new DataManager();
+
+
         }
         void OnButtonSubmitClicked(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(SignInActivity));
+            
+
+            //Puts information into the database
+            SignUp signup = new SignUp()
+            {
+                UserName = EditTextUserName.Text,
+                Password = EditTextPassword.Text,
+                //Id = EditTextId.Text,
+                Mobile = EditTextMobile.Text,
+                Email = EditTextEmail.Text
+            };
+            dataManager.InsertUser(signup);
+            Toast.MakeText(this, "Details have been saved", ToastLength.Short).Show();
+
+            Intent intent = new Intent(this, typeof(TestPageActivity));
             StartActivity(intent);
         }
         void OnButtonAlreadyHaveAnAccount(object sender, EventArgs e)
