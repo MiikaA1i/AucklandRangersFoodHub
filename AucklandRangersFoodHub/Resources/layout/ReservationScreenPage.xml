@@ -26,7 +26,7 @@
         android:background="@android:color/white"
         android:scaleType="fitCenter"
         android:id="@+id/arrowicon" 
-        android:src="@drawable/backbutton"/>
+        android:src="@drawable/backbutton"
      />
 
       <!--Profile Icon button-->
@@ -61,7 +61,7 @@
         android:layout_y="250dp"
         android:textColor="#ffffffff" 
         android:padding="10dp"
-
+        
         />
     <!--Book A Reservation Button-->
     <Button

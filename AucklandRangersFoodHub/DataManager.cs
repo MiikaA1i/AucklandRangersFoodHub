@@ -27,6 +27,7 @@ namespace AucklandRangersFoodHub
             connection = new SQLiteConnection(combinepath);
 
             connection.CreateTable<SignUp>();
+            connection.CreateTable<ReservationsPage>();
         }
         public void InsertUser(SignUp new_user)
         {
@@ -47,6 +48,10 @@ namespace AucklandRangersFoodHub
         public List<ReservationsPage>GetReservations()
         {
             return connection.Table<ReservationsPage>().ToList();
+        }
+        public void InsertReservation(ReservationsPage newReservation)
+        {
+            connection.Insert(newReservation);
         }
     }
 }
