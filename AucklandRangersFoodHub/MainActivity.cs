@@ -1,7 +1,8 @@
 using Android.Content;
+using Java.Lang;
 namespace AucklandRangersFoodHub
 {
-    [Activity(Label = "@string/app_name", MainLauncher = true)]
+    [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = true)]
     public class MainActivity : Activity
     {
 
@@ -12,6 +13,10 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
+        ImageButton btnPrev, btnNext;
+        ImageSwitcher imageSwitcher;
+
+       
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,6 +42,10 @@ namespace AucklandRangersFoodHub
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            btnPrev = FindViewById<ImageButton>(Resource.Id.btn_prev);
+            btnNext = FindViewById<ImageButton>(Resource.Id.btn_next);
+            imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
         }
         void OnButtonBurgersClicked(Object sender, EventArgs e)//Goes to the burger page
         {

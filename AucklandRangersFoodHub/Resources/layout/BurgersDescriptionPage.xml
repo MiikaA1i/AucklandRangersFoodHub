@@ -60,6 +60,7 @@
         android:background="#ffe0e0e0"
         android:layout_x="125dp"
         android:layout_y="150dp"
+        android:src="@drawable/burgerImage"
         />
     <!--Dish ingredients text-->
     <TextView
