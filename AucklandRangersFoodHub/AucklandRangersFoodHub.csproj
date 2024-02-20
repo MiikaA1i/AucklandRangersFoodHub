@@ -28,5 +28,10 @@
     <None Remove="Resources\layout\ReserveEditPage.xml" />
     <None Remove="Resources\layout\SignInPage.xml" />
     <None Remove="Resources\layout\SignUpPage.xml" />
+    <None Remove="Resources\layout\TestPageDataBase.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.8" />
   </ItemGroup>
 </Project>
