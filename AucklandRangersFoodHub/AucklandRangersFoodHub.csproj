@@ -10,6 +10,10 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\anim\from_left.xml" />
+    <None Remove="Resources\anim\from_right.xml" />
+    <None Remove="Resources\anim\to_left.xml" />
+    <None Remove="Resources\anim\to_right.xml" />
     <None Remove="Resources\drawable\roundbutton.xml" />
     <None Remove="Resources\drawable\roundbuttonblack.xml" />
     <None Remove="Resources\drawable\Underline.xml" />

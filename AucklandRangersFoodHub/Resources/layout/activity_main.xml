@@ -46,42 +46,32 @@
         android:id="@+id/recom1" />
 
     <!--Recommendation Images-->
-    <ImageButton
-        
-        android:layout_width="220dp"
-        android:layout_alignParentRight="true"
-        android:id="@+id/recom2"
-        android:clickable="true"
-        android:onClick="clickNew"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_y="150dp"
+    <ImageSwitcher
+        android:layout_width="200dp"
+        android:layout_height="130dp"
         android:layout_x="95dp"
-    />
+        android:layout_y="150dp"
+        android:background="@android:color/black"
+        android:id="@+id/imageSwitcher"/>
 
      <!--Left Back Icon button-->
-    <Button
+    <ImageButton
         
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_x="330dp"
         android:layout_y="200dp"
-        android:id="@+id/leftarrowicon" />
+        android:id="@+id/btnNext" />
 
      <!--Right Back Icon button-->
-    <Button
+    <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_x="30dp"
         android:layout_y="200dp"
-        android:id="@+id/rightarrowicon" />
+        android:id="@+id/btnPrev" />
 
-     <!--Category Icons-->
 
-    <!--HorizontalScrollView
-        android:layout_width=""
-        android:layout_height="" />
-    -->
 
     <!--Burgers image button-->
      <Button
@@ -90,7 +80,8 @@
         android:layout_height="90dp"
         android:layout_x="30dp"
         android:layout_y="310dp"
-        android:id="@+id/ButtonBurgers" />
+        android:id="@+id/ButtonBurgers" 
+        android:src="@drawable/burgerImage" />
     <!--Burger text-->
     <TextView 
         android:text="Burgers"
@@ -109,7 +100,9 @@
         android:layout_height="90dp"
         android:layout_x="150dp"
         android:layout_y="310dp"
-        android:id="@+id/seafood" />
+        android:id="@+id/seafood"
+        android:src="@drawable/seafood" 
+        />
         <!--Seafood text-->
     <TextView 
         android:text="Seafood"
@@ -128,7 +121,9 @@
         android:layout_height="90dp"
         android:layout_x="275dp"
         android:layout_y="310dp"
-        android:id="@+id/vegeterian" />
+        android:id="@+id/vegeterian"
+        android:src="@drawable/vegeterian"
+    />
     <!--Vegetarian text-->
     <TextView 
         android:text="Vegeterian"
@@ -138,6 +133,7 @@
         android:textSize="20dp"
         android:layout_y="400dp"
         android:id="@+id/vegeterian2"
+        
         android:textColor="@android:color/black"/>
     
      <!--Food Icons-->
