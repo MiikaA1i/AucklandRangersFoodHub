@@ -1,5 +1,7 @@
 using Android.Content;
+using AucklandRangersFoodHub.Models;
 using AucklandRangersFoodHub.Resources.model;
+using System.Data;
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "@string/app_name", MainLauncher = true)]
@@ -398,6 +400,9 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reserve edit page")]
     public class ReserveEditActivity : Activity
     {
+        List<ReservationsPage> ReservationsDetails;
+        ListView ListViewReservations;
+        DataManager dataManager;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -418,6 +423,35 @@ namespace AucklandRangersFoodHub
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ListViewReservations = FindViewById<ListView>(Resource.Id.listViewReservations);
+            dataManager = new DataManager();
+            ReservationsDetails = dataManager.GetReservations();
+            ArrayAdapter arrayAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1);
+            foreach (var item in ReservationsDetails)
+            {
+                arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
+            }
+            ListViewReservations.Adapter = arrayAdapter;
+            ListViewReservations.ItemClick += ListViewReservationItemClick;
+        }
+        void ListViewReservationItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            ReservationsPage currentRow = ReservationsDetails[e.Position];
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetTitle("Do you want to delete this reservation?");
+            builder.SetPositiveButton("Delete", (s,a) => DeleteReservation(currentRow));
+        }
+        void DeleteReservation(ReservationsPage rowtoremove)
+        {
+            dataManager.DeleteReservation(rowtoremove.Id);
+            ReservationsDetails = dataManager.GetReservations();
+            ArrayAdapter arrayAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1);
+            foreach (var item in ReservationsDetails)
+            {
+                arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
+            }
+            ListViewReservations.Adapter = arrayAdapter;
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {

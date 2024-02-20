@@ -51,7 +51,7 @@ namespace AucklandRangersFoodHub
         }
         void CancelButton()
         {
-            //does nothing
+            //does nothing just cancels and closes the pop up
         }
         void DeleteRow(SignUp row)
         {

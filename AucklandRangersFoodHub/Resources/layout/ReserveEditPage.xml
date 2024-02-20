@@ -64,7 +64,8 @@
         android:layout_x="100dp"
         android:layout_y="200dp"
         android:textColor="#ff000000"
-        android:background="#ffe0e0e0"/>
+        android:background="#ffe0e0e0"
+        android:id="@+id/listViewReservations"/>
     <!--Edit button-->
     <Button
         android:layout_width="wrap_content"
