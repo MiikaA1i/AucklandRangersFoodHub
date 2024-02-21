@@ -45,9 +45,9 @@ namespace AucklandRangersFoodHub
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
 
-            btnPrev = FindViewById<ImageButton>(Resource.Id.btn_prev);
-            btnNext = FindViewById<ImageButton>(Resource.Id.btn_next);
-            imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
+            //btnPrev = FindViewById<ImageButton>(Resource.Id.btn_prev);
+            //btnNext = FindViewById<ImageButton>(Resource.Id.btn_next);
+            //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
         }
         void OnButtonBurgersClicked(Object sender, EventArgs e)//Goes to the burger page
         {
@@ -425,10 +425,11 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reserve edit page")]
     public class ReserveEditActivity : Activity
     {
+        bool EditMode = false;
         List<ReservationsPage> ReservationsDetails;
         ListView ListViewReservations;
         DataManager dataManager;
-        Button ButtonMenu;
+        Button ButtonMenu, ButtonEdit;
         Button ButtonCart;
         Button ButtonContactUs;
 
@@ -442,6 +443,9 @@ namespace AucklandRangersFoodHub
 
             ButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
             ButtonBackButton.Click += ButtonBackButtonClick;
+
+            ButtonEdit = FindViewById<Button>(Resource.Id.buttonEdit);
+            ButtonEdit.Click += ButtonEditClick;
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -472,28 +476,38 @@ namespace AucklandRangersFoodHub
             ButtonAdd = FindViewById<Button>(Resource.Id.reservationsAddButton);
             ButtonAdd.Click += ButtonAddClick;
         }
+        void ButtonEditClick(object sender, EventArgs e)
+        {
+            Toast.MakeText(this, "Tap on a reservation to remove it", ToastLength.Long).Show();
+            EditMode = true;
+        }
         void ButtonBackButtonClick(object sender, EventArgs e)
         {
+            EditMode = false;
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
             StartActivity(intent);
         }
          void ButtonAddClick(object sender, EventArgs e)
         {
+            EditMode = false;
             Intent intent = new Intent(this, typeof(ReservationsAddActivity));
             StartActivity(intent);
         }
         void ListViewReservationItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            ReservationsPage currentRow = ReservationsDetails[e.Position];
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetTitle("Do you want to delete this reservation?");
-            builder.SetPositiveButton("Delete", (s,a) => DeleteReservation(currentRow));
-            builder.SetNegativeButton("Cancel", (s, a) => CancelDelete());
-            builder.Show();
+            if (EditMode == true)
+            {
+                ReservationsPage currentRow = ReservationsDetails[e.Position];
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.SetTitle("Do you want to delete this reservation?");
+                builder.SetPositiveButton("Delete", (s, a) => DeleteReservation(currentRow));
+                builder.SetNegativeButton("Cancel", (s, a) => CancelDelete());
+                builder.Show();
+            }
         }
         void CancelDelete()
         {
-
+            EditMode = false;
         }
         void DeleteReservation(ReservationsPage rowtoremove)
         {
@@ -505,24 +519,29 @@ namespace AucklandRangersFoodHub
                 arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
             }
             ListViewReservations.Adapter = arrayAdapter;
+            EditMode = false;
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
+            EditMode = false;
             Intent intent = new Intent(this, typeof(CartActivity));
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
+            EditMode = false;
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
+            EditMode = false;
             Intent intent = new Intent(this, typeof(ContactUsActivity));
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
+            EditMode = false;
             Intent intent = new Intent(this, typeof(ProfileActivity));
             StartActivity(intent);
         }
