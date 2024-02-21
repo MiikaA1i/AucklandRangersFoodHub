@@ -74,7 +74,7 @@
 
 
     <!--Burgers image button-->
-     <Button
+     <ImageButton
         
         android:layout_width="95dp"
         android:layout_height="90dp"
@@ -94,18 +94,21 @@
         android:textColor="@android:color/black"/>
 
         <!--Seafood image button-->
-    <Button
+    <ImageButton
         
         android:layout_width="95dp"
         android:layout_height="90dp"
         android:layout_x="150dp"
         android:layout_y="310dp"
         android:id="@+id/seafood"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"
         android:src="@drawable/seafood" 
         />
         <!--Seafood text-->
     <TextView 
         android:text="Seafood"
+        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="160dp"
@@ -115,12 +118,14 @@
         android:textColor="@android:color/black"/>
         
     <!--Vegetarian image button-->
-    <Button
+    <ImageButton
         
         android:layout_width="95dp"
         android:layout_height="90dp"
         android:layout_x="275dp"
         android:layout_y="310dp"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"
         android:id="@+id/vegeterian"
         android:src="@drawable/vegeterian"
     />
@@ -137,31 +142,40 @@
         android:textColor="@android:color/black"/>
     
      <!--Food Icons-->
-    <Button
+    <ImageButton
         
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_x="30dp"
         android:layout_y="450dp"
-        android:id="@+id/firstfoodicon" />
+        android:id="@+id/firstfoodicon"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"
+        android:src="@drawable/burger2"/>
 
         <!--Image button-->
-    <Button
+    <ImageButton
         
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_x="158dp"
         android:layout_y="450dp"
-        android:id="@+id/secondfoodicon" />
+        android:id="@+id/secondfoodicon" 
+        android:src="@drawable/burger3"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"/>
 
         <!--Image button-->
-    <Button
+    <ImageButton
         
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_x="279dp"
         android:layout_y="450dp"
-        android:id="@+id/thirdfoodicon" />
+        android:id="@+id/thirdfoodicon"
+        android:src="@drawable/burgerImage"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"/>
 
 
  <!--Bottom Of Page-->

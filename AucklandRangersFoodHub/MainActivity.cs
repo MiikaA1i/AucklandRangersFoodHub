@@ -2,9 +2,11 @@ using Android.Content;
 using AucklandRangersFoodHub.Models;
 using AucklandRangersFoodHub.Resources.model;
 using System.Data;
+
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = true)]
+
     public class MainActivity : Activity
     {
 
@@ -43,12 +45,12 @@ namespace AucklandRangersFoodHub
             TextBurger.Click += OnButtonBurgersClicked;
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
-            ButtonProfileIcon.Click += OnButtonProfileClicked;
-
-            btnPrev = FindViewById<ImageButton>(Resource.Id.btn_prev);
-            btnNext = FindViewById<ImageButton>(Resource.Id.btn_next);
-            imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;          
         }
+
+
+       
+
         void OnButtonBurgersClicked(Object sender, EventArgs e)//Goes to the burger page
         {
             Intent intent = new Intent(this, typeof(BurgersActivity));
