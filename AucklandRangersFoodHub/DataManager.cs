@@ -29,27 +29,27 @@ namespace AucklandRangersFoodHub
             connection.CreateTable<SignUp>();
             connection.CreateTable<ReservationsPage>();
         }
-        public void InsertUser(SignUp new_user)
+        public void InsertUser(SignUp new_user)//create a new user
         {
             connection.Insert(new_user);
         }
-        public List<SignUp> GetUsers()
+        public List<SignUp> GetUsers()// fetch the users
         {
             return connection.Table<SignUp>().ToList();
         }
-        public void DeleteRow(int row)
+        public void DeleteRow(int row)//delete a user
         {
             connection.Delete<SignUp>(row);
         }
-        public void DeleteReservation(int row)
+        public void DeleteReservation(int row)//delete a reservation
         {
             connection.Delete<ReservationsPage>(row);
         }
-        public List<ReservationsPage>GetReservations()
+        public List<ReservationsPage>GetReservations()//fetch the reservations
         {
             return connection.Table<ReservationsPage>().ToList();
         }
-        public void InsertReservation(ReservationsPage newReservation)
+        public void InsertReservation(ReservationsPage newReservation)//create a reservation
         {
             connection.Insert(newReservation);
         }

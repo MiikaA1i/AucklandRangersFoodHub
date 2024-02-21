@@ -31,34 +31,34 @@
     <!--Table name edit text-->
     <EditText
         android:layout_x="100dp"
-        android:layout_y="100dp"
+        android:layout_y="130dp"
         android:background="@drawable/Underline"  
         android:textColorHint="@android:color/black"
         android:hint="Table name"
         android:textColor="@android:color/black"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:id="@+id/editTextTableName"/>
     <!-- Table number edit text-->
         <EditText
         android:layout_x="100dp"
-        android:layout_y="200dp"
+        android:layout_y="230dp"
         android:background="@drawable/Underline"  
         android:textColorHint="@android:color/black"
         android:hint="Table number"
         android:textColor="@android:color/black"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:id="@+id/editTextTableNumber"/>
     <!--Time edit text-->
         <EditText
         android:layout_x="100dp"
-        android:layout_y="300dp"
+        android:layout_y="330dp"
         android:background="@drawable/Underline"  
         android:textColorHint="@android:color/black"
         android:hint="Time"
         android:textColor="@android:color/black"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:id="@+id/editTextTime"/>
     <!--book reservation button-->
@@ -69,9 +69,9 @@
         android:text="Book reservation"
         android:textColor="@android:color/white"
         android:background="@drawable/roundbuttonblack"
-        android:layout_x="100dp"
+        android:layout_x="115dp"
         android:padding="10dp"
-        android:layout_y="400dp"
+        android:layout_y="450dp"
         />
 
               <!--Profile Icon button-->

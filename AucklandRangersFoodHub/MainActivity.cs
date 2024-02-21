@@ -7,7 +7,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = true)]
     public class MainActivity : Activity
     {
-
+        int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
         Button ButtonBurgers;
@@ -16,13 +16,15 @@ namespace AucklandRangersFoodHub
         Button ButtonContactUs;
         Button ButtonProfile;
         ImageButton btnPrev, btnNext;
-        ImageSwitcher imageSwitcher;
+        ImageView ImageViewMain;
 
        
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            ImageViewMain = FindViewById<ImageView>(Resource.Id.ImageViewMain);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -44,10 +46,48 @@ namespace AucklandRangersFoodHub
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+            //ButtonProfileIcon.SetImageResource(Resource.Drawable.sadfasdfadsf);
+            btnPrev = FindViewById<ImageButton>(Resource.Id.btnPrev);
+            btnPrev.Click += OnButtonPrevClick;
 
-            //btnPrev = FindViewById<ImageButton>(Resource.Id.btn_prev);
-            //btnNext = FindViewById<ImageButton>(Resource.Id.btn_next);
+            btnNext = FindViewById<ImageButton>(Resource.Id.btnNext);
+            btnNext.Click += OnButtonNextClick;
+
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
+            NumberCheck();
+        }
+        void NumberCheck()
+        {
+            if (number >= 3)
+            {
+                number = 0;
+            }
+            if (number < 0)
+            {
+                number = 2;
+            }
+            switch (number)
+            {
+                case 0:
+                    ImageViewMain.SetImageResource(Resource.Drawable.sadfasdfadsf);
+                    break;
+                case 1:
+                    ImageViewMain.SetImageResource(Resource.Drawable.seafood);
+                    break;
+                case 2:
+                    ImageViewMain.SetImageResource(Resource.Drawable.vegeterian);
+                    break;
+            }
+        }
+        void OnButtonPrevClick(object sender, EventArgs e)
+        {
+            number -= 1;
+            NumberCheck();
+        }
+        void OnButtonNextClick(object sender, EventArgs e)
+        {
+            number += 1;
+            NumberCheck();
         }
         void OnButtonBurgersClicked(Object sender, EventArgs e)//Goes to the burger page
         {
@@ -591,14 +631,14 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
             StartActivity(intent);
         }
-        void ButtonCreateReservationClick(object sender, EventArgs e)
+        void ButtonCreateReservationClick(object sender, EventArgs e)//Inserts the details into the database
         {
             ReservationsPage reservationsInfo = new ReservationsPage()
             {
                 Table_Number = EditTextTableNumber.Text,
                 ReservationName = EditTextTableName.Text,
                 Time = EditTextTime.Text
-            };/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            };
             dataManager.InsertReservation(reservationsInfo);
             Toast.MakeText(this, "Reservation has been created", ToastLength.Short).Show();
 
