@@ -9,7 +9,7 @@ namespace AucklandRangersFoodHub
 
     public class MainActivity : Activity
     {
-
+        int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
         Button ButtonBurgers;
@@ -18,13 +18,15 @@ namespace AucklandRangersFoodHub
         Button ButtonContactUs;
         Button ButtonProfile;
         ImageButton btnPrev, btnNext;
-        ImageSwitcher imageSwitcher;
+        ImageView ImageViewMain;
 
        
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            ImageViewMain = FindViewById<ImageView>(Resource.Id.ImageViewMain);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -45,7 +47,53 @@ namespace AucklandRangersFoodHub
             TextBurger.Click += OnButtonBurgersClicked;
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+
             ButtonProfileIcon.Click += OnButtonProfileClicked;          
+
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+            //ButtonProfileIcon.SetImageResource(Resource.Drawable.sadfasdfadsf);
+            btnPrev = FindViewById<ImageButton>(Resource.Id.btnPrev);
+            btnPrev.Click += OnButtonPrevClick;
+
+            btnNext = FindViewById<ImageButton>(Resource.Id.btnNext);
+            btnNext.Click += OnButtonNextClick;
+
+            //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
+            NumberCheck();
+        }
+        void NumberCheck()
+        {
+            if (number >= 3)
+            {
+                number = 0;
+            }
+            if (number < 0)
+            {
+                number = 2;
+            }
+            switch (number)
+            {
+                case 0:
+                    ImageViewMain.SetImageResource(Resource.Drawable.sadfasdfadsf);
+                    break;
+                case 1:
+                    ImageViewMain.SetImageResource(Resource.Drawable.seafood);
+                    break;
+                case 2:
+                    ImageViewMain.SetImageResource(Resource.Drawable.vegeterian);
+                    break;
+            }
+        }
+        void OnButtonPrevClick(object sender, EventArgs e)
+        {
+            number -= 1;
+            NumberCheck();
+        }
+        void OnButtonNextClick(object sender, EventArgs e)
+        {
+            number += 1;
+            NumberCheck();
+
         }
 
 
@@ -361,6 +409,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reservations page")]
     public class ReservationsScreenActivity : Activity
     {
+        Button? ButtonMyReservations, ButtonBookAReservation;
         ImageButton ButtonProfileIcon;
         Button ButtonMenu;
         Button ButtonCart;
@@ -385,6 +434,22 @@ namespace AucklandRangersFoodHub
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonMyReservations = FindViewById<Button>(Resource.Id.ButtonMyReservations);
+            ButtonMyReservations.Click += ButtonMyReservationsClick;
+
+            ButtonBookAReservation = FindViewById<Button>(Resource.Id.ButtonBookAReservation);
+            ButtonBookAReservation.Click += ButtonBookAReservationClick;
+        }
+        void ButtonBookAReservationClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+            StartActivity(intent);
+        }
+        void ButtonMyReservationsClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ReserveEditActivity));
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
@@ -410,17 +475,27 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reserve edit page")]
     public class ReserveEditActivity : Activity
     {
+        bool EditMode = false;
         List<ReservationsPage> ReservationsDetails;
         ListView ListViewReservations;
         DataManager dataManager;
-        Button ButtonMenu;
+        Button ButtonMenu, ButtonEdit;
         Button ButtonCart;
         Button ButtonContactUs;
-        ImageButton ButtonProfileIcon;
+
+        ImageButton ButtonProfileIcon, ButtonBackButton;
+        Button ButtonAdd;
+        Button ButtonProfile;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.ReserveEditPage);
+
+            ButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
+            ButtonBackButton.Click += ButtonBackButtonClick;
+
+            ButtonEdit = FindViewById<Button>(Resource.Id.buttonEdit);
+            ButtonEdit.Click += ButtonEditClick;
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -428,8 +503,11 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
+            ButtonProfile.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -444,13 +522,42 @@ namespace AucklandRangersFoodHub
             }
             ListViewReservations.Adapter = arrayAdapter;
             ListViewReservations.ItemClick += ListViewReservationItemClick;
+
+            ButtonAdd = FindViewById<Button>(Resource.Id.reservationsAddButton);
+            ButtonAdd.Click += ButtonAddClick;
+        }
+        void ButtonEditClick(object sender, EventArgs e)
+        {
+            Toast.MakeText(this, "Tap on a reservation to remove it", ToastLength.Long).Show();
+            EditMode = true;
+        }
+        void ButtonBackButtonClick(object sender, EventArgs e)
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            StartActivity(intent);
+        }
+         void ButtonAddClick(object sender, EventArgs e)
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+            StartActivity(intent);
         }
         void ListViewReservationItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            ReservationsPage currentRow = ReservationsDetails[e.Position];
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetTitle("Do you want to delete this reservation?");
-            builder.SetPositiveButton("Delete", (s,a) => DeleteReservation(currentRow));
+            if (EditMode == true)
+            {
+                ReservationsPage currentRow = ReservationsDetails[e.Position];
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.SetTitle("Do you want to delete this reservation?");
+                builder.SetPositiveButton("Delete", (s, a) => DeleteReservation(currentRow));
+                builder.SetNegativeButton("Cancel", (s, a) => CancelDelete());
+                builder.Show();
+            }
+        }
+        void CancelDelete()
+        {
+            EditMode = false;
         }
         void DeleteReservation(ReservationsPage rowtoremove)
         {
@@ -462,6 +569,91 @@ namespace AucklandRangersFoodHub
                 arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
             }
             ListViewReservations.Adapter = arrayAdapter;
+            EditMode = false;
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(ProfileActivity));
+            StartActivity(intent);
+        }
+    }
+    [Activity(Label = "Reservation add")]
+    public class ReservationsAddActivity : Activity
+    {
+        EditText EditTextTableName, EditTextTableNumber, EditTextTime;
+        ImageButton ButtonProfileIcon, ButtonBackButton;
+        Button? ButtonMenu, ButtonCart, ButtonContactUs, ButtonProfile, ButtonCreateReservation;
+        DataManager dataManager;
+        protected override void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.ReservationsAddPage);
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
+            ButtonBackButton.Click += ButtonBackButtonClick;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
+            ButtonProfile.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonCreateReservation = FindViewById<Button>(Resource.Id.ButtonCreateReservation);
+            ButtonCreateReservation.Click += ButtonCreateReservationClick;
+
+            EditTextTableNumber = FindViewById<EditText>(Resource.Id.editTextTableNumber);
+
+            EditTextTableName = FindViewById<EditText>(Resource.Id.editTextTableName);
+
+            EditTextTime = FindViewById<EditText>(Resource.Id.editTextTime);
+
+            dataManager = new DataManager();
+        }
+        void ButtonBackButtonClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            StartActivity(intent);
+        }
+        void ButtonCreateReservationClick(object sender, EventArgs e)//Inserts the details into the database
+        {
+            ReservationsPage reservationsInfo = new ReservationsPage()
+            {
+                Table_Number = EditTextTableNumber.Text,
+                ReservationName = EditTextTableName.Text,
+                Time = EditTextTime.Text
+            };
+            dataManager.InsertReservation(reservationsInfo);
+            Toast.MakeText(this, "Reservation has been created", ToastLength.Short).Show();
+
+            Intent intent = new Intent(this, typeof(ReserveEditActivity));
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
