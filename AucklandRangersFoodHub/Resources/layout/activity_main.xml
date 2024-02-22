@@ -153,6 +153,18 @@
         android:background="@android:color/white"
         android:src="@drawable/burger2"/>
 
+    
+    <TextView
+        android:text="Krabby Patty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="35dp"
+        android:textSize="12dp"
+        android:textColor="@android:color/black"
+        android:layout_y="540dp"
+        android:id="@+id/krabbypattyImg" />
+
+
         <!--Image button-->
     <ImageButton
         
@@ -163,7 +175,19 @@
         android:id="@+id/secondfoodicon" 
         android:src="@drawable/burger3"
         android:scaleType="centerCrop"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white" />
+
+    <TextView
+        android:text="Double Feast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="163dp"
+        android:textSize="12dp"
+        android:textColor="@android:color/black"
+        android:layout_y="540dp"
+        android:id="@+id/DoubleBurgerimg" />
+
+        
 
         <!--Image button-->
     <ImageButton
@@ -176,6 +200,17 @@
         android:src="@drawable/burgerImage"
         android:scaleType="centerCrop"
         android:background="@android:color/white"/>
+
+    
+    <TextView
+        android:text="Ultimate Tower Stack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="265dp"
+        android:textSize="12dp"
+        android:textColor="@android:color/black"
+        android:layout_y="540dp"
+        android:id="@+id/ultimatetowerimg" />
 
 
  <!--Bottom Of Page-->
