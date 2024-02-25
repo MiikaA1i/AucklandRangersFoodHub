@@ -25,6 +25,7 @@
     <None Remove="Resources\layout\FoodDescriptionPage.xml" />
     <None Remove="Resources\layout\FoodPage.xml" />
     <None Remove="Resources\layout\ProfilePage.xml" />
+    <None Remove="Resources\layout\ReservationsAddPage.xml" />
     <None Remove="Resources\layout\ReservationScreenPage.xml" />
     <None Remove="Resources\layout\ReserveEditPage.xml" />
     <None Remove="Resources\layout\SignInPage.xml" />
