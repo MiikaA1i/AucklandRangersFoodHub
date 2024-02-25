@@ -40,9 +40,8 @@ namespace AucklandRangersFoodHub
 
             ButtonBurgers = FindViewById<ImageButton>(Resource.Id.ButtonBurgers);
             ButtonBurgers.Click += OnButtonBurgersClicked;
-            ButtonBurgers.SetImageResource(Resource.Drawable.burgerImage);
             
-
+            
             TextBurger = FindViewById<TextView>(Resource.Id.TextBurger);
             TextBurger.Click += OnButtonBurgersClicked;
 
@@ -54,6 +53,7 @@ namespace AucklandRangersFoodHub
 
             btnNext = FindViewById<ImageButton>(Resource.Id.btnNext);
             btnNext.Click += OnButtonNextClick;
+            btnNext.RotationY = 180;
 
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
             NumberCheck();
