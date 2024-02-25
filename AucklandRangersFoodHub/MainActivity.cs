@@ -10,7 +10,7 @@ namespace AucklandRangersFoodHub
         int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
-        Button ButtonBurgers;
+        ImageButton ButtonBurgers;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -38,8 +38,10 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonBurgers = FindViewById<Button>(Resource.Id.ButtonBurgers);
+            ButtonBurgers = FindViewById<ImageButton>(Resource.Id.ButtonBurgers);
             ButtonBurgers.Click += OnButtonBurgersClicked;
+            ButtonBurgers.SetImageResource(Resource.Drawable.burgerImage);
+            
 
             TextBurger = FindViewById<TextView>(Resource.Id.TextBurger);
             TextBurger.Click += OnButtonBurgersClicked;
@@ -69,7 +71,7 @@ namespace AucklandRangersFoodHub
             switch (number)
             {
                 case 0:
-                    ImageViewMain.SetImageResource(Resource.Drawable.sadfasdfadsf);
+                    ImageViewMain.SetImageResource(Resource.Drawable.burgerImage);
                     break;
                 case 1:
                     ImageViewMain.SetImageResource(Resource.Drawable.seafood);

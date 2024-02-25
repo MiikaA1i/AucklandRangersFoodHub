@@ -74,7 +74,7 @@
 
 
     <!--Burgers image button-->
-     <Button
+     <ImageButton
         
         android:layout_width="95dp"
         android:layout_height="90dp"
