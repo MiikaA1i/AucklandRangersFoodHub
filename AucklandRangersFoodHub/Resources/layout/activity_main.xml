@@ -54,22 +54,28 @@
         android:background="@android:color/white"
         android:id="@+id/ImageViewMain"/>
 
-     <!--Left Back Icon button-->
+     <!--right Back Icon button-->
     <ImageButton
         
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_x="330dp"
         android:layout_y="200dp"
-        android:id="@+id/btnNext" />
+        android:id="@+id/btnNext"
+        android:src="@drawable/left"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"/>
 
-     <!--Right Back Icon button-->
+     <!--left Back Icon button-->
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_x="30dp"
         android:layout_y="200dp"
-        android:id="@+id/btnPrev" />
+        android:id="@+id/btnPrev"
+        android:src="@drawable/left"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"/>
 
 
 
