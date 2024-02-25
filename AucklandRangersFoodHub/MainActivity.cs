@@ -2,11 +2,9 @@ using Android.Content;
 using AucklandRangersFoodHub.Models;
 using AucklandRangersFoodHub.Resources.model;
 using System.Data;
-
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = true)]
-
     public class MainActivity : Activity
     {
         int number = 0;
@@ -52,9 +50,11 @@ namespace AucklandRangersFoodHub
             btnPrev = FindViewById<ImageButton>(Resource.Id.btnPrev);
             btnPrev.Click += OnButtonPrevClick;
 
-            btnPrev = FindViewById<ImageButton>(Resource.Id.btn_prev);
-            btnNext = FindViewById<ImageButton>(Resource.Id.btn_next);
-            imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
+            btnNext = FindViewById<ImageButton>(Resource.Id.btnNext);
+            btnNext.Click += OnButtonNextClick;
+
+            //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
+            NumberCheck();
         }
         void NumberCheck()
         {
@@ -424,6 +424,12 @@ namespace AucklandRangersFoodHub
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonMyReservations = FindViewById<Button>(Resource.Id.ButtonMyReservations);
+            ButtonMyReservations.Click += ButtonMyReservationsClick;
+
+            ButtonBookAReservation = FindViewById<Button>(Resource.Id.ButtonBookAReservation);
+            ButtonBookAReservation.Click += ButtonBookAReservationClick;
         }
         void ButtonBookAReservationClick(object sender, EventArgs e)
         {
@@ -519,6 +525,12 @@ namespace AucklandRangersFoodHub
         {
             EditMode = false;
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            StartActivity(intent);
+        }
+        void ButtonAddClick(object sender, EventArgs e)
+        {
+            EditMode = false;
+            Intent intent = new Intent(this, typeof(ReservationsAddActivity));
             StartActivity(intent);
         }
         void ListViewReservationItemClick(object sender, AdapterView.ItemClickEventArgs e)
