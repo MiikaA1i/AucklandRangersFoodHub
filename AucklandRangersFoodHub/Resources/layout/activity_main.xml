@@ -87,7 +87,8 @@
         android:layout_x="30dp"
         android:layout_y="310dp"
         android:id="@+id/ButtonBurgers" 
-        android:src="@drawable/burgerImage" />
+        android:src="@drawable/burgerImage"
+        style="?android:attr/borderlessButtonStyle"/>
     <!--Burger text-->
     <TextView 
         android:text="Burgers"
@@ -109,6 +110,7 @@
         android:id="@+id/seafood"
         android:scaleType="centerCrop"
         android:background="@android:color/white"
+         style="?android:attr/borderlessButtonStyle"
         android:src="@drawable/seafood" 
         />
         <!--Seafood text-->
@@ -132,6 +134,7 @@
         android:layout_y="310dp"
         android:scaleType="centerCrop"
         android:background="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/vegeterian"
         android:src="@drawable/vegeterian"
     />
@@ -150,21 +153,24 @@
      <!--Food Icons-->
     <ImageButton
         
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_x="30dp"
-        android:layout_y="450dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_x="60dp"
+        android:layout_y="480dp"
         android:id="@+id/firstfoodicon"
         android:scaleType="centerCrop"
         android:background="@android:color/white"
-        android:src="@drawable/burger2"/>
+        android:src="@drawable/burger2"
+        style="?android:attr/borderlessButtonStyle"/>
 
     
     <TextView
-        android:text="Krabby Patty"
+        android:text="
+        Krabby
+         Patty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="35dp"
+        android:layout_x="55dp"
         android:textSize="12dp"
         android:textColor="@android:color/black"
         android:layout_y="540dp"
@@ -174,20 +180,23 @@
         <!--Image button-->
     <ImageButton
         
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_x="158dp"
-        android:layout_y="450dp"
+        android:layout_y="480dp"
         android:id="@+id/secondfoodicon" 
         android:src="@drawable/burger3"
         android:scaleType="centerCrop"
-        android:background="@android:color/white" />
+        android:background="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"/>
 
     <TextView
-        android:text="Double Feast"
+        android:text="
+        Double
+         Feast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="163dp"
+        android:layout_x="150dp"
         android:textSize="12dp"
         android:textColor="@android:color/black"
         android:layout_y="540dp"
@@ -198,21 +207,25 @@
         <!--Image button-->
     <ImageButton
         
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_x="279dp"
-        android:layout_y="450dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_x="260dp"
+        android:layout_y="480dp"
         android:id="@+id/thirdfoodicon"
         android:src="@drawable/burgerImage"
         android:scaleType="centerCrop"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"/>
 
     
     <TextView
-        android:text="Ultimate Tower Stack"
+        android:text="
+       Ultimate 
+        Tower
+         Stack"        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="265dp"
+        android:layout_x="255dp"
         android:textSize="12dp"
         android:textColor="@android:color/black"
         android:layout_y="540dp"
@@ -224,22 +237,23 @@
      <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Menu_Button"
         android:layout_x="10dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Contact_Us_Button"
         android:layout_x="105dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
@@ -247,21 +261,23 @@
     <!--Profile button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Profile_Button"
         android:layout_x="200dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
         android:textColor="#ff000000"
+        android:textSize="12dp"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Cart_button"
         android:layout_x="295dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
