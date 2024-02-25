@@ -18,7 +18,7 @@ namespace AucklandRangersFoodHub
         ImageButton btnPrev, btnNext;
         ImageView ImageViewMain;
 
-       
+
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -367,7 +367,7 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
         }
-        void OnButtonSignOutClicked(object sender, EventArgs e) 
+        void OnButtonSignOutClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(SignInActivity));
             StartActivity(intent);
@@ -529,7 +529,7 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
             StartActivity(intent);
         }
-         void ButtonAddClick(object sender, EventArgs e)
+        void ButtonAddClick(object sender, EventArgs e)
         {
             EditMode = false;
             Intent intent = new Intent(this, typeof(ReservationsAddActivity));
@@ -773,7 +773,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonSubmitClicked(object sender, EventArgs e)
         {
-            
+
 
             //Puts information into the database
             SignUp signup = new SignUp()
@@ -810,11 +810,11 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(ContactUsActivity));
             StartActivity(intent);
         }
-/*        void OnButtonProfileClicked(object sender, EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
-            StartActivity(intent);
-        }*/
+        /*        void OnButtonProfileClicked(object sender, EventArgs e)
+                {
+                    Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+                    StartActivity(intent);
+                }*/
     }
     [Activity(Label = "Burgers Page")]
     public class BurgersActivity : Activity

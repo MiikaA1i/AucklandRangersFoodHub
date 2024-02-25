@@ -27,31 +27,31 @@ namespace AucklandRangersFoodHub
             connection = new SQLiteConnection(combinepath);
 
             connection.CreateTable<SignUp>();
-            connection.CreateTable<ReservationsPage>();
         }
-        public void InsertUser(SignUp new_user)//create a new user
+        public void InsertUser(SignUp new_user)
         {
             connection.Insert(new_user);
         }
-        public List<SignUp> GetUsers()// fetch the users
+        public List<SignUp> GetUsers()
         {
             return connection.Table<SignUp>().ToList();
         }
-        public void DeleteRow(int row)//delete a user
+        public void DeleteRow(int row)
         {
             connection.Delete<SignUp>(row);
         }
-        public void DeleteReservation(int row)//delete a reservation
+        public void DeleteReservation(int row)
         {
             connection.Delete<ReservationsPage>(row);
         }
-        public List<ReservationsPage>GetReservations()//fetch the reservations
+        public List<ReservationsPage>GetReservations()
         {
             return connection.Table<ReservationsPage>().ToList();
         }
-        public void InsertReservation(ReservationsPage newReservation)//create a reservation
+
+        internal void InsertReservation(ReservationsPage reservationsInfo)
         {
-            connection.Insert(newReservation);
+            throw new NotImplementedException();
         }
     }
 }
