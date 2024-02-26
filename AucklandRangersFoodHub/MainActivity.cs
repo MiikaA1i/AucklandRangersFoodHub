@@ -1,4 +1,5 @@
 using Android.Content;
+using Android.Graphics;
 using AucklandRangersFoodHub.Models;
 using AucklandRangersFoodHub.Resources.model;
 using System.Data;
@@ -17,6 +18,7 @@ namespace AucklandRangersFoodHub
         Button ButtonProfile;
         ImageButton btnPrev, btnNext;
         ImageView ImageViewMain;
+        TextView recom1;
 
 
         protected override void OnCreate(Bundle? savedInstanceState)
@@ -55,6 +57,11 @@ namespace AucklandRangersFoodHub
 
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
             NumberCheck();
+
+            recom1 = FindViewById<TextView>(Resource.Id.recom1);
+            Typeface bebasNeueFont = Typeface.CreateFromAsset(Assets, "BebasNeue-Regualar.ttf");
+
+            recom1.Typeface = bebasNeueFont;
         }
         void NumberCheck()
         {

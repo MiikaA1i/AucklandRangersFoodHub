@@ -17,7 +17,8 @@ namespace AucklandRangersFoodHub
         List<SignUp> userDetails;
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
+            base.OnCreate(bundle,
+            TextView.Typeface);
 
             SetContentView(Resource.Layout.TestPageDataBase);
 
