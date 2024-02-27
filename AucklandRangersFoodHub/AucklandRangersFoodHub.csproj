@@ -23,15 +23,20 @@
     <None Remove="Resources\layout\BurgersPage.xml" />
     <None Remove="Resources\layout\CartPage.xml" />
     <None Remove="Resources\layout\ContactUsPage.xml" />
+    <None Remove="Resources\layout\DoubleBurger.xml" />
     <None Remove="Resources\layout\FoodDescriptionPage.xml" />
     <None Remove="Resources\layout\FoodPage.xml" />
     <None Remove="Resources\layout\ProfilePage.xml" />
     <None Remove="Resources\layout\ReservationsAddPage.xml" />
     <None Remove="Resources\layout\ReservationScreenPage.xml" />
     <None Remove="Resources\layout\ReserveEditPage.xml" />
+    <None Remove="Resources\layout\Seafood.xml" />
     <None Remove="Resources\layout\SignInPage.xml" />
     <None Remove="Resources\layout\SignUpPage.xml" />
     <None Remove="Resources\layout\TestPageDataBase.xml" />
+    <None Remove="Resources\layout\UltimateBurgerStackDesc.xml" />
+    <None Remove="Resources\layout\UltimateTowerStack.xml" />
+    <None Remove="Resources\layout\Vegeterian.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />

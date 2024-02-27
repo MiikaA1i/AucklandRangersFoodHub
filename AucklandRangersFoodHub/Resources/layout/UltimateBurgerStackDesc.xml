@@ -51,9 +51,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:text="KRABBY PATTY"
+        android:text="ULTIMATE STACK BURGER"
         android:layout_y="100dp"
-        android:layout_x="115dp"
+        android:layout_x="55dp"
         android:textSize="25dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"/>
@@ -63,7 +63,7 @@
         android:background="#ffe0e0e0"
         android:layout_x="100dp"
         android:layout_y="150dp"
-        android:src="@drawable/burger2"
+        android:src="@drawable/burgerImage"
         android:scaleType="fitXY"
         />
     <!--Dish ingredients text-->
@@ -103,7 +103,6 @@
         android:layout_height="50dp"
         android:layout_x="0dp"
         android:layout_y="420dp"
-
         android:textColor="@android:color/black"/>
 
         <!--Nutritional value text-->
@@ -118,7 +117,7 @@
 
  <!--Bottom Of Page-->
 
-
+    
      <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
@@ -167,6 +166,7 @@
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
+
 
 
 </AbsoluteLayout>
