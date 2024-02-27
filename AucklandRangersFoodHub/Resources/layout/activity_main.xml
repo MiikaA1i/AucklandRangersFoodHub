@@ -13,9 +13,10 @@
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="80dp"
-        android:textSize="30dp"
-        android:layout_y="10dp"
+        android:layout_x="95dp"
+        android:textSize="25dp"
+        android:layout_y="15dp"
+        android:textStyle="bold"
         android:textColor="@android:color/black"
         android:id="@+id/logo" />
 
@@ -39,13 +40,14 @@
         android:text="Recommendation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="80dp"
+        android:layout_x="90dp"
         android:textSize="30dp"
         android:layout_y="90dp"
         android:textColor="@android:color/black"
         android:id="@+id/recom1"
         android:textStyle="bold"
-        android:fontFamily="BebasNeue-Regular"/>
+        android:fontFamily="sans-serif-condensed"
+        />
 
     <!--Recommendation Images-->
     <ImageView
@@ -90,6 +92,7 @@
         android:layout_y="310dp"
         android:id="@+id/ButtonBurgers" 
         android:src="@drawable/burgerImage"
+        android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"/>
     <!--Burger text-->
     <TextView 
@@ -167,15 +170,13 @@
 
     
     <TextView
-        android:text="
-        Krabby
-         Patty"
+        android:text="Krabby Patty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="55dp"
+        android:layout_x="62dp"
         android:textSize="12dp"
         android:textColor="@android:color/black"
-        android:layout_y="540dp"
+        android:layout_y="550dp"
         android:id="@+id/krabbypattyImg" />
 
 
@@ -193,15 +194,13 @@
         style="?android:attr/borderlessButtonStyle"/>
 
     <TextView
-        android:text="
-        Double
-         Feast"
+        android:text="Double Feast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="150dp"
+        android:layout_x="158dp"
         android:textSize="12dp"
         android:textColor="@android:color/black"
-        android:layout_y="540dp"
+        android:layout_y="550dp"
         android:id="@+id/DoubleBurgerimg" />
 
         
@@ -217,20 +216,18 @@
         android:src="@drawable/burgerImage"
         android:scaleType="centerCrop"
         android:background="@android:color/white"
+        
         style="?android:attr/borderlessButtonStyle"/>
 
     
     <TextView
-        android:text="
-       Ultimate 
-        Tower
-         Stack"        
+        android:text="Ultimate Tower Stack"        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="255dp"
+        android:layout_x="245dp"
         android:textSize="12dp"
         android:textColor="@android:color/black"
-        android:layout_y="540dp"
+        android:layout_y="550dp"
         android:id="@+id/ultimatetowerimg" />
 
 

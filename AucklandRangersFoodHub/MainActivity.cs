@@ -11,7 +11,7 @@ namespace AucklandRangersFoodHub
         int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
-        Button ButtonBurgers;
+        ImageButton ButtonBurgers;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -40,7 +40,7 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonBurgers = FindViewById<Button>(Resource.Id.ButtonBurgers);
+            ButtonBurgers = FindViewById<ImageButton>(Resource.Id.ButtonBurgers);
             ButtonBurgers.Click += OnButtonBurgersClicked;
 
             TextBurger = FindViewById<TextView>(Resource.Id.TextBurger);
@@ -58,10 +58,7 @@ namespace AucklandRangersFoodHub
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
             NumberCheck();
 
-            recom1 = FindViewById<TextView>(Resource.Id.recom1);
-            Typeface bebasNeueFont = Typeface.CreateFromAsset(Assets, "BebasNeue-Regualar.ttf");
-
-            recom1.Typeface = bebasNeueFont;
+            
         }
         void NumberCheck()
         {
