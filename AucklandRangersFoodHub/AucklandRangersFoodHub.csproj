@@ -15,7 +15,9 @@
     <None Remove="Resources\anim\to_left.xml" />
     <None Remove="Resources\anim\to_right.xml" />
     <None Remove="Resources\drawable\burger2.png" />
+    <None Remove="Resources\drawable\imgrest.jpg" />
     <None Remove="Resources\drawable\left.png" />
+    <None Remove="Resources\drawable\map.png" />
     <None Remove="Resources\drawable\nutrientsUTS.png" />
     <None Remove="Resources\drawable\roundbutton.xml" />
     <None Remove="Resources\drawable\roundbuttonblack.xml" />

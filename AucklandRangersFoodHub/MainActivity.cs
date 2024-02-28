@@ -20,12 +20,19 @@ namespace AucklandRangersFoodHub
         ImageButton btnPrev, btnNext;
         ImageView ImageViewMain;
         TextView recom1;
-
+        ImageButton seafood;
+        ImageButton vegeterian;
+        ImageButton krabbypattyicon;
+        ImageButton dualfeasticon;
+        ImageButton USTicon;
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            seafood = FindViewById<ImageButton>(Resource.Id.seafood);
+            seafood.Click += OnseafoodClicked;
 
             ImageViewMain = FindViewById<ImageView>(Resource.Id.ImageViewMain);
 
@@ -43,6 +50,15 @@ namespace AucklandRangersFoodHub
 
             ButtonBurgers = FindViewById<ImageButton>(Resource.Id.ButtonBurgers);
             ButtonBurgers.Click += OnButtonBurgersClicked;
+
+            krabbypattyicon = FindViewById<ImageButton>(Resource.Id.krabbypattyicon);
+            krabbypattyicon.Click += OnkrabbypattyiconClicked;
+
+            dualfeasticon = FindViewById<ImageButton>(Resource.Id.dualfeasticon);
+            dualfeasticon.Click += OndualfeasticonClicked;
+
+            USTicon = FindViewById<ImageButton>(Resource.Id.USTicon);
+            USTicon.Click += OnUSTiconClicked;
 
 
             TextBurger = FindViewById<TextView>(Resource.Id.TextBurger);
@@ -86,6 +102,7 @@ namespace AucklandRangersFoodHub
                     break;
             }
         }
+
         void OnButtonPrevClick(object sender, EventArgs e)
         {
             number -= 1;
@@ -96,11 +113,39 @@ namespace AucklandRangersFoodHub
             number += 1;
             NumberCheck();
         }
-        void OnButtonBurgersClicked(Object sender, EventArgs e)//Goes to the burger page
+        void OnButtonBurgersClicked(Object sender, EventArgs e)//shows a pop up text for burger page
+        {
+            Toast.MakeText(this, "Already in the burger category.", ToastLength.Short).Show();
+        }
+
+        void OnseafoodClicked(object sender, EventArgs e) //pop up text for seafood page
+        {
+            Toast.MakeText(this, "Seafood category still is undergoing updates.", ToastLength.Short).Show();
+        }
+
+        void OnvegeterianClicked(object sender, EventArgs e) //pop up text for vegeterian page
+        {
+            Toast.MakeText(this, "Vegeterian category is still undergoing updates.", ToastLength.Short).Show();
+        }
+
+        void OnkrabbypattyiconClicked(object sender, EventArgs e) //goes to krabby  page
         {
             Intent intent = new Intent(this, typeof(BurgersActivity));
             StartActivity(intent);
         }
+
+        void OndualfeasticonClicked(object sender, EventArgs e) //goes to dual feast  page
+        {
+            Intent intent = new Intent(this, typeof(DoubleBurgerActivity));
+            StartActivity(intent);
+        }
+
+        void OnUSTiconClicked(object sender, EventArgs e) //goes to Ultimate stack towers page
+        {
+            Intent intent = new Intent(this, typeof(UltimateTowerStackActivity));
+            StartActivity(intent);
+        }
+
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
@@ -864,10 +909,11 @@ namespace AucklandRangersFoodHub
                     StartActivity(intent);
                 }*/
     }
+
     [Activity(Label = "Burgers Page")]
     public class BurgersActivity : Activity
     {
-        float Price = 10;//price for a burger
+        float Price = 15;//price for a burger
         float TotalPrice;
         int Count;
 
@@ -875,7 +921,7 @@ namespace AucklandRangersFoodHub
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
 
-        Button ButtonBackButton;//leads back to main page.xml
+        ImageButton BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
         Button ButtonPlus;
         Button ButtonMinus;
@@ -913,10 +959,10 @@ namespace AucklandRangersFoodHub
             ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
             ButtonViewDescription.Click += OnButtonViewDescription;
 
-            //ButtonBackButton = FindViewById<Button>(Resource.Id.ButtonBackButton);
-            //ButtonBackButton.Click += OnButtonBackButtonClicked;
+           // BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+           // BackButton.Click += OnBackButtonClicked;
         }
-        void OnButtonBackButtonClicked(object sender, EventArgs e)
+        void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
@@ -961,10 +1007,206 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
+    [Activity(Label = "Dual Feast")]
+    public class DoubleBurgerActivity : Activity
+    {
+        float Price = 20;//price for a burger
+        float TotalPrice;
+        int Count;
+
+
+        TextView TextViewQuantity;
+        TextView TextViewTotalPrice;
+
+        ImageButton BackButton;//leads back to main page.xml
+        Button ButtonViewDescription;
+        Button ButtonPlus;
+        Button ButtonMinus;
+        Button ButtonMenu;
+        Button ButtonCart;
+        Button ButtonContactUs;
+        ImageButton ButtonProfileIcon;
+        protected override void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.DoubleBurger);
+
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            ButtonPlus.Click += OnButtonPlusClicked;
+
+            ButtonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
+            ButtonMinus.Click += OnButtonMinusClicked;
+
+            TextViewQuantity = FindViewById<TextView>(Resource.Id.TextViewQuantity);
+
+            TextViewTotalPrice = FindViewById<TextView>(Resource.Id.TextViewTotalPrice);
+
+            ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
+            ButtonViewDescription.Click += OnButtonViewDescription;
+
+            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            BackButton.Click += OnBackButtonClicked;
+        }
+        void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonViewDescription(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(FoodDescriptionActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMinusClicked(object sender, EventArgs e)
+        {
+            Count--;
+            TextViewQuantity.Text = "Qty: " + Count.ToString();
+            TotalPrice = Count * Price;
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+        }
+        void OnButtonPlusClicked(object sender, EventArgs e)
+        {
+            Count++;
+            TextViewQuantity.Text = "Qty: " + Count.ToString();
+            TotalPrice = Count * Price;
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            StartActivity(intent);
+        }
+    }
+
+    [Activity(Label = "Ultimate Stack Tower")]
+    public class UltimateTowerStackActivity : Activity
+    {
+        float Price = 40;//price for a burger
+        float TotalPrice;
+        int Count;
+
+
+        TextView TextViewQuantity;
+        TextView TextViewTotalPrice;
+
+        ImageButton BackButton;//leads back to main page.xml
+        Button ButtonViewDescription;
+        Button ButtonPlus;
+        Button ButtonMinus;
+        Button ButtonMenu;
+        Button ButtonCart;
+        Button ButtonContactUs;
+        ImageButton ButtonProfileIcon;
+        protected override void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.DoubleBurger);
+
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            ButtonPlus.Click += OnButtonPlusClicked;
+
+            ButtonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
+            ButtonMinus.Click += OnButtonMinusClicked;
+
+            TextViewQuantity = FindViewById<TextView>(Resource.Id.TextViewQuantity);
+
+            TextViewTotalPrice = FindViewById<TextView>(Resource.Id.TextViewTotalPrice);
+
+            ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
+            ButtonViewDescription.Click += OnButtonViewDescription;
+
+            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            BackButton.Click += OnBackButtonClicked;
+        }
+        void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonViewDescription(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(UltimateBurgerStackActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMinusClicked(object sender, EventArgs e)
+        {
+            Count--;
+            TextViewQuantity.Text = "Qty: " + Count.ToString();
+            TotalPrice = Count * Price;
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+        }
+        void OnButtonPlusClicked(object sender, EventArgs e)
+        {
+            Count++;
+            TextViewQuantity.Text = "Qty: " + Count.ToString();
+            TotalPrice = Count * Price;
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            StartActivity(intent);
+        }
+    }
+
     [Activity(Label = "Burger description activity")]
     public class BurgerDescriptionActivity : Activity
     {
-        Button ButtonBackButton;
+        ImageButton BackButton;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -986,12 +1228,124 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            //ButtonBackButton = FindViewById<Button>(Resource.Id.ButtonBackButton);
-            //ButtonBackButton.Click += OnButtonBackButtonClicked;
+            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            BackButton.Click += OnBackButtonClicked;
+
+
+
         }
-        void OnButtonBackButtonClicked(object sender, EventArgs e)
+        void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(BurgersActivity));
+            StartActivity(intent);
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            StartActivity(intent);
+        }
+    }
+
+    [Activity(Label = "Ultimate Tower Stack description activity")]
+    public class UltimateBurgerStackActivity : Activity
+    {
+        ImageButton BackButton;
+        Button ButtonMenu;
+        Button ButtonCart;
+        Button ButtonContactUs;
+        ImageButton ButtonProfileIcon;
+        protected override void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.BurgersDescriptionPage);
+
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            BackButton.Click += OnBackButtonClicked;
+        }
+        void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(UltimateTowerStackActivity));
+            StartActivity(intent);
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            StartActivity(intent);
+        }
+    }
+    [Activity(Label = "Dual Feast activity")]
+    public class FoodDecriptionActivity : Activity
+    {
+        ImageButton BackButton;
+        Button ButtonMenu;
+        Button ButtonCart;
+        Button ButtonContactUs;
+        ImageButton ButtonProfileIcon;
+        protected override void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.BurgersDescriptionPage);
+
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            BackButton.Click += OnBackButtonClicked;
+        }
+        void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(DoubleBurgerActivity));
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
