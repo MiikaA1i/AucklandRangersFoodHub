@@ -61,10 +61,7 @@ namespace AucklandRangersFoodHub
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
             NumberCheck();
 
-            recom1 = FindViewById<TextView>(Resource.Id.recom1);
-            //Typeface bebasNeueFont = Typeface.CreateFromAsset(Assets, "BebasNeue-Regular.ttf");
-
-            //recom1.Typeface = bebasNeueFont;
+            
         }
         void NumberCheck()
         {

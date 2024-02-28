@@ -1,16 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@android:color/white"
     android:layout_height="match_parent">
 
-<!--Top Of page-->
+    <!--Top Of page-->
 
-      <!--Restruants top logo-->
-    <TextView 
+    <!--Restruants top logo-->
+    <TextView
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
@@ -20,9 +21,7 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:id="@+id/logo" />
-
-    />
-      <!--Profile Icon button-->
+    <!--Profile Icon button-->
     <ImageButton
         android:background="@android:color/white"
         android:layout_width="30dp"
@@ -33,7 +32,7 @@
         android:src="@drawable/profileicon"
         android:id="@+id/ButtonProfileIcon" />
 
-     <!--Back Icon button-->
+    <!--Back Icon button-->
     <ImageButton
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -41,19 +40,19 @@
         android:layout_y="20dp"
         android:background="@android:color/white"
         android:scaleType="fitCenter"
-        android:id="@+id/arrowicon" 
+        android:id="@+id/arrowicon"
         android:src="@drawable/backbutton"/>
 
- <!--Middle Of Page-->
+    <!--Middle Of Page-->
 
     <!--Dish Name text-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:text="KRABBY PATTY"
-        android:layout_y="100dp"
-        android:layout_x="115dp"
+        android:text="ULTIMATE TOWER STACK"
+        android:layout_y="95dp"
+        android:layout_x="55dp"
         android:textSize="25dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"/>
@@ -62,8 +61,8 @@
         android:layout_height="180dp"
         android:background="#ffe0e0e0"
         android:layout_x="100dp"
-        android:layout_y="150dp"
-        android:src="@drawable/burger2"
+        android:layout_y="140dp"
+        android:src="@drawable/burgerImage"
         android:scaleType="fitXY"
         />
     <!--Dish ingredients text-->
@@ -72,7 +71,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_x="150dp"
-        android:layout_y="350dp"
+        android:layout_y="330dp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         />
@@ -81,45 +80,91 @@
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:layout_x="0dp"
-        android:layout_y="368dp"
+        android:layout_y="350dp"
         android:textSize="13dp"
-        android:text=" 1 cup salad, 1 tbs mayonise, 1 tbs tamato,1 cooked beef slice, 1 burger bun, 1 tsp mixed herbs , 1 cheddar slice"
+        android:text="  3 tbs spicy mayonise, 3 crispy chicken fillets, 3 burger buns, 3 cheddar slice, 2 tbs garlic aioli"
         android:textColor="@android:color/black" />
 
 
-        
+
     <!--Dish recipe text-->
-     <TextView
+    <TextView
         android:text="Dish Recipe: "
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_x="160dp"
-        android:layout_y="410dp"
+        android:layout_y="390dp"
         android:textStyle="bold"
         android:textColor="@android:color/black"/>
 
     <TextView
-        android:layout_width="400dp"
-        android:layout_height="50dp"
+        android:layout_width="395dp"
+        android:layout_height="100dp"
         android:layout_x="0dp"
-        android:layout_y="420dp"
-
+        android:layout_y="410dp"
+        android:textSize="12dp"
+        android:text="First you want to make the burger by spitting 1 bun in half. you want to spread 1 tbs of spicy mayonise on both sides of the buns. Then you want to add 1 crispy fillet burger and and 1 slice of cheddar slice on top of one of the buns and stack it up with garlic ailoi. Then close the bun and repeat 2x more. Then using a tooth pick insert it into 2 burgers thats been made and stack it into a tower.  "
         android:textColor="@android:color/black"/>
 
-        <!--Nutritional value text-->
-     <TextView
+    <!--Nutritional value text-->
+    <TextView
         android:text="Dish Nutritional Value: "
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_x="130dp"
-        android:layout_y="490dp"
+        android:layout_y="505dp"
         android:textStyle="bold"
         android:textColor="@android:color/black"/>
 
- <!--Bottom Of Page-->
+    <TextView
+        android:text="Calories: 300cal"
+        android:textColor="@android:color/black"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_x="155dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_y="530dp"
+        android:fontFamily=""/>
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textColor="@android:color/black"
+        android:text="Carbohydrates: 50g"
+        android:textStyle="bold"
+        android:layout_x="150dp"
+        android:layout_y="555dp"
+        android:textSize="12dp"
+    android:fontFamily="sans-serif-smallcaps"/>
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textColor="@android:color/black"
+        android:text="Protien: 23g"
+        android:textStyle="bold"
+        android:layout_x="170dp"
+        android:layout_y="580dp"
+        android:textSize="12dp"
+    android:fontFamily="sans-serif-smallcaps"/>
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textColor="@android:color/black"
+        android:text="Fats: 65g"
+        android:textStyle="bold"
+        android:layout_x="179dp"
+        android:layout_y="600dp"
+        android:textSize="12dp"
+        android:fontFamily="sans-serif-smallcaps"/>
+    
+
+    
+    <!--Bottom Of Page-->
 
 
-     <!--Menu button-->
+    <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -167,6 +212,7 @@
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
+
 
 
 </AbsoluteLayout>
