@@ -1062,4 +1062,83 @@ namespace AucklandRangersFoodHub
             Finish();
         }
     }
+    [Activity(Label = "Vegetrerian page")]
+    public class VegeterianActivity : Activity
+    {
+        float Price = 10;
+        float TotalPrice;
+        int Count;
+
+        TextView TextViewQuantity;
+        TextView TextViewTotalPrice;
+
+        ImageButton  ImageButtonBackButton;
+        Button  ButtonMenu, ButtonCart, ButtonContactUs, ButtonProfile, ButtonMinus,ButtonPlus,ButtonViewDescription;
+        ImageButton ButtonProfileIcon;
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.Vegeterian);
+            ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
+            ButtonProfile.Click += OnButtonProfileClicked;
+            ImageButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += OnButtonMenuClicked;
+
+            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+            ButtonCart.Click += OnButtonCartClicked;
+
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += OnButtonContactUsClicked;
+
+            ButtonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            ButtonPlus.Click += OnButtonPlusClicked;
+            ButtonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
+            ButtonMinus.Click += OnButtonMinusClicked;
+            TextViewQuantity = FindViewById<TextView>(Resource.Id.TextViewQuantity);
+            TextViewTotalPrice = FindViewById<TextView>(Resource.Id.TextViewTotalPrice);
+        }
+        void OnButtonViewDescription(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(BurgerDescriptionActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMinusClicked(object sender, EventArgs e)
+        {
+            Count--;
+            TextViewQuantity.Text = "Qty: " + Count.ToString();
+            TotalPrice = Count * Price;
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+        }
+        void OnButtonPlusClicked(object sender, EventArgs e)
+        {
+            Count++;
+            TextViewQuantity.Text = "Qty: " + Count.ToString();
+            TotalPrice = Count * Price;
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+        }
+        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
+        {
+            Intent intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
+        }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
+        void OnButtonProfileClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            StartActivity(intent);
+        }
+    }
 }
