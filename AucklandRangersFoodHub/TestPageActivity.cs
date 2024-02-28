@@ -17,8 +17,7 @@ namespace AucklandRangersFoodHub
         List<SignUp> userDetails;
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle,
-            TextView.Typeface);
+            base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.TestPageDataBase);
 
@@ -36,6 +35,17 @@ namespace AucklandRangersFoodHub
             ListView.Adapter = userDetailsAdapter;
             ListView.ItemClick += ListViewItemClick;
         }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            userDetails = dataManager.GetUsers();
+            ArrayAdapter<string> userDetailsAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1);
+            foreach (var item in userDetails)
+            {
+                userDetailsAdapter.Add($"{item.UserName} / {item.Mobile} / {item.Email}");
+            }
+            ListView.Adapter = userDetailsAdapter;
+        }
         void BackButtonClick(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(SignUpActivity));
@@ -48,7 +58,14 @@ namespace AucklandRangersFoodHub
             builder.SetTitle("Choose an option");
             builder.SetNegativeButton("Delete", (s,a) => DeleteRow(selectedRow));
             builder.SetPositiveButton("Cancel", (s,a) => CancelButton());
+            builder.SetNeutralButton("Update", (s, a) => UpdateUser(selectedRow));
             builder.Show();
+        }
+        void UpdateUser(SignUp user)
+        {
+            Intent intent = new Intent(this, typeof(UpdateUsersActivity) );
+            intent.PutExtra("UserId", user.Id);
+            StartActivity(intent);
         }
         void CancelButton()
         {

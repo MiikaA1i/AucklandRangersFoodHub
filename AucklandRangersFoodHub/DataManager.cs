@@ -28,6 +28,10 @@ namespace AucklandRangersFoodHub
 
             connection.CreateTable<SignUp>();
         }
+        public void UpdateUser(SignUp user)
+        {
+            connection.Update(user);
+        }
         public void InsertUser(SignUp new_user)
         {
             connection.Insert(new_user);
@@ -49,9 +53,21 @@ namespace AucklandRangersFoodHub
             return connection.Table<ReservationsPage>().ToList();
         }
 
-        internal void InsertReservation(ReservationsPage reservationsInfo)
+        public void InsertReservation(ReservationsPage reservationsInfo)
         {
-            throw new NotImplementedException();
+            connection.Insert(reservationsInfo);
         }
-    }
+        public void UpdateResrvation(ReservationsPage reservationsPage)
+        {
+            connection.Update(reservationsPage);
+        }
+        public ReservationsPage GetReservationId(int reservationId)
+        {
+            return connection.Table<ReservationsPage>().FirstOrDefault(u => u.Id ==  reservationId);
+        }
+        public SignUp GetUserId(int userId)
+        {
+            return connection.Table<SignUp>().FirstOrDefault(u => u.Id == userId);
+        }
+    }   
 }
