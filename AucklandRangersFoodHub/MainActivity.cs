@@ -924,7 +924,7 @@ namespace AucklandRangersFoodHub
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
 
-        ImageButton BackButton; //leads back to main page.xml
+        Button BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
         Button ButtonPlus;
         Button ButtonMinus;
@@ -962,8 +962,8 @@ namespace AucklandRangersFoodHub
             ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
             ButtonViewDescription.Click += OnButtonViewDescription;
 
-           // BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
-           // BackButton.Click += OnBackButtonClicked;
+            //BackButton = FindViewById<Button>(Resource.Id.BackButton);
+            //BackButton.Click += OnBackButtonClicked;
         }
         void OnBackButtonClicked(object sender, EventArgs e)
         {
@@ -1069,7 +1069,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonViewDescription(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(FoodDescriptionActivity));
+            Intent intent = new Intent(this, typeof(FoodDecriptionActivity));
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1209,7 +1209,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Burger description activity")]
     public class BurgerDescriptionActivity : Activity
     {
-        ImageButton BackButton;
+        //ImageButton BackButton;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -1231,11 +1231,8 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
-            BackButton.Click += OnBackButtonClicked;
-
-
-
+            //BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+           // BackButton.Click += OnBackButtonClicked;
         }
         void OnBackButtonClicked(object sender, EventArgs e)
         {
@@ -1289,8 +1286,8 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
-            BackButton.Click += OnBackButtonClicked;
+            //BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            //BackButton.Click += OnBackButtonClicked;
         }
         void OnBackButtonClicked(object sender, EventArgs e)
         {
@@ -1321,7 +1318,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Dual Feast activity")]
     public class FoodDecriptionActivity : Activity
     {
-        ImageButton BackButton;
+        //ImageButton BackButton;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -1343,8 +1340,8 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
-            BackButton.Click += OnBackButtonClicked;
+            //BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
+            //BackButton.Click += OnBackButtonClicked;
         }
         void OnBackButtonClicked(object sender, EventArgs e)
         {
