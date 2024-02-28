@@ -41,7 +41,7 @@
         android:layout_y="20dp"
         android:background="@android:color/white"
         android:scaleType="fitCenter"
-        android:id="@+id/arrowicon" 
+        android:id="@+id/BackButton" 
         android:src="@drawable/backbutton"/>
 
 
