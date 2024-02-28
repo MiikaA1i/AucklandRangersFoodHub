@@ -1,52 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-
+<?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
+    
+    <!--Top Of page-->
 
-<!--Top Of page-->
-
-         <!--Restruants top logo-->
+      <!--Restruants top logo-->
     <TextView 
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="95dp"
-        android:textSize="25dp"
-        android:layout_y="15dp"
-        android:textStyle="bold"
+        android:layout_x="80dp"
+        android:textSize="30dp"
+        android:layout_y="10dp"
         android:textColor="@android:color/black"
         android:id="@+id/logo" />
-
-     <!--Back Icon button-->
-    <ImageButton
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_x="10dp"
-        android:layout_y="20dp"
-        android:background="@android:color/white"
-        android:scaleType="fitCenter"
-        android:id="@+id/arrowicon" 
-        android:src="@drawable/backbutton"/>
-
-    />
-
-<!--Middle of page-->
+    <!--Middle of page-->
     <!--Sign up text-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:text="Update"
         android:layout_y="100dp"
         android:layout_x="130dp"
         android:textColor="@android:color/black"
         android:textSize="30dp"/>
     <!--Username-->
     <EditText
-        android:id = "@+id/editTextUserName"
+        android:id = "@+id/UpdateTextUserName"
         android:layout_width = "150dp"
         android:layout_height = "wrap_content"
         android:inputType = "text"
@@ -58,20 +41,19 @@
         android:textColorHint="@android:color/black"/>
     <!--Password input-->
     <EditText
-        android:id = "@+id/editTextPassword"
+        android:id = "@+id/UpdateTextPassword"
         android:layout_width = "150dp"
         android:layout_height = "wrap_content"
         android:layout_x="120dp"
         android:layout_y="250dp"
         android:hint="Password"
-        android:inputType="textPassword"
         android:background="@drawable/Underline"        
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"/>
 
     <!--mobile number input-->
     <EditText
-        android:id = "@+id/editTextMobile"
+        android:id = "@+id/UpdateTextMobile"
         android:layout_width = "150dp"
         android:layout_height = "wrap_content"
         android:layout_x="120dp"
@@ -83,7 +65,7 @@
         android:background="@drawable/Underline"        />
     <!--email input-->
     <EditText
-        android:id = "@+id/editTextEmail"
+        android:id = "@+id/UpdateTextEmail"
         android:layout_width = "150dp"
         android:layout_height = "wrap_content"
         android:layout_x="120dp"
@@ -94,52 +76,38 @@
         android:background="@drawable/Underline"        
         android:textColorHint="@android:color/black"/>
 
-    <!--submit button-->
+    <!--Update button-->
     <Button
-        android:text="Sign Up"
+        android:text="Update"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_y="430dp"
         android:layout_x="115dp"
-        android:id="@+id/ButtonSubmit"
+        android:id="@+id/ButtonUserUpdate"
         android:textColor="@android:color/white"
         android:background="@android:color/black"
         />
-    <!--Already have an account text-->
+    <!--Bottom of Page-->
+
+    <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already have an account?"
-        android:textColor="@android:color/holo_blue_dark"
-        android:layout_x="110dp"
-        android:layout_y="500dp"
-        android:id="@+id/ButtonAlreadyHaveAnAccount"
-        android:background="@android:color/white"
-        style="?android:attr/borderlessButtonStyle"        />
-        
-
-<!--Bottom Of Page-->
-
-     <!--Menu button-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:text="@string/Menu_Button"
         android:layout_x="10dp"
-        android:layout_y="640dp"
-        android:textColor="@android:color/black"
+        android:layout_y="600dp"
+        android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
-        android:textSize="12dp"
+        android:textSize="15dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:text="@string/Contact_Us_Button"
         android:layout_x="105dp"
-        android:layout_y="640dp"
-        android:textSize="12dp"
+        android:layout_y="600dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
@@ -147,23 +115,21 @@
     <!--Profile button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:text="@string/Profile_Button"
         android:layout_x="200dp"
-        android:layout_y="640dp"
-        android:textColor="@android:color/white"
-        android:textSize="12dp"
-        android:background="@android:color/black"
+        android:layout_y="600dp"
+        android:textColor="#ff000000"
+        android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:text="@string/Cart_button"
         android:layout_x="295dp"
-        android:layout_y="640dp"
-        android:textSize="12dp"
+        android:layout_y="600dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"

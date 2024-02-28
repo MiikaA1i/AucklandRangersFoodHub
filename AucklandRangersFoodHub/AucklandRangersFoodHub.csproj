@@ -35,9 +35,8 @@
     <None Remove="Resources\layout\SignInPage.xml" />
     <None Remove="Resources\layout\SignUpPage.xml" />
     <None Remove="Resources\layout\TestPageDataBase.xml" />
-    <None Remove="Resources\layout\UltimateBurgerStackDesc.xml" />
-    <None Remove="Resources\layout\UltimateTowerStack.xml" />
-    <None Remove="Resources\layout\Vegeterian.xml" />
+    <None Remove="Resources\layout\UpdateReservationsLayout.xml" />
+    <None Remove="Resources\layout\UpdateUsersPage.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />

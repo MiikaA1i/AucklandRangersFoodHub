@@ -1,5 +1,6 @@
 using Android.Content;
 using Android.Graphics;
+using Android.Widget;
 using AucklandRangersFoodHub.Models;
 using AucklandRangersFoodHub.Resources.model;
 using System.Data;
@@ -43,6 +44,7 @@ namespace AucklandRangersFoodHub
             ButtonBurgers = FindViewById<ImageButton>(Resource.Id.ButtonBurgers);
             ButtonBurgers.Click += OnButtonBurgersClicked;
 
+
             TextBurger = FindViewById<TextView>(Resource.Id.TextBurger);
             TextBurger.Click += OnButtonBurgersClicked;
 
@@ -54,6 +56,7 @@ namespace AucklandRangersFoodHub
 
             btnNext = FindViewById<ImageButton>(Resource.Id.btnNext);
             btnNext.Click += OnButtonNextClick;
+            btnNext.RotationY = 180;
 
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
             NumberCheck();
@@ -73,7 +76,7 @@ namespace AucklandRangersFoodHub
             switch (number)
             {
                 case 0:
-                    ImageViewMain.SetImageResource(Resource.Drawable.sadfasdfadsf);
+                    ImageViewMain.SetImageResource(Resource.Drawable.burgerImage);
                     break;
                 case 1:
                     ImageViewMain.SetImageResource(Resource.Drawable.seafood);
@@ -469,11 +472,12 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reserve edit page")]
     public class ReserveEditActivity : Activity
     {
-        bool EditMode = false;
+        bool UpdateModeEnabled = false;
+        bool DeleteMode = false;
         List<ReservationsPage> ReservationsDetails;
         ListView ListViewReservations;
         DataManager dataManager;
-        Button ButtonMenu, ButtonEdit;
+        Button ButtonMenu, ButtonEdit, ButtonUpdate;
         Button ButtonCart;
         Button ButtonContactUs;
 
@@ -506,8 +510,20 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
+            ButtonUpdate = FindViewById<Button>(Resource.Id.reservationsUpdateButton);
+            ButtonUpdate.Click += UpdateModeOn;
+
             ListViewReservations = FindViewById<ListView>(Resource.Id.listViewReservations);
             dataManager = new DataManager();
+            Display();
+            ListViewReservations.ItemClick += ListViewReservationItemClick;
+            ListViewReservations.ItemClick += UpdateMode;
+
+            ButtonAdd = FindViewById<Button>(Resource.Id.reservationsAddButton);
+            ButtonAdd.Click += ButtonAddClick;
+        }
+        void Display()
+        {
             ReservationsDetails = dataManager.GetReservations();
             ArrayAdapter arrayAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1);
             foreach (var item in ReservationsDetails)
@@ -515,31 +531,40 @@ namespace AucklandRangersFoodHub
                 arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
             }
             ListViewReservations.Adapter = arrayAdapter;
-            ListViewReservations.ItemClick += ListViewReservationItemClick;
-
-            ButtonAdd = FindViewById<Button>(Resource.Id.reservationsAddButton);
-            ButtonAdd.Click += ButtonAddClick;
+        }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            Display();
+        }
+        void UpdateModeOn(object sender, EventArgs e)
+        {
+            Toast.MakeText(this, "Tap on a reservation to Update it", ToastLength.Long).Show();
+            UpdateModeEnabled = true;
         }
         void ButtonEditClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Tap on a reservation to remove it", ToastLength.Long).Show();
-            EditMode = true;
+            DeleteMode = true;
+            UpdateModeEnabled = false;
         }
         void ButtonBackButtonClick(object sender, EventArgs e)
         {
-            EditMode = false;
+            UpdateModeEnabled = false;
+            DeleteMode = false;
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
             StartActivity(intent);
         }
         void ButtonAddClick(object sender, EventArgs e)
         {
-            EditMode = false;
+            UpdateModeEnabled = false;
+            DeleteMode = false;
             Intent intent = new Intent(this, typeof(ReservationsAddActivity));
             StartActivity(intent);
         }
         void ListViewReservationItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            if (EditMode == true)
+            if (DeleteMode == true)
             {
                 ReservationsPage currentRow = ReservationsDetails[e.Position];
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -551,7 +576,7 @@ namespace AucklandRangersFoodHub
         }
         void CancelDelete()
         {
-            EditMode = false;
+            DeleteMode = false;
         }
         void DeleteReservation(ReservationsPage rowtoremove)
         {
@@ -563,29 +588,50 @@ namespace AucklandRangersFoodHub
                 arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
             }
             ListViewReservations.Adapter = arrayAdapter;
-            EditMode = false;
+            DeleteMode = false;
+        }
+        void UpdateMode(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (UpdateModeEnabled == true)
+            {
+
+                DeleteMode = false;
+                ReservationsPage currentRow = ReservationsDetails[e.Position];
+                UpdateReservation(currentRow);
+            }
+        }
+        void UpdateReservation(ReservationsPage reservationsPage)
+        {
+            UpdateModeEnabled = false;
+            Intent intent = new Intent(this, typeof(UpdateReservations));
+            intent.PutExtra("UserId", reservationsPage.Id);
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
-            EditMode = false;
+            UpdateModeEnabled = false;
+            DeleteMode = false;
             Intent intent = new Intent(this, typeof(CartActivity));
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
-            EditMode = false;
+            UpdateModeEnabled = false;
+            DeleteMode = false;
             Intent intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
-            EditMode = false;
+            UpdateModeEnabled = false;
+            DeleteMode = false;
             Intent intent = new Intent(this, typeof(ContactUsActivity));
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
-            EditMode = false;
+            UpdateModeEnabled = false;
+            DeleteMode = false;
             Intent intent = new Intent(this, typeof(ProfileActivity));
             StartActivity(intent);
         }
@@ -967,6 +1013,53 @@ namespace AucklandRangersFoodHub
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
             StartActivity(intent);
+        }
+    }
+    [Activity(Label = "Update Users")]
+    public class UpdateUsersActivity : Activity
+    {
+        Button ButtonUpdate;
+        EditText EditTextUser, EditTextPassword, EditTextMobile, EditTextEmail;
+        private int UserId;
+        DataManager dataManager;    
+        protected override void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.UpdateUsersPage);
+            ButtonUpdate = FindViewById<Button>(Resource.Id.ButtonUserUpdate);
+            ButtonUpdate.Click += ButtonUpdateClick;
+            EditTextUser = FindViewById<EditText>(Resource.Id.UpdateTextUserName);
+            EditTextPassword = FindViewById<EditText>(Resource.Id.UpdateTextPassword);
+            EditTextMobile = FindViewById<EditText>(Resource.Id.UpdateTextMobile);
+            EditTextEmail = FindViewById<EditText>(Resource.Id.UpdateTextEmail);
+            dataManager = new DataManager();
+            UserId = Intent.GetIntExtra("UserId", 0);
+            SignUp signUp = dataManager.GetUserId(UserId);
+            if (signUp != null)
+            {
+                EditTextUser.Text = signUp.UserName;
+                EditTextPassword.Text = signUp.Password;
+                EditTextMobile.Text = signUp.Mobile;
+                EditTextEmail.Text = signUp.Email;
+            }
+            else
+            {
+                Toast.MakeText(this, "Persons Data Not Found", ToastLength.Long).Show();
+            }
+        }
+        void ButtonUpdateClick(object sender, EventArgs e)
+        {
+            SignUp update = new SignUp()
+            {
+                Id = UserId,
+                UserName = EditTextUser.Text,
+                Password = EditTextPassword.Text,
+                Email = EditTextEmail.Text,
+                Mobile = EditTextMobile.Text
+            };
+            dataManager.UpdateUser(update);
+            Toast.MakeText(this, "Changes have been made", ToastLength.Long).Show();
+            Finish();
         }
     }
 }
