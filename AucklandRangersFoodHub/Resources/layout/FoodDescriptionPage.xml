@@ -14,11 +14,12 @@
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
+        android:layout_x="95dp"
+        android:textSize="25dp"
+        android:layout_y="15dp"
+        android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:layout_x="80dp"
-        android:textSize="30dp"
-        android:layout_y="10dp"
-        />
+        android:id="@+id/logo" />
 
     />
       <!--Profile Icon button-->
@@ -44,20 +45,26 @@
         android:src="@drawable/backbutton"/>
 
  <!--Middle Of Page-->
+
+    <!--Dish Name text-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:text="Dish name"
+        android:text="Dual Feast"
         android:layout_y="100dp"
-        android:layout_x="120dp"
-        android:textSize="25dp"/>
+        android:layout_x="140dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"/>
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="190dp"
+        android:layout_height="180dp"
         android:background="#ffe0e0e0"
-        android:layout_x="125dp"
+        android:layout_x="100dp"
         android:layout_y="150dp"
+        android:src="@drawable/burger3"
+        android:scaleType="fitXY"
         />
     <!--Dish ingredients text-->
     <TextView
@@ -65,47 +72,73 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_x="150dp"
-        android:layout_y="320dp"
+        android:layout_y="350dp"
+        android:textStyle="bold"
         android:textColor="@android:color/black"
         />
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_x="0dp"
+        android:layout_y="368dp"
+        android:textSize="13dp"
+        android:text=" 1 cup salad, 1 tbs mayonise, 1 tbs tamato,1 cooked beef slice, 1 burger bun, 1 tsp mixed herbs , 1 cheddar slice"
+        android:textColor="@android:color/black" />
+
+
+        
     <!--Dish recipe text-->
      <TextView
         android:text="Dish Recipe: "
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_x="160dp"
-        android:layout_y="380dp"
+        android:layout_y="410dp"
+        android:textStyle="bold"
         android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_x="0dp"
+        android:layout_y="420dp"
+
+        android:textColor="@android:color/black"/>
+
         <!--Nutritional value text-->
      <TextView
         android:text="Dish Nutritional Value: "
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_x="130dp"
-        android:layout_y="450dp"
+        android:layout_y="490dp"
+        android:textStyle="bold"
         android:textColor="@android:color/black"/>
 
  <!--Bottom Of Page-->
 
-    <!--Menu button-->
+
+     <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Menu_Button"
         android:layout_x="10dp"
-        android:layout_y="600dp"
-        android:textColor="#ff000000"
-        android:background="@drawable/roundbutton"
+        android:layout_y="640dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
         style="?android:attr/borderlessButtonStyle"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Contact_Us_Button"
         android:layout_x="105dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
@@ -113,24 +146,26 @@
     <!--Profile button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Profile_Button"
         android:layout_x="200dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
         android:textColor="#ff000000"
+        android:textSize="12dp"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Cart_button"
         android:layout_x="295dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
-        style="?android:attr/borderlessButtonStyle"        
+        style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 
 
