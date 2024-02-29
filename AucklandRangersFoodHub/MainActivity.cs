@@ -78,7 +78,7 @@ namespace AucklandRangersFoodHub
             //imageSwitcher = FindViewById<ImageSwitcher>(Resource.Id.btn_switch);
             NumberCheck();
 
-            
+
         }
         void OnButtonVegeterianClick(object sender, EventArgs e)
         {
@@ -351,8 +351,8 @@ namespace AucklandRangersFoodHub
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
-            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
-            ButtonProfileIcon.Click += OnButtonProfileClicked;
+            ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
+            ButtonProfileIcon.Click += OnButtonProfileIconClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -372,7 +372,7 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(ContactUsActivity));
             StartActivity(intent);
         }
-        void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
+        void OnButtonProfileIconClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
             StartActivity(intent);
@@ -1069,7 +1069,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonViewDescription(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(FoodDecriptionActivity));
+            Intent intent = new Intent(this, typeof(FoodDescriptionActivity));
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1232,7 +1232,7 @@ namespace AucklandRangersFoodHub
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
             //BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
-           // BackButton.Click += OnBackButtonClicked;
+            // BackButton.Click += OnBackButtonClicked;
         }
         void OnBackButtonClicked(object sender, EventArgs e)
         {
@@ -1272,7 +1272,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.BurgersDescriptionPage);
+            SetContentView(Resource.Layout.UltimateBurgerStackDesc);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -1326,7 +1326,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.BurgersDescriptionPage);
+            SetContentView(Resource.Layout.FoodDescriptionPage);
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -1375,7 +1375,7 @@ namespace AucklandRangersFoodHub
         Button ButtonUpdate;
         EditText EditTextUser, EditTextPassword, EditTextMobile, EditTextEmail;
         private int UserId;
-        DataManager dataManager;    
+        DataManager dataManager;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -1426,8 +1426,8 @@ namespace AucklandRangersFoodHub
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
 
-        ImageButton  ImageButtonBackButton;
-        Button  ButtonMenu, ButtonCart, ButtonContactUs, ButtonProfile, ButtonMinus,ButtonPlus,ButtonViewDescription;
+        ImageButton ImageButtonBackButton;
+        Button ButtonMenu, ButtonCart, ButtonContactUs, ButtonProfile, ButtonMinus, ButtonPlus, ButtonViewDescription;
         ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle savedInstanceState)
         {
