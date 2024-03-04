@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,21 +7,22 @@
     android:background="@android:color/white"
     android:layout_height="match_parent">
 
-<!--Top Of page-->
+    <!--Top Of page-->
 
-      <!--Restruants top logo-->
-    <TextView 
+    <!--Restruants top logo-->
+    <TextView
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="80dp"
-        android:textSize="30dp"
-        android:layout_y="10dp"
-        android:id="@id/logo"
-        android:textColor="@android:color/black"/>
+        android:layout_x="95dp"
+        android:textSize="25dp"
+        android:layout_y="15dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:id="@+id/logo" />
 
     />
-      <!--Profile Icon button-->
+    <!--Profile Icon button-->
     <ImageButton
         android:background="@android:color/white"
         android:layout_width="30dp"
@@ -31,7 +33,7 @@
         android:src="@drawable/profileicon"
         android:id="@+id/ButtonProfileIcon" />
 
-     <!--Back Icon button-->
+    <!--Back Icon button-->
     <ImageButton
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -39,78 +41,55 @@
         android:layout_y="20dp"
         android:background="@android:color/white"
         android:scaleType="fitCenter"
-        android:id="@+id/arrowicon" 
+        android:id="@+id/arrowicon"
         android:src="@drawable/backbutton"/>
 
-<!--Middle Of Page-->
-    <TextView 
-        android:text="Checkout"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:layout_x="80dp"
-        android:textSize="30dp"
-        android:layout_y="100dp"
-        android:id="@+id/textView1"
-        android:textColor="@android:color/black"/>
+    <!--Middle Of Page-->
 
-    <TextView 
-        android:text="Total Price:"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:layout_x="10dp"
-        android:textSize="20dp"
-        android:layout_y="150dp"
-        android:id="@+id/textView2"
-        android:textColor="@android:color/black"/>
-
-    <ListView
-        android:layout_width="340dp"
-        android:layout_height="90dp"
-        android:layout_x="20dp"
-        android:layout_y="190dp"
-        android:background="#ffe0e0e0"
-        android:id="@+id/CartItemListView"/>
     <!--Credit card button-->
     <Button
         android:text="Credit Card"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_y="430dp"
+        android:layout_y="250dp"
         android:layout_x="115dp"
         android:textColor="@android:color/white"
         android:background="@android:color/black"/>
-    <!--Cash button-->
+
     <Button
         android:text="Cash"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_y="510dp"
+        android:layout_y="350dp"
         android:layout_x="115dp"
         android:background="@android:color/black"
         android:textColor="@android:color/white"/>
+    
+    
+
+    <!--Bottom Of Page-->
 
 
- <!--Bottom Of Page-->
-
-     <!--Menu button-->
+    <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Menu_Button"
         android:layout_x="10dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Contact_Us_Button"
         android:layout_x="105dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
@@ -118,21 +97,23 @@
     <!--Profile button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Profile_Button"
         android:layout_x="200dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
         android:textColor="#ff000000"
+        android:textSize="12dp"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Cart_button"
         android:layout_x="295dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
