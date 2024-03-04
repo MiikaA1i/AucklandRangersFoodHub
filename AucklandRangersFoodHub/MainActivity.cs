@@ -21,7 +21,7 @@ namespace AucklandRangersFoodHub
         ImageView ImageViewMain;
         TextView recom1;
         ImageButton seafood;
-        ImageButton vegeterian;
+        ImageButton Vegeterian;
         ImageButton krabbypattyicon;
         ImageButton dualfeasticon;
         ImageButton USTicon;
@@ -30,8 +30,10 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
-            ButtonVegeterianPage = FindViewById<ImageButton>(Resource.Id.vegeterian);
-            ButtonVegeterianPage.Click += OnButtonVegeterianClick;
+
+            Vegeterian = FindViewById<ImageButton>(Resource.Id.vegeterian);
+            Vegeterian.Click += OnButtonVegeterianClick;
+
             seafood = FindViewById<ImageButton>(Resource.Id.seafood);
             seafood.Click += OnseafoodClicked;
 
@@ -82,8 +84,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonVegeterianClick(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(VegeterianActivity));
-            StartActivity(intent);
+            Toast.MakeText(this, "Vegeterian catergory is still undergoing updates!.", ToastLength.Short).Show();
         }
         void NumberCheck()
         {
@@ -126,8 +127,7 @@ namespace AucklandRangersFoodHub
 
         void OnseafoodClicked(object sender, EventArgs e) //pop up text for seafood page
         {
-            Intent intent = new Intent(this, typeof(SeafoodActivity));
-            StartActivity(intent);
+            Toast.MakeText(this, "Seafood category is still undergoing updates!.", ToastLength.Short).Show();
         }
 
 
