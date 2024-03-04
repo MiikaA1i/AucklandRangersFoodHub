@@ -6,7 +6,7 @@ using AucklandRangersFoodHub.Resources.model;
 using System.Data;
 namespace AucklandRangersFoodHub
 {
-    [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = true)]
+    [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
     public class MainActivity : Activity
     {
         int number = 0;
@@ -764,62 +764,53 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
-    [Activity(Label = "Sign in page")]
+    [Activity(Label = "Sign in page", MainLauncher = true)]
     public class SignInActivity : Activity
     {
-        Button? ButtonSignUp, ButtonMenu, ButtonCart, ButtonContactUs, ButtonSignIn;
+        EditText Password, UserName;
+        Button? ButtonSignUp, ButtonSignIn;
+        DataManager dataManager;
         //ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.SignInPage);
-
-            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
-            ButtonMenu.Click += OnButtonMenuClicked;
-
-            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
-            ButtonCart.Click += OnButtonCartClicked;
-
-            /*ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
-            ButtonProfileIcon.Click += OnButtonProfileClicked;*/
-
-            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
-            ButtonContactUs.Click += OnButtonContactUsClicked;
-
+            Password = FindViewById<EditText>(Resource.Id.Password);
+            UserName = FindViewById<EditText>(Resource.Id.userName);
             ButtonSignUp = FindViewById<Button>(Resource.Id.ButtonSignUp);
             ButtonSignUp.Click += OnButtonSignUpClicked;
 
             ButtonSignIn = FindViewById<Button>(Resource.Id.ButtonSignIn);
             ButtonSignIn.Click += OnButtonSignInClicked;
+            dataManager = new DataManager();
         }
         void OnButtonSignInClicked(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(MainActivity));
-            StartActivity(intent);
+            string username = UserName.Text;
+            string password = Password.Text;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                Toast.MakeText(this, "You must fill out all the fields", ToastLength.Long).Show();
+                return;
+            }
+            else
+            {
+                SignUp user = dataManager.GetUserName(username);
+                if(user != null && user.Password == password)
+                {
+                    Intent intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
+                }
+                else
+                {
+                    Toast.MakeText(this, "Incorrect username or password", ToastLength.Long).Show();
+                }
+            }
         }
         void OnButtonSignUpClicked(object send, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(SignUpActivity));
-            StartActivity(intent);
-        }
-        void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
-        {
-            Intent intent = new Intent(this, typeof(CartActivity));
-            StartActivity(intent);
-        }
-        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
-        {
-            Intent intent = new Intent(this, typeof(MainActivity));
-            StartActivity(intent);
-        }
-        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
-        {
-            Intent intent = new Intent(this, typeof(ContactUsActivity));
-            StartActivity(intent);
-        }
-        void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
-        {
-            Intent intent = new Intent(this, typeof(ProfileActivity));
             StartActivity(intent);
         }
     }

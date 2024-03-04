@@ -69,5 +69,9 @@ namespace AucklandRangersFoodHub
         {
             return connection.Table<SignUp>().FirstOrDefault(u => u.Id == userId);
         }
+        public SignUp GetUserName(string username)
+        {
+            return connection.Table<SignUp>().FirstOrDefault(d => d.UserName == username);
+        }
     }   
 }
