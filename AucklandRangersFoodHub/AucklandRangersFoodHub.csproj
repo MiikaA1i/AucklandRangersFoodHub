@@ -37,6 +37,7 @@
     <None Remove="Resources\layout\ReserveEditPage.xml" />
     <None Remove="Resources\layout\reviewPopup.xml" />
     <None Remove="Resources\layout\Seafood.xml" />
+    <None Remove="Resources\layout\SearchPage.xml" />
     <None Remove="Resources\layout\SignInPage.xml" />
     <None Remove="Resources\layout\SignUpPage.xml" />
     <None Remove="Resources\layout\TestPageDataBase.xml" />
@@ -44,6 +45,7 @@
     <None Remove="Resources\layout\UpdateUsersPage.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.8" />
   </ItemGroup>

@@ -2,35 +2,48 @@ using Android.Content;
 using Android.Graphics;
 using Android.Widget;
 using AucklandRangersFoodHub.Models;
+using Newtonsoft.Json;
 using AucklandRangersFoodHub.Resources.model;
 using System.Data;
+using System.Text.Json.Nodes;
+using System.Text;
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
     public class MainActivity : Activity
     {
+
+        EditText EditTextSearchBar;
         int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
-        ImageButton ButtonBurgers;
-        Button ButtonMenu;
-        Button ButtonCart;
-        Button ButtonContactUs;
-        Button ButtonProfile;
-        ImageButton btnPrev, btnNext, ButtonVegeterianPage;
+        Button ButtonMenu, ButtonCart, ButtonContactUs,ButtonProfile,ButtonSearch;
+        ImageButton btnPrev, btnNext, ButtonVegeterianPage,ButtonBurgers;
         ImageView ImageViewMain;
         TextView recom1;
-        ImageButton seafood;
-        ImageButton Vegeterian;
-        ImageButton krabbypattyicon;
-        ImageButton dualfeasticon;
-        ImageButton USTicon;
+        ImageButton seafood,Vegeterian,krabbypattyicon,dualfeasticon,USTicon;
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+            ButtonSearch = FindViewById<Button>(Resource.Id.searchButton);
+            ButtonSearch.Click += async (sender, e) =>
+            {
+                string searchData = EditTextSearchBar.Text;
+                if (string.IsNullOrEmpty(searchData))
+                {
+                    Toast.MakeText(this, "You need to enter something first", ToastLength.Long).Show();
+                }
+                else
+                {
+                    Intent intent = new Intent(this, typeof(SearchActivity));
+                    intent.PutExtra("searchData", searchData);
+                    StartActivity(intent);
+                }
+            };
 
+            EditTextSearchBar = FindViewById<EditText>(Resource.Id.SearchBar);
 
             Vegeterian = FindViewById<ImageButton>(Resource.Id.vegeterian);
             Vegeterian.Click += OnButtonVegeterianClick;
@@ -83,6 +96,7 @@ namespace AucklandRangersFoodHub
 
 
         }
+        
         void OnButtonVegeterianClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Vegeterian catergory is still undergoing updates!", ToastLength.Short).Show();
@@ -498,6 +512,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
+        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
         Button ButtonViewReservation;
@@ -511,6 +526,11 @@ namespace AucklandRangersFoodHub
 
             SetContentView(Resource.Layout.ProfilePage);
 
+            EditTextUserName = FindViewById<EditText>(Resource.Id.username);
+            EditTextPassword = FindViewById<EditText>(Resource.Id.password);
+            EditTextId = FindViewById<EditText>(Resource.Id.id);
+            EditTextMobile = FindViewById<EditText>(Resource.Id.mobile);
+            EditTextEmail = FindViewById<EditText>(Resource.Id.email);
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -1716,5 +1736,65 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
             StartActivity(intent);
         }
+    }
+    [Activity(Label = "searchpage")]
+    public class SearchActivity : Activity
+    {
+        TextView TextViewDisplay;
+        private const string ApiKey = "2250c37f83084e18ae9707ea15352a30";
+        private const string ApiUrl = "https://api.spoonacular.com/recipes/complexSearch";
+        protected override async void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.SearchPage);
+            TextViewDisplay = FindViewById<TextView>(Resource.Id.textViewdisplay);
+            string searchData = Intent.GetStringExtra("searchData");
+            string searchQuery = $"{ApiUrl}?apiKey={ApiKey}&query={searchData}";
+            TextViewDisplay.Text = await SearchRecipes(searchQuery);
+        }
+        private async Task<string> SearchRecipes(string api)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage httpResponseMessage = await client.GetAsync(api);
+                try
+                {
+                    if (httpResponseMessage.IsSuccessStatusCode)
+                    {
+                        string content = await httpResponseMessage.Content.ReadAsStringAsync();
+                        var recipes = JsonConvert.DeserializeObject<Root>(content);
+                        StringBuilder stringBuilder = new StringBuilder();
+                        foreach (var recipe in recipes.results)
+                        {
+                            stringBuilder.AppendLine($"Recipe Id : {recipe.id} \n Recipe Name : {recipe.title}\n");
+                        }
+                        return stringBuilder.ToString();
+                    }
+                    else
+                    {
+                        return $"Error:{httpResponseMessage.StatusCode} - {httpResponseMessage.ReasonPhrase}";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return $"Error:{ex.Message}";
+                }
+            }
+        }
+    }
+    public class Result
+    {
+        public int id { get; set; }
+        public string title { get; set; }
+        public string image { get; set; }
+        public string imageType { get; set; }
+    }
+
+    public class Root
+    {
+        public List<Result> results { get; set; }
+        public int offset { get; set; }
+        public int number { get; set; }
+        public int totalResults { get; set; }
     }
 }
