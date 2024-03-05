@@ -184,6 +184,9 @@ namespace AucklandRangersFoodHub
 
             SetContentView(Resource.Layout.CartPage);
 
+            int itemCount = Intent.GetIntExtra("ItemCount", 0);
+            double totalPrice = Intent.GetDoubleExtra("TotalPrice", 0.0);
+            
 
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
@@ -284,11 +287,14 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         Button ButtonProfile;
+        
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.FoodPage);
 
+            
+            
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -307,6 +313,12 @@ namespace AucklandRangersFoodHub
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
         }
+
+        void OnAddtoCartClicked(object sender, EventArgs e) // Adds items into cart
+        {
+
+        }
+
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
@@ -987,7 +999,15 @@ namespace AucklandRangersFoodHub
             Count++;
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
-            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+
+            double TotalPriceGST = TotalPrice * 1.15 ;
+
+            TextViewTotalPrice.Text = "Total price: " + TotalPriceGST.ToString();
+
+            Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("TotalPrice", TotalPrice);
+           
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
@@ -1473,6 +1493,12 @@ namespace AucklandRangersFoodHub
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
             TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+
+            Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("TotalPrice", TotalPrice);
+            StartActivity(intent);
+
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
@@ -1543,15 +1569,25 @@ namespace AucklandRangersFoodHub
         {
             Count--;
             TextViewQuantity.Text = "Qty: " + Count.ToString();
-            TotalPrice = Count * Price;
-            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+            double TotalPrice = Count * Price;
+            double TotalPriceGST = TotalPrice * 3 / 23;
+            TextViewTotalPrice.Text = "Total price (inc GST): " + TotalPriceGST.ToString();
         }
         void OnButtonPlusClicked(object sender, EventArgs e)
         {
             Count++;
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
-            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+
+            double TotalPriceGST = TotalPrice * 1.15;
+
+            TextViewTotalPrice.Text = "Total price (GST inc): " + TotalPriceGST.ToString();
+
+            Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("TotalPrice", TotalPrice);
+            StartActivity(intent);
+
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {

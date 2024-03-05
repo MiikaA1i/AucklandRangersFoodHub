@@ -70,18 +70,10 @@
         android:layout_y="190dp"
         android:background="#ffe0e0e0"
         android:id="@+id/CartItemListView"/>
-    <!--Credit card button-->
+   
+    <!--Proceed to payment-->
     <Button
-        android:text="Credit Card"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:layout_y="430dp"
-        android:layout_x="115dp"
-        android:textColor="@android:color/white"
-        android:background="@android:color/black"/>
-    <!--Cash button-->
-    <Button
-        android:text="Cash"
+        android:text="Proceed to Payment"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_y="510dp"

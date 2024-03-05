@@ -150,7 +150,7 @@
         android:layout_height="50dp"
         android:layout_x="130dp"
         android:layout_y="520dp"
-        android:id="@+id/addtocart"
+        android:id="@+id/AddtoCart"
         android:textColor="@android:color/white"
         android:background="@android:color/black"/>
 

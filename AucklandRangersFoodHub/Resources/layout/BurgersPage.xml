@@ -61,7 +61,7 @@
         android:fontFamily="sans-serif-condensed"/>
     <!--Price Text-->
     <TextView
-        android:text="Price: $10"
+        android:text="Price: $15"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_x="220dp"
