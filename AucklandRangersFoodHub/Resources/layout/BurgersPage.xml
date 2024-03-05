@@ -58,7 +58,7 @@
         android:layout_x="30dp"
         android:layout_y="150dp"
         android:textStyle="bold"
-        android:id="@+id/KrabbyPattyDish"
+        android:id="@+id/DishNameText"
         android:fontFamily="sans-serif-condensed"/>
     <!--Price Text-->
     <TextView

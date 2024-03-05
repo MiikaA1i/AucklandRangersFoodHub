@@ -76,8 +76,8 @@
      <!--right Back Icon button-->
     <ImageButton
         
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_x="330dp"
         android:layout_y="200dp"
         android:id="@+id/btnNext"
@@ -87,8 +87,8 @@
 
      <!--left Back Icon button-->
     <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_x="30dp"
         android:layout_y="200dp"
         android:id="@+id/btnPrev"
