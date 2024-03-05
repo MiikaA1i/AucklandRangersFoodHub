@@ -25,6 +25,7 @@
     <None Remove="Resources\drawable\Underline.xml" />
     <None Remove="Resources\layout\BurgersDescriptionPage.xml" />
     <None Remove="Resources\layout\BurgersPage.xml" />
+    <None Remove="Resources\layout\CardDetailsPopup.xml" />
     <None Remove="Resources\layout\CartPage.xml" />
     <None Remove="Resources\layout\ContactUsPage.xml" />
     <None Remove="Resources\layout\DoubleBurger.xml" />

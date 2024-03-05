@@ -65,6 +65,7 @@
         android:layout_height="70dp"
         android:layout_y="250dp"
         android:layout_x="115dp"
+        android:id="@+id/cardPayment"
         android:textColor="@android:color/white"
         android:background="@android:color/black"/>
 
@@ -74,6 +75,7 @@
         android:layout_height="70dp"
         android:layout_y="350dp"
         android:layout_x="115dp"
+        android:id="@+id/cashPayment"
         android:background="@android:color/black"
         android:textColor="@android:color/white"/>
     

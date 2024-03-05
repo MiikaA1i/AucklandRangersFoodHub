@@ -31,6 +31,7 @@ namespace AucklandRangersFoodHub
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
+
             Vegeterian = FindViewById<ImageButton>(Resource.Id.vegeterian);
             Vegeterian.Click += OnButtonVegeterianClick;
 
@@ -178,16 +179,28 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonProfile;
         Button ButtonContactUs;
+        TextView itemCountTextView;
+        TextView totalPriceTextView;
+        Button ProceedButton;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.CartPage);
 
-            int itemCount = Intent.GetIntExtra("ItemCount", 0);
-            double totalPrice = Intent.GetDoubleExtra("TotalPrice", 0.0);
-            
 
+            itemCountTextView = FindViewById<TextView>(Resource.Id.itemCountTextView);
+            totalPriceTextView = FindViewById<TextView>(Resource.Id.totalPriceTextView);
+
+
+            int itemCount = Intent.GetIntExtra("ItemCount", 0);
+            double totalPrice = Intent.GetDoubleExtra("TotalPrice", 0);
+
+           
+            itemCountTextView.Text = "Qty: " + itemCount.ToString();
+            totalPriceTextView.Text = "Total price: " + totalPrice.ToString();
+
+           // Android.Util.Log.Debug("CartActivity", $"Received ItemCount: {itemCount}, TotalPrice: {totalPrice}");
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -203,10 +216,20 @@ namespace AucklandRangersFoodHub
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ProceedButton = FindViewById<Button>(Resource.Id.ProceedButton);
+            ProceedButton.Click += OnProceedButtonClicked;
+        }
+        void OnProceedButtonClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(PaymentActivity));
+
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
@@ -278,11 +301,12 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
-    [Activity(Label = "Food page")]
-    public class FoodActivity : Activity
+    [Activity(Label = "Payment page")]
+    public class PaymentActivity : Activity
     {
         ImageButton ButtonProfileIcon;
-        Button ButtonViewDescription; //Goes to FoodDescription
+        Button cardPayment;
+        Button cashPayment;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -291,10 +315,14 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.FoodPage);
+            SetContentView(Resource.Layout.Payment);
 
-            
-            
+            cardPayment = FindViewById<Button>(Resource.Id.cardPayment);
+            cardPayment.Click += OncardPaymentClicked;
+
+            cashPayment = FindViewById<Button>(Resource.Id.cashPayment);
+            cashPayment.Click += OncashPaymentClicked;
+
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -307,11 +335,50 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
-            ButtonViewDescription.Click += OnButtonViewDescriptionClicked;
-
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+        }
+
+        void OncardPaymentClicked(object sender, EventArgs e)
+        {
+            var dialogView = LayoutInflater.Inflate(Resource.Layout.CardDetailsPopup, null);
+
+            EditText cardNumberEditText = dialogView.FindViewById<EditText>(Resource.Id.cardNumberEditText);
+            EditText expiryDateEditText = dialogView.FindViewById<EditText>(Resource.Id.expiryDateEditText);
+            EditText cvvEditText = dialogView.FindViewById<EditText>(Resource.Id.cvvEditText);
+            Button submitButton = dialogView.FindViewById<Button>(Resource.Id.submitButton);
+
+            var dialog = new Dialog(this);
+            dialog.SetContentView(dialogView);
+
+            submitButton.Click += (dialogSender, dialogArgs) =>
+            {
+                // Retrieve card details from the dialog
+                string cardNumber = cardNumberEditText.Text;
+                string expiryDate = expiryDateEditText.Text;
+                string cvv = cvvEditText.Text;            
+                dialog.Dismiss();
+
+                Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+                StartActivity(intent);
+
+                Toast.MakeText(this, "Payment Succesful. ", ToastLength.Short).Show();
+
+            };
+
+            // Show the dialog
+            dialog.Show();
+
+            
+
+           
+        }
+
+        void OncashPaymentClicked(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+            StartActivity(intent);
+            Toast.MakeText(this, "Payment will be recived at the restraunts counter. ", ToastLength.Short).Show();
         }
 
         void OnAddtoCartClicked(object sender, EventArgs e) // Adds items into cart
@@ -345,6 +412,7 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
+
     [Activity(Label = "Food description page")]
     public class FoodDescriptionActivity : Activity
     {
@@ -926,7 +994,7 @@ namespace AucklandRangersFoodHub
 
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
-
+        Button AddtoCart;
         Button BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
         Button ButtonPlus;
@@ -939,6 +1007,9 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.BurgersPage);
+
+            AddtoCart = FindViewById<Button>(Resource.Id.AddtoCart);
+            AddtoCart.Click += OnAddtoCartClicked;
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -995,14 +1066,20 @@ namespace AucklandRangersFoodHub
 
             TextViewTotalPrice.Text = "Total price: " + TotalPriceGST.ToString();
 
+        }
+        void OnAddtoCartClicked(object sender, EventArgs e)
+        {
+
             Intent intent = new Intent(this, typeof(CartActivity));
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPrice);
-           
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("TotalPrice", TotalPrice);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
