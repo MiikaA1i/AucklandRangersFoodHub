@@ -499,7 +499,7 @@ namespace AucklandRangersFoodHub
     public class ProfileActivity : Activity
     {
         Button ButtonDeleteAccount;
-        Button ButtonSignOut;
+        ImageButton ButtonSignOut;
         Button ButtonViewReservation;
         Button ButtonMenu;
         Button ButtonCart;
@@ -526,7 +526,7 @@ namespace AucklandRangersFoodHub
             ButtonViewReservation = FindViewById<Button>(Resource.Id.ButtonViewReservation);
             ButtonViewReservation.Click += OnButtonViewReservationClicked;
 
-            ButtonSignOut = FindViewById<Button>(Resource.Id.ButtonSignOut);
+            ButtonSignOut = FindViewById<ImageButton>(Resource.Id.ButtonSignOut);
             ButtonSignOut.Click += OnButtonSignOutClicked;
 
             ButtonDeleteAccount = FindViewById<Button>(Resource.Id.ButtonDeleteAccount);
@@ -1030,7 +1030,7 @@ namespace AucklandRangersFoodHub
         double TotalPriceGST;
 
         TextView TextViewQuantity;
-        TextView TextViewTotalPrice;
+        TextView totalPriceTextView;
         Button AddtoCart;
         Button BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
@@ -1068,7 +1068,7 @@ namespace AucklandRangersFoodHub
 
             TextViewQuantity = FindViewById<TextView>(Resource.Id.TextViewQuantity);
 
-            TextViewTotalPrice = FindViewById<TextView>(Resource.Id.TextViewTotalPrice);
+            totalPriceTextView = FindViewById<TextView>(Resource.Id.totalPriceTextView);
 
             ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
             ButtonViewDescription.Click += OnButtonViewDescription;
@@ -1091,7 +1091,7 @@ namespace AucklandRangersFoodHub
             Count--;
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
-            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+            totalPriceTextView.Text = "Total price: " + TotalPrice.ToString();
         }
         void OnButtonPlusClicked(object sender, EventArgs e)
         {
@@ -1101,7 +1101,7 @@ namespace AucklandRangersFoodHub
 
             TotalPriceGST = TotalPrice;
 
-            TextViewTotalPrice.Text = "Total price: " + TotalPriceGST.ToString();
+            totalPriceTextView.Text = "Total price: " + TotalPriceGST.ToString();
 
         }
         void OnAddtoCartClicked(object sender, EventArgs e)

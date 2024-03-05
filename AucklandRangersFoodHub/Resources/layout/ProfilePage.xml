@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,7 @@
     android:layout_height="match_parent">
 
     <!--Auckland rangers text-->
-       <TextView 
+    <TextView
         android:text="Auckland Rangers"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
@@ -26,27 +27,47 @@
         android:layout_y="20dp"
         android:background="@android:color/white"
         android:scaleType="fitCenter"
-        android:id="@+id/arrowicon" 
+        android:id="@+id/arrowicon"
         android:src="@drawable/backbutton"/>
 
-<!--Middle of page-->
+    <!--Sign out button-->
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_x="340dp"
+        android:layout_y="15dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:src="@drawable/signoutimg"
+        android:scaleType="fitCenter"
+        android:id="@+id/ButtonSignOut"/>
+    <!--Sign out text-->
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_x="328dp"
+        android:layout_y="40dp"
+        android:text="Sign Out"
+        android:textColor="@android:color/black"/>
+
+    <!--Middle of page-->
 
     <!--Profile image-->
     <ImageView
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_x="150dp"
-    android:layout_y="100dp"
-    android:src="@drawable/sadfasdfadsf"
-    android:background="@android:color/white"
-    android:scaleType="centerCrop" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_x="150dp"
+        android:layout_y="90dp"
+        android:src="@drawable/sadfasdfadsf"
+        android:background="@android:color/white"
+        android:scaleType="centerCrop" />
 
     <!--Username-->
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="220dp"
+        android:layout_y="210dp"
         android:hint="Username"
         android:textColor="#ff000000"
         android:background="@drawable/Underline"
@@ -59,7 +80,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="260dp"
+        android:layout_y="250dp"
         android:hint="Password"
         android:textColor="#ff000000"
         android:background="@drawable/Underline"
@@ -70,7 +91,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="300dp"
+        android:layout_y="290dp"
         android:hint="Id"
         android:textColor="#ff000000"
         android:background="@drawable/Underline"
@@ -81,7 +102,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="340dp"
+        android:layout_y="330dp"
         android:hint="Mobile number"
         android:textColor="#ff000000"
         android:background="@drawable/Underline"
@@ -92,56 +113,15 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="380dp"
+        android:layout_y="370dp"
         android:hint="Email"
         android:textColor="#ff000000"
-         android:background="@drawable/Underline"
+        android:background="@drawable/Underline"
         android:inputType="text"
         android:textColorHint="#ff000000"/>
 
-    <!--Edit icons-->
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@android:color/darker_gray"
-        android:layout_x="310dp"
-        android:layout_y="220dp"/>
+<!--Edit icons-->
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@android:color/darker_gray"
-        android:layout_x="310dp"
-        android:layout_y="260dp"/>
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@android:color/darker_gray"
-        android:layout_x="310dp"
-        android:layout_y="300dp"/>
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@android:color/darker_gray"
-        android:layout_x="310dp"
-        android:layout_y="340dp"/>
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@android:color/darker_gray"
-        android:layout_x="310dp"
-        android:layout_y="380dp"/>
-    <!--Sign out button-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign out"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/black"
-        android:id="@+id/ButtonSignOut"/>
     <!--Update button-->
     <Button
         android:layout_width="wrap_content"
@@ -150,28 +130,28 @@
         android:text="Update"
         android:background="@android:color/black"
         android:layout_x="150dp"
-        android:layout_y="420dp"
+        android:layout_y="410dp"
         />
     <!--View reservation button-->
-        <Button
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:text="View reservation"
         android:background="@android:color/black"
         android:layout_x="120dp"
-        android:layout_y="480dp"
+        android:layout_y="470dp"
         android:padding="10dp"
         android:id="@+id/ButtonViewReservation"/>
     <!--Delete account-->
-        <Button
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:text="Delete account"
         android:background="@android:color/black"
         android:layout_x="126dp"
-        android:layout_y="540dp"
+        android:layout_y="530dp"
         android:padding="10dp"
         android:id="@+id/ButtonDeleteAccount"/>
     <!--Menu button-->
