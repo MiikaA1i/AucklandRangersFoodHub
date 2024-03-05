@@ -82,7 +82,12 @@
         android:text="Phone: 02212138372"
         android:textColor="@android:color/black"
         android:layout_x="127dp"
-        android:layout_y="300dp"/>
+        android:layout_y="300dp"
+        android:autoLink="phone" 
+       
+        android:id="@+id/phoneTextView"
+        android:linksClickable="true"  
+        />
 
 
 
@@ -120,7 +125,8 @@
         android:layout_height="150dp"
         android:layout_y="420dp"
         android:src="@drawable/map" />
-        
+
+ <!--bottom of page-->       
         <!--Menu button-->
     <Button
         android:layout_width="wrap_content"

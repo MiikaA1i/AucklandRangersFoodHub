@@ -1,0 +1,48 @@
+﻿<!-- review_popup_layout.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Reviews"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:id="@+id/reviewTitle"
+        android:layout_centerHorizontal="true"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/customerRatingBar"
+        android:layout_below="@id/reviewTitle"
+        
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="Write your review..."
+        android:id="@+id/reviewEditText"
+        android:layout_below="@id/customerRatingBar"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Review"
+        android:id="@+id/submitReviewButton"
+        android:layout_below="@id/reviewEditText"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+</RelativeLayout>

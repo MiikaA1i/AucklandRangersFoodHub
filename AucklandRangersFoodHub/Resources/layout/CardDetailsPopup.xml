@@ -10,26 +10,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Card Number"
-        android:inputType="number" />
+        android:inputType="number"
+        />
 
     <EditText
-        android:id="@+id/expiryDateEditText"
+        android:id="@+id/cardNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Expiry Date"
-        android:inputType="text" />
+        android:hint="Name On Card"
+        android:inputType="none"/>
+
+    <EditText
+    android:id="@+id/expiryDateEditText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="MM/YYYY"
+    android:inputType="none"  
+    android:digits="0123456789/" 
+    android:maxLength="7" 
+    />
+
+
 
     <EditText
         android:id="@+id/cvvEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="CVV"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="3"/>
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
         android:text="Submit" />
 
 </LinearLayout>

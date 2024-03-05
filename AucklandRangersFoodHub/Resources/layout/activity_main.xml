@@ -101,6 +101,7 @@
         android:layout_x="40dp"
         android:textSize="20dp"
         android:layout_y="400dp"
+        android:textStyle="bold"
         android:id="@+id/TextBurger" 
         android:textColor="@android:color/black"/>
 
@@ -126,7 +127,9 @@
         android:layout_x="160dp"
         android:textSize="20dp"
         android:layout_y="400dp"
+        android:textStyle="bold"
         android:id="@+id/seafood2"
+        
         android:textColor="@android:color/black"/>
         
     <!--Vegetarian image button-->
@@ -150,6 +153,7 @@
         android:layout_x="275dp"
         android:textSize="20dp"
         android:layout_y="400dp"
+         android:textStyle="bold"
         android:id="@+id/vegeterian2"
         
         android:textColor="@android:color/black"/>
@@ -178,6 +182,16 @@
         android:layout_y="550dp"
         android:id="@+id/krabbypattyImg" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$15"
+        android:textSize="12dp"
+        android:textColor="@android:color/black"
+        android:layout_x="82dp"
+        android:layout_y="565dp"/>
+
+
 
         <!--Image button-->
     <ImageButton
@@ -201,6 +215,15 @@
         android:textColor="@android:color/black"
         android:layout_y="550dp"
         android:id="@+id/DoubleBurgerimg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$20"
+        android:textSize="12dp"
+        android:textColor="@android:color/black"
+        android:layout_x="180dp"
+        android:layout_y="565dp"/>
 
         
 
@@ -228,6 +251,15 @@
         android:textColor="@android:color/black"
         android:layout_y="550dp"
         android:id="@+id/ultimatetowerimg" />
+
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$40"
+        android:textSize="12dp"
+        android:textColor="@android:color/black"
+        android:layout_x="282dp"
+        android:layout_y="565dp"/>
 
 
     

@@ -85,7 +85,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonVegeterianClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Vegeterian catergory is still undergoing updates!.", ToastLength.Short).Show();
+            Toast.MakeText(this, "Vegeterian catergory is still undergoing updates!", ToastLength.Short).Show();
         }
         void NumberCheck()
         {
@@ -256,12 +256,12 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonProfile;
         Button ButtonContactUs;
+      
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.ContactUsPage);
-
 
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
@@ -337,7 +337,39 @@ namespace AucklandRangersFoodHub
 
             ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfileIcon);
             ButtonProfileIcon.Click += OnButtonProfileClicked;
+
+            ShowReviewPopup();
         }
+
+        private void ShowReviewPopup()
+        {
+            Dialog reviewDialog = new Dialog(this);
+            reviewDialog.SetContentView(Resource.Layout.reviewPopup);
+
+            
+            TextView reviewTitle = reviewDialog.FindViewById<TextView>(Resource.Id.reviewTitle);
+            RatingBar customerRatingBar = reviewDialog.FindViewById<RatingBar>(Resource.Id.customerRatingBar);
+            EditText reviewEditText = reviewDialog.FindViewById<EditText>(Resource.Id.reviewEditText);
+            Button submitReviewButton = reviewDialog.FindViewById<Button>(Resource.Id.submitReviewButton);
+
+           
+            reviewTitle.Text = "Customer Reviews";
+         
+
+            submitReviewButton.Click += (sender, e) =>
+            {
+                string reviewText = reviewEditText.Text;
+                float rating = customerRatingBar.Rating;
+
+                
+                reviewDialog.Dismiss();
+                Toast.MakeText(this, "Thank you for your review!", ToastLength.Short).Show();
+            };
+
+            
+            reviewDialog.Show();
+        }
+
 
         void OncardPaymentClicked(object sender, EventArgs e)
         {
@@ -346,6 +378,7 @@ namespace AucklandRangersFoodHub
             EditText cardNumberEditText = dialogView.FindViewById<EditText>(Resource.Id.cardNumberEditText);
             EditText expiryDateEditText = dialogView.FindViewById<EditText>(Resource.Id.expiryDateEditText);
             EditText cvvEditText = dialogView.FindViewById<EditText>(Resource.Id.cvvEditText);
+            EditText cardNameEditText = dialogView.FindViewById<EditText>(Resource.Id.cardNameEditText);
             Button submitButton = dialogView.FindViewById<Button>(Resource.Id.submitButton);
 
             var dialog = new Dialog(this);
@@ -354,7 +387,9 @@ namespace AucklandRangersFoodHub
             submitButton.Click += (dialogSender, dialogArgs) =>
             {
                 // Retrieve card details from the dialog
+
                 string cardNumber = cardNumberEditText.Text;
+                string cardName = cardNameEditText.Text;
                 string expiryDate = expiryDateEditText.Text;
                 string cvv = cvvEditText.Text;            
                 dialog.Dismiss();
