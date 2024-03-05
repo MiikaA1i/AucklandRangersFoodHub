@@ -204,8 +204,8 @@
         android:text="@string/Profile_Button"
         android:layout_x="200dp"
         android:layout_y="600dp"
-        android:textColor="#ff000000"
-        android:background="@drawable/roundbutton"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
@@ -219,4 +219,5 @@
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
+
 </AbsoluteLayout>

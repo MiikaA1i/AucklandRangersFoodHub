@@ -1572,6 +1572,8 @@ namespace AucklandRangersFoodHub
 
             double TotalPriceGST = TotalPrice * 1.15;
 
+            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+
             TextViewTotalPrice.Text = "Total price (GST inc): " + TotalPriceGST.ToString();
 
             Intent intent = new Intent(this, typeof(CartActivity));
