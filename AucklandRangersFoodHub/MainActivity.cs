@@ -246,9 +246,10 @@ namespace AucklandRangersFoodHub
             double totalPrice = Intent.GetDoubleExtra("TotalPrice", 0);
             totalPriceGST = totalPrice * 1.15;
 
-            TextViewTotalPrice.Text = "Total price (including GST):" + totalPriceGST.ToString();
+            totalPriceTextView.Text = "Total price: $" + totalPrice.ToString();
+            TextViewTotalPrice.Text = "Total price (including GST): $" + totalPriceGST.ToString();
             itemCountTextView.Text = "Qty: " + itemCount.ToString();
-            totalPriceTextView.Text = "Total price: " + totalPrice.ToString();
+            
 
            // Android.Util.Log.Debug("CartActivity", $"Received ItemCount: {itemCount}, TotalPrice: {totalPrice}");
 
@@ -1095,6 +1096,7 @@ namespace AucklandRangersFoodHub
 
         TextView TextViewQuantity;
         TextView totalPriceTextView;
+        TextView DishNameText;
         Button AddtoCart;
         Button BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
@@ -1108,6 +1110,8 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.BurgersPage);
+
+            DishNameText = FindViewById<TextView>(Resource.Id.DishNameText);
 
             AddtoCart = FindViewById<Button>(Resource.Id.AddtoCart);
             AddtoCart.Click += OnAddtoCartClicked;
@@ -1153,6 +1157,7 @@ namespace AucklandRangersFoodHub
         void OnButtonMinusClicked(object sender, EventArgs e)
         {
             Count--;
+
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
             totalPriceTextView.Text = "Total Cost: $" + TotalPrice.ToString();
@@ -1160,6 +1165,9 @@ namespace AucklandRangersFoodHub
         void OnButtonPlusClicked(object sender, EventArgs e)
         {
             Count++;
+
+         
+
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
 
@@ -1174,6 +1182,8 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(CartActivity));
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPriceGST);
+          
+
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
