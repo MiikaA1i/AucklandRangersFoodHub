@@ -546,7 +546,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
+        EditText EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
         Button ButtonViewReservation;
@@ -562,7 +562,7 @@ namespace AucklandRangersFoodHub
 
             EditTextUserName = FindViewById<EditText>(Resource.Id.username);
             EditTextPassword = FindViewById<EditText>(Resource.Id.password);
-            EditTextId = FindViewById<EditText>(Resource.Id.id);
+            
             EditTextMobile = FindViewById<EditText>(Resource.Id.mobile);
             EditTextEmail = FindViewById<EditText>(Resource.Id.email);
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
