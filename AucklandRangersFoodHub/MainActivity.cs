@@ -14,8 +14,8 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
     public class MainActivity : Activity
     {
-
-       
+        bool isSignedIn;
+        EditText EditTextSearchBar;
         int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
@@ -222,6 +222,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Cart Page")]
     public class CartActivity : Activity
     {
+        bool isSignedIn;
         double totalPriceGST;
         ImageButton ButtonProfileIcon;
         Button ButtonMenu;
@@ -307,7 +308,7 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonProfile;
         Button ButtonContactUs;
-      
+        bool isSignedIn;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -355,6 +356,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Payment page")]
     public class PaymentActivity : Activity
     {
+        bool isSignedIn;
         ImageButton ButtonProfileIcon;
         Button cardPayment;
         Button cashPayment;
@@ -502,6 +504,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Food description page")]
     public class FoodDescriptionActivity : Activity
     {
+        bool isSignedIn;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -547,7 +550,8 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
-        EditText EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
+        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
+        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
         Button ButtonViewReservation;
@@ -626,6 +630,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reservations page")]
     public class ReservationsScreenActivity : Activity
     {
+        bool isSignedIn;
         Button? ButtonMyReservations, ButtonBookAReservation;
         ImageButton ButtonProfileIcon;
         Button ButtonMenu;
@@ -692,6 +697,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reserve edit page")]
     public class ReserveEditActivity : Activity
     {
+        bool isSignedIn;
         bool UpdateModeEnabled = false;
         bool DeleteMode = false;
         List<ReservationsPage> ReservationsDetails;
@@ -859,6 +865,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Reservation add")]
     public class ReservationsAddActivity : Activity
     {
+        bool isSignedIn;
         EditText EditTextTableName, EditTextTableNumber, EditTextTime;
         ImageButton ButtonProfileIcon, ButtonBackButton;
         Button? ButtonMenu, ButtonCart, ButtonContactUs, ButtonProfile, ButtonCreateReservation;
@@ -936,13 +943,14 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
-    [Activity(Label = "Sign in page", MainLauncher = true)]
+    [Activity(Label = "Sign in page", MainLauncher = false)]
     public class SignInActivity : Activity
     {
         EditText Password, UserName;
         Button? ButtonSignUp, ButtonSignIn;
         DataManager dataManager;
         //ImageButton ButtonProfileIcon;
+        bool isSignedIn;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -951,7 +959,7 @@ namespace AucklandRangersFoodHub
             UserName = FindViewById<EditText>(Resource.Id.userName);
             ButtonSignUp = FindViewById<Button>(Resource.Id.ButtonSignUp);
             ButtonSignUp.Click += OnButtonSignUpClicked;
-
+            isSignedIn = Intent.GetBooleanExtra("isSignedIn", false);
             ButtonSignIn = FindViewById<Button>(Resource.Id.ButtonSignIn);
             ButtonSignIn.Click += OnButtonSignInClicked;
             dataManager = new DataManager();
@@ -1005,7 +1013,7 @@ namespace AucklandRangersFoodHub
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
-
+        bool isSignedIn;
         DataManager dataManager;
         //ImageButton ButtonProfileIcon;
         protected override void OnCreate(Bundle? savedInstanceState)
@@ -1093,7 +1101,7 @@ namespace AucklandRangersFoodHub
         float TotalPrice;
         int Count;
         double TotalPriceGST;
-
+        bool isSignedIn;
         TextView TextViewQuantity;
         TextView totalPriceTextView;
         TextView DishNameText;
@@ -1216,7 +1224,7 @@ namespace AucklandRangersFoodHub
         float TotalPrice;
         int Count;
 
-
+        bool isSignedIn;
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
 
@@ -1314,7 +1322,7 @@ namespace AucklandRangersFoodHub
         float TotalPrice;
         int Count;
 
-
+        bool isSignedIn;
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
 
@@ -1408,6 +1416,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Burger description activity")]
     public class BurgerDescriptionActivity : Activity
     {
+        bool isSignedIn;
         //ImageButton BackButton;
         Button ButtonMenu;
         Button ButtonCart;
@@ -1463,6 +1472,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Ultimate Tower Stack description activity")]
     public class UltimateBurgerStackActivity : Activity
     {
+        bool isSignedIn;
         ImageButton BackButton;
         Button ButtonMenu;
         Button ButtonCart;
@@ -1518,6 +1528,7 @@ namespace AucklandRangersFoodHub
     public class FoodDecriptionActivity : Activity
     {
         //ImageButton BackButton;
+        bool isSignedIn;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -1571,6 +1582,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Update Users")]
     public class UpdateUsersActivity : Activity
     {
+        bool isSignedIn;
         Button ButtonUpdate;
         EditText EditTextUser, EditTextPassword, EditTextMobile, EditTextEmail;
         private int UserId;
@@ -1618,6 +1630,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Vegetrerian page")]
     public class VegeterianActivity : Activity
     {
+        bool isSignedIn;
         float Price = 10;
         float TotalPrice;
         int Count;
@@ -1703,6 +1716,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Seafood Activity")]
     public class SeafoodActivity : Activity
     {
+        bool isSignedIn;
         float Price = 10;
         float TotalPrice;
         int Count;
@@ -1794,6 +1808,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "searchpage")]
     public class SearchActivity : Activity
     {
+        bool isSignedIn;
         TextView TextViewDisplay;
         private const string ApiKey = "2250c37f83084e18ae9707ea15352a30";
         private const string ApiUrl = "https://api.spoonacular.com/recipes/complexSearch";
@@ -1850,5 +1865,48 @@ namespace AucklandRangersFoodHub
         public int offset { get; set; }
         public int number { get; set; }
         public int totalResults { get; set; }
+    }
+    [Activity(Label = "Start Screen", MainLauncher = true)]
+    public class StartScreenActivity : Activity
+    {
+        bool isSignedIn = false;
+        Button ButtonMenu, ButtonContactUs, ButtonSignIn, ButtonSignUp;
+        protected override async void OnCreate(Bundle? savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.StartPage);
+            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
+            ButtonMenu.Click += ButtonMenuClick;
+            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
+            ButtonContactUs.Click += ButtonContactUsClick;
+            ButtonSignIn = FindViewById<Button>(Resource.Id.tosigninpage);
+            ButtonSignIn.Click += ButtonSignInClick;
+            ButtonSignUp = FindViewById<Button>(Resource.Id.tosignuppage);
+            ButtonSignUp.Click += ButtonSignUpClick;
+        }
+        void ButtonMenuClick(object sender, EventArgs e) 
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("isSignedIn", isSignedIn);
+            StartActivity(intent);
+        }
+        void ButtonContactUsClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("isSignedIn", isSignedIn);
+            StartActivity(intent);
+        }
+        void ButtonSignInClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(SignInActivity));
+            intent.PutExtra("isSignedIn", isSignedIn);
+            StartActivity(intent);
+        }
+        void ButtonSignUpClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(SignUpActivity));
+            intent.PutExtra("isSignedIn", isSignedIn);
+            StartActivity(intent);
+        }
     }
 }
