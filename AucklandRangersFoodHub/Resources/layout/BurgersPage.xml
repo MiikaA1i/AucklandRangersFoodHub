@@ -45,7 +45,6 @@
         android:src="@drawable/backbutton"/>
 
 
-
  
  <!--Middle of Page-->
     <!--Dish name text-->
@@ -55,18 +54,18 @@
         android:text="KRABBY PATTY"
         android:textColor="@android:color/black"
         android:textSize="23dp"
-        android:layout_x="30dp"
-        android:layout_y="150dp"
+        android:layout_x="23dp"
+        android:layout_y="125dp"
         android:textStyle="bold"
-        android:id="@+id/KrabbyPattyDish"
+        android:id="@+id/DishNameText"
         android:fontFamily="sans-serif-condensed"/>
     <!--Price Text-->
     <TextView
-        android:text="Price: $15"
+        android:text="Price: $30"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="220dp"
-        android:textSize="19dp"
+        android:layout_x="245dp"
+        android:textSize="15dp"
         android:layout_y="250dp"
         android:id="@+id/pricetxt" 
         android:textColor="@android:color/black"/>
@@ -74,12 +73,12 @@
 
     <!--Image View-->
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="210dp"
         android:id="@+id/imageview"
         android:onClick="clickNew"
-        android:layout_height="170dp"
-        android:layout_y="200dp"
-        android:layout_x="30dp"
+        android:layout_height="190dp"
+        android:layout_y="170dp"
+        android:layout_x="20dp"
         android:background="#ffe0e0e0"
         android:src="@drawable/burger2"
         android:scaleType="fitXY"
@@ -88,10 +87,10 @@
     <!--View Description button Should take to Food Description page-->
     <Button
         android:text="View Description"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_x="10dp"
-        android:layout_y="350dp"
+        android:layout_y="370dp"
         android:textColor="@android:color/holo_blue_dark"
         android:background="@android:color/white"
         android:id="@+id/ButtonViewDescription"
@@ -104,34 +103,34 @@
         android:text="Qty:"
         android:textColor="@android:color/black"
         android:layout_y="290dp"
-        android:layout_x="220dp"
-        android:textSize="19dp"
+        android:layout_x="245dp"
+        android:textSize="15dp"
         android:id="@+id/TextViewQuantity"/>
         T
     <!--Quantity plus button-->
-    <Button
-        android:text="+"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_x="270dp"
-        android:layout_y="285dp"
+    <ImageButton
+      
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_x="290dp"
+        android:layout_y="295dp"
         android:id="@+id/ButtonPlus"
-        android:textSize="20dp"
-        android:background="@android:color/white"
+        android:background="@drawable/plusimg"
         style="?android:attr/borderlessButtonStyle"        
-        android:textColor="@android:color/black"/>
+     />
+    
+
     <!--Quantity minus button-->
-    <Button
-        android:text="-"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_x="310dp"
-        android:layout_y="285dp"
+    <ImageButton
+       
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_x="320dp"
+        android:layout_y="295dp"
         android:id="@+id/ButtonMinus"
-        android:textSize="25dp"
-        android:background="@android:color/white"
-        style="?android:attr/borderlessButtonStyle"        
-        android:textColor="@android:color/black"/>
+        android:background="@drawable/minusimg"
+        style="?android:attr/borderlessButtonStyle" />        
+      
     <!--Total price text-->
     <TextView
         android:layout_width="wrap_content"
@@ -139,18 +138,18 @@
         android:textColor="@android:color/black"
         android:id="@+id/totalPriceTextView"
         android:layout_x="130dp"
-        android:layout_y="480dp"
+        android:layout_y="490dp"
         android:text="Total cost:"
-        android:textSize="19dp"/>
+        android:textSize="15dp"/>
         
 
     <!--Add to cart button-->
     <Button
         android:text="Add to cart"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_x="130dp"
-        android:layout_y="520dp"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_x="115dp"
+        android:layout_y="530dp"
         android:id="@id/AddtoCart"
         android:textColor="@android:color/white"
         android:background="@android:color/black"/>
@@ -166,7 +165,7 @@
         android:layout_x="10dp"
         android:layout_y="640dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:textSize="12dp"
         android:id="@id/ButtonMenu"/>

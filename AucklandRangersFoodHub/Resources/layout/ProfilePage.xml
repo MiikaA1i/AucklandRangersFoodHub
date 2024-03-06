@@ -38,19 +38,28 @@
         android:layout_y="15dp"
         android:background="@android:color/white"
         android:textColor="@android:color/black"
-        android:src="@drawable/signoutimg"
+        android:src="@drawable/SignOutimg"
         android:scaleType="fitCenter"
         android:id="@+id/ButtonSignOut"/>
     <!--Sign out text-->
     <TextView
         android:layout_width="100dp"
         android:layout_height="20dp"
-        android:layout_x="328dp"
-        android:layout_y="40dp"
+        android:textSize="12dp"
+        android:layout_x="330dp"
+        android:layout_y="45dp"
         android:text="Sign Out"
         android:textColor="@android:color/black"/>
 
     <!--Middle of page-->
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ProfileView"
+        android:background="@android:color/white"
+        android:layout_x="145dp"
+        android:layout_y="80dp"/>
 
     <!--Username-->
     <EditText
@@ -77,24 +86,13 @@
         android:inputType="text"
         android:textColorHint="#ff000000" 
         android:id="@+id/password"/>
-    <!--Id-->
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_x="100dp"
-        android:layout_y="290dp"
-        android:hint="Id"
-        android:textColor="#ff000000"
-        android:background="@drawable/Underline"
-        android:inputType="text"
-        android:textColorHint="#ff000000" 
-        android:id="@+id/id"/>
+    
     <!--Mobile number-->
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="330dp"
+        android:layout_y="290dp"
         android:hint="Mobile number"
         android:textColor="#ff000000"
         android:background="@drawable/Underline"
@@ -106,7 +104,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
-        android:layout_y="370dp"
+        android:layout_y="330dp"
         android:hint="Email"
         android:textColor="#ff000000"
         android:background="@drawable/Underline"
@@ -118,55 +116,59 @@
 
     <!--Update button-->
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:text="Update"
         android:background="@android:color/black"
-        android:layout_x="150dp"
-        android:layout_y="410dp"
+        android:layout_x="155dp"
+        android:layout_y="390dp"
         />
     <!--View reservation button-->
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:text="View reservation"
         android:background="@android:color/black"
         android:layout_x="120dp"
-        android:layout_y="470dp"
+        android:layout_y="450dp"
         android:padding="10dp"
         android:id="@+id/ButtonViewReservation"/>
     <!--Delete account-->
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:text="Delete account"
-        android:background="@android:color/black"
+        android:background="@android:color/holo_red_dark"
         android:layout_x="126dp"
-        android:layout_y="530dp"
+        android:layout_y="560dp"
         android:padding="10dp"
         android:id="@+id/ButtonDeleteAccount"/>
+
+    <!--Bottom Of Page-->
+
     <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Menu_Button"
         android:layout_x="10dp"
-        android:layout_y="600dp"
-        android:textColor="#ff000000"
+        android:layout_y="640dp"
+        android:textColor="@android:color/black"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:id="@id/ButtonMenu"/>
     <!--Contact us button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Contact_Us_Button"
         android:layout_x="105dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
@@ -174,24 +176,27 @@
     <!--Profile button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Profile_Button"
         android:layout_x="200dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:textSize="12dp"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonProfile"/>
     <!--Cart button-->
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:text="@string/Cart_button"
         android:layout_x="295dp"
-        android:layout_y="600dp"
+        android:layout_y="640dp"
+        android:textSize="12dp"
         android:textColor="#ff000000"
         android:background="@drawable/roundbutton"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
+
 
 </AbsoluteLayout>
