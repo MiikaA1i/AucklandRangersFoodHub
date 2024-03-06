@@ -7,13 +7,15 @@ using AucklandRangersFoodHub.Resources.model;
 using System.Data;
 using System.Text.Json.Nodes;
 using System.Text;
+using Android.Views;
+using Android.Graphics.Drawables;
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
     public class MainActivity : Activity
     {
 
-        EditText EditTextSearchBar;
+       
         int number = 0;
         ImageButton ButtonProfileIcon;
         TextView TextBurger;
@@ -22,28 +24,56 @@ namespace AucklandRangersFoodHub
         ImageView ImageViewMain;
         TextView recom1;
         ImageButton seafood,Vegeterian,krabbypattyicon,dualfeasticon,USTicon;
+        View view;
+        ImageButton searchButton;
+        EditText EditTextSearchBar;
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
-            ButtonSearch = FindViewById<Button>(Resource.Id.searchButton);
-            ButtonSearch.Click += async (sender, e) =>
+
+            //Searchbar PopUp Alert Dialog
+            searchButton = FindViewById<ImageButton>(Resource.Id.searchButton);
+
+            searchButton.Click += (sender, e) =>
             {
-                string searchData = EditTextSearchBar.Text;
-                if (string.IsNullOrEmpty(searchData))
-                {
-                    Toast.MakeText(this, "You need to enter something first", ToastLength.Long).Show();
-                }
-                else
-                {
-                    Intent intent = new Intent(this, typeof(SearchActivity));
-                    intent.PutExtra("searchData", searchData);
-                    StartActivity(intent);
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                view = LayoutInflater.Inflate(Resource.Layout.SearchDialogLayout, null);
+
+                EditTextSearchBar = view.FindViewById<EditText>(Resource.Id.SearchEditText);
+                AlertDialog dialog = null;
+
+                builder.SetView(view)
+                       .SetPositiveButton("Search", (dialogInterface, which) =>
+                       {
+                           string searchData = EditTextSearchBar.Text;
+
+                           if (string.IsNullOrEmpty(searchData))
+                           {
+                               Toast.MakeText(this, "You need to enter something first", ToastLength.Long).Show();
+                           }
+                           else
+                           {
+                       
+                               Intent intent = new Intent(this, typeof(SearchActivity));
+                               intent.PutExtra("searchData", searchData);
+                               StartActivity(intent);
+                           }
+
+                        
+                           dialog.Dismiss();
+                       })
+                       .SetNegativeButton("Cancel", (dialogInterface, which) =>
+                       {
+                           dialog.Dismiss();
+                       });
+
+                dialog = builder.Create();
+                dialog.Show();
             };
 
-            EditTextSearchBar = FindViewById<EditText>(Resource.Id.SearchBar);
+
 
             Vegeterian = FindViewById<ImageButton>(Resource.Id.vegeterian);
             Vegeterian.Click += OnButtonVegeterianClick;
@@ -52,6 +82,7 @@ namespace AucklandRangersFoodHub
             seafood.Click += OnseafoodClicked;
 
             ImageViewMain = FindViewById<ImageView>(Resource.Id.ImageViewMain);
+            
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
@@ -97,11 +128,12 @@ namespace AucklandRangersFoodHub
 
         }
         
+        //Vegerterian Image Button
         void OnButtonVegeterianClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Vegeterian catergory is still undergoing updates!", ToastLength.Short).Show();
         }
-        void NumberCheck()
+        void NumberCheck() //Image switches in ImageView
         {
             if (number >= 3)
             {
@@ -115,6 +147,7 @@ namespace AucklandRangersFoodHub
             {
                 case 0:
                     ImageViewMain.SetImageResource(Resource.Drawable.burgerImage);
+
                     break;
                 case 1:
                     ImageViewMain.SetImageResource(Resource.Drawable.seafood);
@@ -123,6 +156,7 @@ namespace AucklandRangersFoodHub
                     ImageViewMain.SetImageResource(Resource.Drawable.vegeterian);
                     break;
             }
+
         }
 
         void OnButtonPrevClick(object sender, EventArgs e)
@@ -950,6 +984,16 @@ namespace AucklandRangersFoodHub
             Intent intent = new Intent(this, typeof(SignUpActivity));
             StartActivity(intent);
         }
+        void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
+        {
+            Intent intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+        void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
+        {
+            Intent intent = new Intent(this, typeof(ContactUsActivity));
+            StartActivity(intent);
+        }
     }
     [Activity(Label = "Sign up page")]
     public class SignUpActivity : Activity
@@ -971,8 +1015,8 @@ namespace AucklandRangersFoodHub
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
-            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
-            ButtonCart.Click += OnButtonCartClicked;
+            //ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+           // ButtonCart.Click += OnButtonCartClicked;
 
             //ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
             //ButtonProfileIcon.Click += OnButtonProfileClicked;
@@ -1044,7 +1088,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Burgers Page")]
     public class BurgersActivity : Activity
     {
-        float Price = 15;//price for a burger
+        float Price = 30;//price for a burger
         float TotalPrice;
         int Count;
         double TotalPriceGST;
@@ -1054,8 +1098,8 @@ namespace AucklandRangersFoodHub
         Button AddtoCart;
         Button BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
-        Button ButtonPlus;
-        Button ButtonMinus;
+        ImageButton ButtonPlus;
+        ImageButton ButtonMinus;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
@@ -1080,10 +1124,10 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            ButtonPlus = FindViewById<ImageButton>(Resource.Id.ButtonPlus);
             ButtonPlus.Click += OnButtonPlusClicked;
 
-            ButtonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
+            ButtonMinus = FindViewById<ImageButton>(Resource.Id.ButtonMinus);
             ButtonMinus.Click += OnButtonMinusClicked;
 
             TextViewQuantity = FindViewById<TextView>(Resource.Id.TextViewQuantity);
@@ -1111,7 +1155,7 @@ namespace AucklandRangersFoodHub
             Count--;
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
-            totalPriceTextView.Text = "Total price: " + TotalPrice.ToString();
+            totalPriceTextView.Text = "Total Cost: $" + TotalPrice.ToString();
         }
         void OnButtonPlusClicked(object sender, EventArgs e)
         {
@@ -1121,7 +1165,7 @@ namespace AucklandRangersFoodHub
 
             TotalPriceGST = TotalPrice;
 
-            totalPriceTextView.Text = "Total price: " + TotalPriceGST.ToString();
+            totalPriceTextView.Text = "Total Cost: $" + TotalPriceGST.ToString();
 
         }
         void OnAddtoCartClicked(object sender, EventArgs e)
