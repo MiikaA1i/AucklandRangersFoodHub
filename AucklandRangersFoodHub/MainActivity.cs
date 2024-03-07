@@ -26,7 +26,7 @@ namespace AucklandRangersFoodHub
         ImageButton seafood,Vegeterian,krabbypattyicon,dualfeasticon,USTicon;
         View view;
         ImageButton searchButton;
-        EditText EditTextSearchBar;
+        
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
@@ -41,7 +41,7 @@ namespace AucklandRangersFoodHub
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 view = LayoutInflater.Inflate(Resource.Layout.SearchDialogLayout, null);
 
-                EditTextSearchBar = view.FindViewById<EditText>(Resource.Id.SearchEditText);
+               EditText EditTextSearchBar = view.FindViewById<EditText>(Resource.Id.SearchEditText);
                 AlertDialog dialog = null;
 
                 builder.SetView(view)
@@ -550,8 +550,8 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
+        EditText EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
+       
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
         Button ButtonViewReservation;
