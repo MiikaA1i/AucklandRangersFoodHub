@@ -221,7 +221,7 @@ namespace AucklandRangersFoodHub
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
-            intent.PutExtra("username", username);
+            intent.PutExtra("username",username);
             StartActivity(intent);
         }
     }
@@ -578,9 +578,8 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
-        string username;
-
-        TextView EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
+        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
+        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
         Button ButtonViewReservation, ButtonUpdate;
@@ -604,17 +603,6 @@ namespace AucklandRangersFoodHub
             EditTextEmail = FindViewById<TextView>(Resource.Id.email);
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
-            dataManager = new DataManager();
-            username = Intent.GetStringExtra("username");
-            user = dataManager.GetUserName(username);
-            if (user != null)
-            {
-
-                EditTextUserName.Text = user.UserName;
-                EditTextPassword.Text = user.Password;
-                EditTextMobile.Text = user.Mobile;
-                EditTextEmail.Text = user.Email;
-            }
 
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
@@ -1761,11 +1749,7 @@ namespace AucklandRangersFoodHub
             dataManager.UpdateUser(update);
 
             Toast.MakeText(this, "Changes have been made", ToastLength.Long).Show();
-            username = EditTextUser.Text;
-            Intent intent = new Intent(this, typeof(ProfileActivity));
-
-            intent.PutExtra("username", username);
-            StartActivity(intent);
+            Finish();
         }
     }
     [Activity(Label = "Vegetrerian page")]
