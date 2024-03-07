@@ -47,7 +47,6 @@
     <None Remove="Resources\layout\SearchPage.xml" />
     <None Remove="Resources\layout\SignInPage.xml" />
     <None Remove="Resources\layout\SignUpPage.xml" />
-    <None Remove="Resources\layout\StartPage.xml" />
     <None Remove="Resources\layout\TestPageDataBase.xml" />
     <None Remove="Resources\layout\UpdateReservationsLayout.xml" />
     <None Remove="Resources\layout\UpdateUsersPage.xml" />

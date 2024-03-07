@@ -221,7 +221,9 @@ namespace AucklandRangersFoodHub
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
-            intent.PutExtra("username",username);
+
+            intent.PutExtra("username", username);
+
             StartActivity(intent);
         }
     }
@@ -578,8 +580,9 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
+        string username;
+
+        TextView EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
         Button ButtonViewReservation, ButtonUpdate;
@@ -603,6 +606,17 @@ namespace AucklandRangersFoodHub
             EditTextEmail = FindViewById<TextView>(Resource.Id.email);
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
+            dataManager = new DataManager();
+            username = Intent.GetStringExtra("username");
+            user = dataManager.GetUserName(username);
+            if (user != null)
+            {
+
+                EditTextUserName.Text = user.UserName;
+                EditTextPassword.Text = user.Password;
+                EditTextMobile.Text = user.Mobile;
+                EditTextEmail.Text = user.Email;
+            }
 
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
@@ -987,6 +1001,7 @@ namespace AucklandRangersFoodHub
                 Time = EditTextTime.Text
             };
             dataManager.InsertReservation(reservationsInfo);
+
             Toast.MakeText(this, "Reservation has been created", ToastLength.Short).Show();
 
             Intent intent = new Intent(this, typeof(ReserveEditActivity));
@@ -1018,7 +1033,7 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
-    [Activity(Label = "Sign in page", MainLauncher = false)]
+    [Activity(Label = "Sign in page", MainLauncher = true)]
     public class SignInActivity : Activity
     {
         string username;
@@ -1749,7 +1764,11 @@ namespace AucklandRangersFoodHub
             dataManager.UpdateUser(update);
 
             Toast.MakeText(this, "Changes have been made", ToastLength.Long).Show();
-            Finish();
+            username = EditTextUser.Text;
+            Intent intent = new Intent(this, typeof(ProfileActivity));
+
+            intent.PutExtra("username", username);
+            StartActivity(intent);
         }
     }
     [Activity(Label = "Vegetrerian page")]
@@ -2006,53 +2025,5 @@ namespace AucklandRangersFoodHub
         public int offset { get; set; }
         public int number { get; set; }
         public int totalResults { get; set; }
-    }
-    [Activity(Label = "Start Screen", MainLauncher = true)]
-    public class StartScreenActivity : Activity
-    {
-        string username;
-        bool isSignedIn = false;
-        Button ButtonMenu, ButtonContactUs, ButtonSignIn, ButtonSignUp;
-        protected override async void OnCreate(Bundle? savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.StartPage);
-            ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
-            ButtonMenu.Click += ButtonMenuClick;
-            ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
-            ButtonContactUs.Click += ButtonContactUsClick;
-            ButtonSignIn = FindViewById<Button>(Resource.Id.tosigninpage);
-            ButtonSignIn.Click += ButtonSignInClick;
-            ButtonSignUp = FindViewById<Button>(Resource.Id.tosignuppage);
-            ButtonSignUp.Click += ButtonSignUpClick;
-        }
-        void ButtonMenuClick(object sender, EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(MainActivity));
-            intent.PutExtra("isSignedIn", isSignedIn);
-            intent.PutExtra("username", username);
-            StartActivity(intent);
-        }
-        void ButtonContactUsClick(object sender, EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(ContactUsActivity));
-            intent.PutExtra("username", username);
-            intent.PutExtra("isSignedIn", isSignedIn);
-            StartActivity(intent);
-        }
-        void ButtonSignInClick(object sender, EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(SignInActivity));
-            intent.PutExtra("isSignedIn", isSignedIn);
-            intent.PutExtra("username", username);
-            StartActivity(intent);
-        }
-        void ButtonSignUpClick(object sender, EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(SignUpActivity));
-            intent.PutExtra("isSignedIn", isSignedIn);
-            intent.PutExtra("username", username);
-            StartActivity(intent);
-        }
     }
 }
