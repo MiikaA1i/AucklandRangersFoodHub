@@ -62,7 +62,7 @@
         android:layout_y="80dp"/>
 
     <!--Username-->
-    <EditText
+    <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
@@ -75,7 +75,7 @@
         android:id="@+id/username"
         />
     <!--Password-->
-    <EditText
+    <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
@@ -88,7 +88,7 @@
         android:id="@+id/password"/>
     
     <!--Mobile number-->
-    <EditText
+    <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
@@ -100,7 +100,7 @@
         android:textColorHint="#ff000000" 
         android:id="@+id/mobile"/>
     <!--Email-->
-    <EditText
+    <TextView
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
@@ -123,6 +123,7 @@
         android:background="@android:color/black"
         android:layout_x="155dp"
         android:layout_y="390dp"
+        android:id="@+id/toupdatebuttonpage"
         />
     <!--View reservation button-->
     <Button

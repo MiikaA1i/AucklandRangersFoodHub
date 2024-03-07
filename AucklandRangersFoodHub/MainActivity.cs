@@ -14,6 +14,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
     public class MainActivity : Activity
     {
+        string username;
         bool isSignedIn;
         EditText EditTextSearchBar;
         int number = 0;
@@ -26,7 +27,6 @@ namespace AucklandRangersFoodHub
         ImageButton seafood,Vegeterian,krabbypattyicon,dualfeasticon,USTicon;
         View view;
         ImageButton searchButton;
-        EditText EditTextSearchBar;
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
@@ -35,7 +35,7 @@ namespace AucklandRangersFoodHub
 
             //Searchbar PopUp Alert Dialog
             searchButton = FindViewById<ImageButton>(Resource.Id.searchButton);
-
+            username = Intent.GetStringExtra("username");
             searchButton.Click += (sender, e) =>
             {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -57,6 +57,7 @@ namespace AucklandRangersFoodHub
                            {
                        
                                Intent intent = new Intent(this, typeof(SearchActivity));
+                               intent.PutExtra("username", username);
                                intent.PutExtra("searchData", searchData);
                                StartActivity(intent);
                            }
@@ -183,45 +184,51 @@ namespace AucklandRangersFoodHub
         void OnkrabbypattyiconClicked(object sender, EventArgs e) //goes to krabby  page
         {
             Intent intent = new Intent(this, typeof(BurgersActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
 
         void OndualfeasticonClicked(object sender, EventArgs e) //goes to dual feast  page
         {
             Intent intent = new Intent(this, typeof(DoubleBurgerActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
 
         void OnUSTiconClicked(object sender, EventArgs e) //goes to Ultimate stack towers page
         {
             Intent intent = new Intent(this, typeof(UltimateTowerStackActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
 
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
-            Intent intent = new Intent(this, typeof(MainActivity));
-            StartActivity(intent);
+            //already on main page
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username",username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Cart Page")]
     public class CartActivity : Activity
     {
+        string username;
         bool isSignedIn;
         double totalPriceGST;
         ImageButton ButtonProfileIcon;
@@ -238,7 +245,7 @@ namespace AucklandRangersFoodHub
 
             SetContentView(Resource.Layout.CartPage);
 
-
+            username = Intent.GetStringExtra("username");
             itemCountTextView = FindViewById<TextView>(Resource.Id.itemCountTextView);
             totalPriceTextView = FindViewById<TextView>(Resource.Id.totalPriceTextViewGST);
             TextViewTotalPrice = FindViewById<TextView>(Resource.Id.totalPriceTextView);
@@ -274,34 +281,38 @@ namespace AucklandRangersFoodHub
         void OnProceedButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(PaymentActivity));
-
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
-
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Contact Us page")]
     public class ContactUsActivity : Activity
     {
+        string username;
         ImageButton ButtonProfileIcon;
         Button ButtonMenu;
         Button ButtonCart;
@@ -314,7 +325,7 @@ namespace AucklandRangersFoodHub
 
             SetContentView(Resource.Layout.ContactUsPage);
 
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -334,27 +345,32 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(MainActivity));//Goes to the main page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Payment page")]
     public class PaymentActivity : Activity
     {
+        string username;
         bool isSignedIn;
         ImageButton ButtonProfileIcon;
         Button cardPayment;
@@ -368,7 +384,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Payment);
-
+            username = Intent.GetStringExtra("username");
             cardPayment = FindViewById<Button>(Resource.Id.cardPayment);
             cardPayment.Click += OncardPaymentClicked;
 
@@ -447,6 +463,7 @@ namespace AucklandRangersFoodHub
                 dialog.Dismiss();
 
                 Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+                intent.PutExtra("username", username);
                 StartActivity(intent);
 
                 Toast.MakeText(this, "Payment Succesful. ", ToastLength.Short).Show();
@@ -464,6 +481,7 @@ namespace AucklandRangersFoodHub
         void OncashPaymentClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
             Toast.MakeText(this, "Payment will be recived at the restraunts counter. ", ToastLength.Short).Show();
         }
@@ -476,26 +494,31 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonViewDescriptionClicked(object sender, EventArgs e)//goes to the food description page
         {
             Intent intent = new Intent(this, typeof(FoodDescriptionActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
@@ -503,6 +526,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Food description page")]
     public class FoodDescriptionActivity : Activity
     {
+        string username;
         bool isSignedIn;
         Button ButtonMenu;
         Button ButtonCart;
@@ -512,7 +536,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.FoodDescriptionPage);
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -528,55 +552,71 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileIconClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Profile page")]
     public class ProfileActivity : Activity
     {
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
-        EditText EditTextUserName, EditTextPassword, EditTextId, EditTextMobile, EditTextEmail;
+        string username;
+      
+        TextView EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
         Button ButtonDeleteAccount;
         ImageButton ButtonSignOut;
-        Button ButtonViewReservation;
+        Button ButtonViewReservation, ButtonUpdate;
         Button ButtonMenu;
         Button ButtonCart;
         //ImageButton ButtonProfileIcon;
         Button ButtonContactUs;
+        DataManager dataManager;
+        SignUp user;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.ProfilePage);
 
-            EditTextUserName = FindViewById<EditText>(Resource.Id.username);
-            EditTextPassword = FindViewById<EditText>(Resource.Id.password);
-            
-            EditTextMobile = FindViewById<EditText>(Resource.Id.mobile);
-            EditTextEmail = FindViewById<EditText>(Resource.Id.email);
+            EditTextUserName = FindViewById<TextView>(Resource.Id.username);
+            EditTextPassword = FindViewById<TextView>(Resource.Id.password);
+            ButtonUpdate = FindViewById<Button>(Resource.Id.toupdatebuttonpage);
+            ButtonUpdate.Click += OnButtonUpdateClick;
+            EditTextMobile = FindViewById<TextView>(Resource.Id.mobile);
+            EditTextEmail = FindViewById<TextView>(Resource.Id.email);
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
+            dataManager = new DataManager();
+            username = Intent.GetStringExtra("username");
+            user = dataManager.GetUserName(username);
+            if (user != null)
+            {
+                
+                EditTextUserName.Text = user.UserName;
+                EditTextPassword.Text = user.Password;
+                EditTextMobile.Text = user.Mobile;
+                EditTextEmail.Text = user.Email;
+            }
 
-            ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
+                ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
-
-            //ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
-            //ButtonProfileIcon.Click += OnButtonProfileClicked;
 
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
@@ -589,6 +629,27 @@ namespace AucklandRangersFoodHub
 
             ButtonDeleteAccount = FindViewById<Button>(Resource.Id.ButtonDeleteAccount);
             ButtonDeleteAccount.Click += OnButtonDeleteAccountClicked;
+        }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            username = Intent.GetStringExtra("username");
+            user = dataManager.GetUserName(username);
+            if (user != null)
+            {
+
+                EditTextUserName.Text = user.UserName;
+                EditTextPassword.Text = user.Password;
+                EditTextMobile.Text = user.Mobile;
+                EditTextEmail.Text = user.Email;
+            }
+        }
+        void OnButtonUpdateClick(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(UpdateUsersActivity));
+            intent.PutExtra("UserId", user.Id);
+            intent.PutExtra("username", username);
+            StartActivity(intent);
         }
         void OnButtonDeleteAccountClicked(object sender, EventArgs e)
         {
@@ -603,32 +664,38 @@ namespace AucklandRangersFoodHub
         void OnButtonViewReservationClicked(object sender, EventArgs args)
         {
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Reservations page")]
     public class ReservationsScreenActivity : Activity
     {
+        string username;
         bool isSignedIn;
         Button? ButtonMyReservations, ButtonBookAReservation;
         ImageButton ButtonProfileIcon;
@@ -640,7 +707,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ReservationScreenPage);
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -665,37 +732,44 @@ namespace AucklandRangersFoodHub
         void ButtonBookAReservationClick(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void ButtonMyReservationsClick(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ReserveEditActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Reserve edit page")]
     public class ReserveEditActivity : Activity
     {
+        string username;
         bool isSignedIn;
         bool UpdateModeEnabled = false;
         bool DeleteMode = false;
@@ -713,7 +787,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ReserveEditPage);
-
+            username = Intent.GetStringExtra("username");
             ButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
             ButtonBackButton.Click += ButtonBackButtonClick;
 
@@ -778,6 +852,7 @@ namespace AucklandRangersFoodHub
             UpdateModeEnabled = false;
             DeleteMode = false;
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void ButtonAddClick(object sender, EventArgs e)
@@ -785,6 +860,7 @@ namespace AucklandRangersFoodHub
             UpdateModeEnabled = false;
             DeleteMode = false;
             Intent intent = new Intent(this, typeof(ReservationsAddActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void ListViewReservationItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -837,6 +913,7 @@ namespace AucklandRangersFoodHub
             UpdateModeEnabled = false;
             DeleteMode = false;
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
@@ -844,6 +921,7 @@ namespace AucklandRangersFoodHub
             UpdateModeEnabled = false;
             DeleteMode = false;
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
@@ -851,6 +929,7 @@ namespace AucklandRangersFoodHub
             UpdateModeEnabled = false;
             DeleteMode = false;
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
@@ -858,12 +937,14 @@ namespace AucklandRangersFoodHub
             UpdateModeEnabled = false;
             DeleteMode = false;
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Reservation add")]
     public class ReservationsAddActivity : Activity
     {
+        string username;
         bool isSignedIn;
         EditText EditTextTableName, EditTextTableNumber, EditTextTime;
         ImageButton ButtonProfileIcon, ButtonBackButton;
@@ -875,7 +956,7 @@ namespace AucklandRangersFoodHub
             SetContentView(Resource.Layout.ReservationsAddPage);
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
-
+            username = Intent.GetStringExtra("username");
             ButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
             ButtonBackButton.Click += ButtonBackButtonClick;
 
@@ -905,6 +986,7 @@ namespace AucklandRangersFoodHub
         void ButtonBackButtonClick(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void ButtonCreateReservationClick(object sender, EventArgs e)//Inserts the details into the database
@@ -919,36 +1001,41 @@ namespace AucklandRangersFoodHub
             Toast.MakeText(this, "Reservation has been created", ToastLength.Short).Show();
 
             Intent intent = new Intent(this, typeof(ReserveEditActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)//Goes to the profile page
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Sign in page", MainLauncher = false)]
     public class SignInActivity : Activity
     {
+        string username;
         EditText Password, UserName;
         Button? ButtonSignUp, ButtonSignIn;
         DataManager dataManager;
-        //ImageButton ButtonProfileIcon;
         bool isSignedIn;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
@@ -965,7 +1052,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonSignInClicked(object sender, EventArgs e)
         {
-            string username = UserName.Text;
+            username = UserName.Text;
             string password = Password.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -979,6 +1066,7 @@ namespace AucklandRangersFoodHub
                 if(user != null && user.Password == password)
                 {
                     Intent intent = new Intent(this, typeof(MainActivity));
+                    intent.PutExtra("username", username);
                     StartActivity(intent);
                 }
                 else
@@ -990,22 +1078,26 @@ namespace AucklandRangersFoodHub
         void OnButtonSignUpClicked(object send, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(SignUpActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Sign up page")]
     public class SignUpActivity : Activity
     {
+        string username;
         EditText? EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
         Button ButtonSubmit;
         Button ButtonAlreadyHaveAnAccount;
@@ -1022,9 +1114,9 @@ namespace AucklandRangersFoodHub
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
-
+            username = Intent.GetStringExtra("username");
             //ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
-           // ButtonCart.Click += OnButtonCartClicked;
+            // ButtonCart.Click += OnButtonCartClicked;
 
             //ButtonProfileIcon = FindViewById<ImageButton>(Resource.Id.ButtonProfile);
             //ButtonProfileIcon.Click += OnButtonProfileClicked;
@@ -1064,26 +1156,31 @@ namespace AucklandRangersFoodHub
             Toast.MakeText(this, "Details have been saved", ToastLength.Short).Show();
 
             Intent intent = new Intent(this, typeof(TestPageActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonAlreadyHaveAnAccount(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(SignInActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         /*        void OnButtonProfileClicked(object sender, EventArgs e)
@@ -1096,6 +1193,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Burgers Page")]
     public class BurgersActivity : Activity
     {
+        string username;
         float Price = 30;//price for a burger
         float TotalPrice;
         int Count;
@@ -1119,7 +1217,7 @@ namespace AucklandRangersFoodHub
 
             AddtoCart = FindViewById<Button>(Resource.Id.AddtoCart);
             AddtoCart.Click += OnAddtoCartClicked;
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -1151,11 +1249,13 @@ namespace AucklandRangersFoodHub
         void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonViewDescription(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(BurgerDescriptionActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1180,6 +1280,7 @@ namespace AucklandRangersFoodHub
         {
 
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPriceGST);
             StartActivity(intent);
@@ -1188,22 +1289,26 @@ namespace AucklandRangersFoodHub
         {
             Intent intent = new Intent(this, typeof(CartActivity));
             intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("username", username);
             intent.PutExtra("TotalPrice", TotalPriceGST);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
@@ -1213,7 +1318,7 @@ namespace AucklandRangersFoodHub
         float Price = 20;//price for a burger
         float TotalPrice;
         int Count;
-
+        string username;
         bool isSignedIn;
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
@@ -1230,7 +1335,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.DoubleBurger);
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -1262,11 +1367,13 @@ namespace AucklandRangersFoodHub
         void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonViewDescription(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(FoodDescriptionActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1286,21 +1393,25 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
@@ -1311,7 +1422,7 @@ namespace AucklandRangersFoodHub
         float Price = 40;//price for a burger
         float TotalPrice;
         int Count;
-
+        string username;
         bool isSignedIn;
         TextView TextViewQuantity;
         TextView TextViewTotalPrice;
@@ -1331,7 +1442,7 @@ namespace AucklandRangersFoodHub
 
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
-
+            username = Intent.GetStringExtra("username");
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
@@ -1360,11 +1471,13 @@ namespace AucklandRangersFoodHub
         void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonViewDescription(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(UltimateBurgerStackActivity));
+
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1384,21 +1497,25 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
@@ -1406,6 +1523,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Burger description activity")]
     public class BurgerDescriptionActivity : Activity
     {
+        string username;
         bool isSignedIn;
         //ImageButton BackButton;
         Button ButtonMenu;
@@ -1416,7 +1534,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.BurgersDescriptionPage);
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -1435,11 +1553,13 @@ namespace AucklandRangersFoodHub
         void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(BurgersActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
@@ -1450,11 +1570,13 @@ namespace AucklandRangersFoodHub
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
@@ -1462,6 +1584,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Ultimate Tower Stack description activity")]
     public class UltimateBurgerStackActivity : Activity
     {
+        string username;
         bool isSignedIn;
         ImageButton BackButton;
         Button ButtonMenu;
@@ -1472,7 +1595,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.UltimateBurgerStackDesc);
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -1491,32 +1614,38 @@ namespace AucklandRangersFoodHub
         void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(UltimateTowerStackActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Dual Feast activity")]
     public class FoodDecriptionActivity : Activity
     {
+        string username;
         //ImageButton BackButton;
         bool isSignedIn;
         Button ButtonMenu;
@@ -1527,7 +1656,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.FoodDescriptionPage);
-
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
 
@@ -1546,32 +1675,38 @@ namespace AucklandRangersFoodHub
         void OnBackButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(DoubleBurgerActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "Update Users")]
     public class UpdateUsersActivity : Activity
     {
+        string username;
         bool isSignedIn;
         Button ButtonUpdate;
         EditText EditTextUser, EditTextPassword, EditTextMobile, EditTextEmail;
@@ -1588,6 +1723,7 @@ namespace AucklandRangersFoodHub
             EditTextMobile = FindViewById<EditText>(Resource.Id.UpdateTextMobile);
             EditTextEmail = FindViewById<EditText>(Resource.Id.UpdateTextEmail);
             dataManager = new DataManager();
+            username = Intent.GetStringExtra("username");
             UserId = Intent.GetIntExtra("UserId", 0);
             SignUp signUp = dataManager.GetUserId(UserId);
             if (signUp != null)
@@ -1613,13 +1749,19 @@ namespace AucklandRangersFoodHub
                 Mobile = EditTextMobile.Text
             };
             dataManager.UpdateUser(update);
+
             Toast.MakeText(this, "Changes have been made", ToastLength.Long).Show();
-            Finish();
+            username = EditTextUser.Text;
+            Intent intent = new Intent(this, typeof(ProfileActivity));
+            
+            intent.PutExtra("username", username);
+            StartActivity(intent);
         }
     }
     [Activity(Label = "Vegetrerian page")]
     public class VegeterianActivity : Activity
     {
+        string username;
         bool isSignedIn;
         float Price = 10;
         float TotalPrice;
@@ -1634,6 +1776,7 @@ namespace AucklandRangersFoodHub
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            username = Intent.GetStringExtra("username");
             SetContentView(Resource.Layout.Vegeterian);
             ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
             ButtonProfile.Click += OnButtonProfileClicked;
@@ -1660,6 +1803,7 @@ namespace AucklandRangersFoodHub
         void OnButtonViewDescription(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(BurgerDescriptionActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1678,6 +1822,7 @@ namespace AucklandRangersFoodHub
 
             Intent intent = new Intent(this, typeof(CartActivity));
             intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("username", username);
             intent.PutExtra("TotalPrice", TotalPrice);
             StartActivity(intent);
 
@@ -1685,27 +1830,30 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
-            StartActivity(intent);
+            //already on profile page
         }
     }
     [Activity(Label = "Seafood Activity")]
     public class SeafoodActivity : Activity
     {
+        string username;
         bool isSignedIn;
         float Price = 10;
         float TotalPrice;
@@ -1721,6 +1869,7 @@ namespace AucklandRangersFoodHub
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Seafood);
+            username = Intent.GetStringExtra("username");
             ButtonProfile = FindViewById<Button>(Resource.Id.ButtonProfile);
             ButtonProfile.Click += OnButtonProfileClicked;
             ImageButtonBackButton = FindViewById<ImageButton>(Resource.Id.arrowicon);
@@ -1746,6 +1895,7 @@ namespace AucklandRangersFoodHub
         void OnButtonViewDescription(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(BurgerDescriptionActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
@@ -1769,6 +1919,7 @@ namespace AucklandRangersFoodHub
             TextViewTotalPrice.Text = "Total price (GST inc): " + TotalPriceGST.ToString();
 
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPrice);
             StartActivity(intent);
@@ -1777,27 +1928,32 @@ namespace AucklandRangersFoodHub
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
         {
             Intent intent = new Intent(this, typeof(MainActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonContactUsClicked(object sender, EventArgs e)//Goes to the contact us page
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonProfileClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ProfileActivity));//Goes to the profile page
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
     [Activity(Label = "searchpage")]
     public class SearchActivity : Activity
     {
+        string username;
         bool isSignedIn;
         TextView TextViewDisplay;
         private const string ApiKey = "2250c37f83084e18ae9707ea15352a30";
@@ -1805,6 +1961,7 @@ namespace AucklandRangersFoodHub
         protected override async void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            username = Intent.GetStringExtra("username");
             SetContentView(Resource.Layout.SearchPage);
             TextViewDisplay = FindViewById<TextView>(Resource.Id.textViewdisplay);
             string searchData = Intent.GetStringExtra("searchData");
@@ -1859,6 +2016,7 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Start Screen", MainLauncher = true)]
     public class StartScreenActivity : Activity
     {
+        string username;
         bool isSignedIn = false;
         Button ButtonMenu, ButtonContactUs, ButtonSignIn, ButtonSignUp;
         protected override async void OnCreate(Bundle? savedInstanceState)
@@ -1878,11 +2036,13 @@ namespace AucklandRangersFoodHub
         {
             Intent intent = new Intent(this, typeof(MainActivity));
             intent.PutExtra("isSignedIn", isSignedIn);
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void ButtonContactUsClick(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(ContactUsActivity));
+            intent.PutExtra("username", username);
             intent.PutExtra("isSignedIn", isSignedIn);
             StartActivity(intent);
         }
@@ -1890,12 +2050,14 @@ namespace AucklandRangersFoodHub
         {
             Intent intent = new Intent(this, typeof(SignInActivity));
             intent.PutExtra("isSignedIn", isSignedIn);
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void ButtonSignUpClick(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(SignUpActivity));
             intent.PutExtra("isSignedIn", isSignedIn);
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
     }
