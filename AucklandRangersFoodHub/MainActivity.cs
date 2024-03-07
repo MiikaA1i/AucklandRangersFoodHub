@@ -580,6 +580,7 @@ namespace AucklandRangersFoodHub
     public class ProfileActivity : Activity
     {
 
+
         string username;
       
         TextView EditTextUserName, EditTextPassword, EditTextMobile, EditTextEmail;
@@ -601,7 +602,10 @@ namespace AucklandRangersFoodHub
 
             EditTextUserName = FindViewById<TextView>(Resource.Id.username);
             EditTextPassword = FindViewById<TextView>(Resource.Id.password);
+
             ButtonUpdate = FindViewById<Button>(Resource.Id.ButtonUpdate);
+
+         
             ButtonUpdate.Click += OnButtonUpdateClick;
             EditTextMobile = FindViewById<TextView>(Resource.Id.mobile);
             EditTextEmail = FindViewById<TextView>(Resource.Id.email);
