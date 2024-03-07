@@ -123,6 +123,7 @@
         android:background="@android:color/black"
         android:layout_x="155dp"
         android:layout_y="390dp"
+        
         />
     <!--View reservation button-->
     <Button
