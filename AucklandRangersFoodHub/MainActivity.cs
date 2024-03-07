@@ -1302,7 +1302,7 @@ namespace AucklandRangersFoodHub
             intent.PutExtra("username", username);
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPriceGST);
-            intent.PutExtra("Krabby Patty", "hiddenKPTtxt");
+            intent.PutExtra("Krabby Patty", "Krabby Patty");
 
 
             StartActivity(intent);
