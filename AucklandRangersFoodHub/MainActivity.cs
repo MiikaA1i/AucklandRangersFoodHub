@@ -241,6 +241,8 @@ namespace AucklandRangersFoodHub
         TextView itemCountTextView, TextViewTotalPrice;
         TextView totalPriceTextView;
         Button ProceedButton;
+        TextView hiddenKPtxt;
+        TextView DishNameText;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -248,14 +250,19 @@ namespace AucklandRangersFoodHub
             SetContentView(Resource.Layout.CartPage);
 
             username = Intent.GetStringExtra("username");
+
+       
+            hiddenKPtxt = FindViewById<TextView>(Resource.Id.DishNameText);
             itemCountTextView = FindViewById<TextView>(Resource.Id.itemCountTextView);
             totalPriceTextView = FindViewById<TextView>(Resource.Id.totalPriceTextViewGST);
             TextViewTotalPrice = FindViewById<TextView>(Resource.Id.totalPriceTextView);
 
+            string DishNameText = Intent.GetStringExtra("Krabby Patty");
             int itemCount = Intent.GetIntExtra("ItemCount", 0);
             double totalPrice = Intent.GetDoubleExtra("TotalPrice", 0);
             totalPriceGST = totalPrice * 1.15;
 
+            hiddenKPtxt.Text = DishNameText;
             totalPriceTextView.Text = "Total price: $" + totalPrice.ToString();
             TextViewTotalPrice.Text = "Total price (including GST): $" + totalPriceGST.ToString();
             itemCountTextView.Text = "Qty: " + itemCount.ToString();
@@ -1215,12 +1222,13 @@ namespace AucklandRangersFoodHub
         Button ButtonCart;
         Button ButtonContactUs;
         ImageButton ButtonProfileIcon;
+        TextView hiddenKPtxt;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.BurgersPage);
 
-            DishNameText = FindViewById<TextView>(Resource.Id.DishNameText);
+            hiddenKPtxt = FindViewById<TextView>(Resource.Id.hiddenKPtxt);
 
             AddtoCart = FindViewById<Button>(Resource.Id.AddtoCart);
             AddtoCart.Click += OnAddtoCartClicked;
@@ -1277,7 +1285,7 @@ namespace AucklandRangersFoodHub
         {
             Count++;
 
-
+            hiddenKPtxt.Text = "Krabby Patty";
 
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
@@ -1294,6 +1302,7 @@ namespace AucklandRangersFoodHub
             intent.PutExtra("username", username);
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPriceGST);
+            intent.PutExtra("Krabby Patty", "hiddenKPTtxt");
 
 
             StartActivity(intent);

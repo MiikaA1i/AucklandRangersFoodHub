@@ -75,11 +75,11 @@
     <!--Quantity text-->
     <TextView
 
-        android:layout_width="20dp"
+        android:layout_width="50dp"
         android:layout_height="20dp"
         android:layout_x="280dp"
         android:layout_y="220dp"
-        android:background="@android:color/white"
+       
         android:id="@+id/itemCountTextView"/>
 
 

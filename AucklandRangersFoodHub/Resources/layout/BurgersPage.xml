@@ -84,6 +84,14 @@
         android:scaleType="fitXY"
     />
 
+    <!--Hidden text view-->
+
+    <TextView
+        android:id="@+id/hiddenKPtxt"
+         android:text="Krabby Patty"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"/>
+
     <!--View Description button Should take to Food Description page-->
     <Button
         android:text="View Description"
@@ -106,7 +114,8 @@
         android:layout_x="245dp"
         android:textSize="15dp"
         android:id="@+id/TextViewQuantity"/>
-        T
+        
+
     <!--Quantity plus button-->
     <ImageButton
       
