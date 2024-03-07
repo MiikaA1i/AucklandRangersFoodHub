@@ -251,7 +251,7 @@ namespace AucklandRangersFoodHub
 
             username = Intent.GetStringExtra("username");
 
-       
+
             hiddenKPtxt = FindViewById<TextView>(Resource.Id.DishNameText);
             itemCountTextView = FindViewById<TextView>(Resource.Id.itemCountTextView);
             totalPriceTextView = FindViewById<TextView>(Resource.Id.totalPriceTextViewGST);
@@ -1302,7 +1302,7 @@ namespace AucklandRangersFoodHub
             intent.PutExtra("username", username);
             intent.PutExtra("ItemCount", Count);
             intent.PutExtra("TotalPrice", TotalPriceGST);
-            intent.PutExtra("Krabby Patty", "hiddenKPTtxt");
+            intent.PutExtra("Krabby Patty", "Krabby Patty");
 
 
             StartActivity(intent);
