@@ -287,7 +287,26 @@ namespace AucklandRangersFoodHub
 
             ProceedButton = FindViewById<Button>(Resource.Id.ProceedButton);
             ProceedButton.Click += OnProceedButtonClicked;
+
+            GenerateAndDisplayOrderNumber();
         }
+
+        private void GenerateAndDisplayOrderNumber()
+        {
+            int customerId = 1;
+            string orderNumber = GenerateOrderNumber(customerId);
+            TextView orderNumberTextView = FindViewById<TextView>(Resource.Id.OrderNumID);
+            orderNumberTextView.Text = "Order Number: " + orderNumber;
+
+
+        }
+
+        private string GenerateOrderNumber(int customerId)
+        {
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+            return $"O{customerId}-{timestamp}";
+        }
+
         void OnProceedButtonClicked(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(PaymentActivity));
@@ -431,7 +450,7 @@ namespace AucklandRangersFoodHub
             Button submitReviewButton = reviewDialog.FindViewById<Button>(Resource.Id.submitReviewButton);
 
 
-            reviewTitle.Text = "Customer Reviews";
+            reviewTitle.Text = "Give Us A Review!";
 
 
             submitReviewButton.Click += (sender, e) =>

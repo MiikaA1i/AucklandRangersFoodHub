@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Customer Reviews"
+        android:text="Give us a review!"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit Review"
+        android:textSize="10dp"
         android:id="@+id/submitReviewButton"
         android:layout_below="@id/reviewEditText"
         android:textColor="@android:color/white"

@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_x="30dp"
         android:textSize="35dp"
-        android:layout_y="120dp"
+        android:layout_y="115dp"
         android:textStyle="bold"
         android:id="@+id/textView1"
         android:fontFamily="sans-serif-condensed"
@@ -68,7 +68,7 @@
         android:id="@+id/DishNameText"
         android:layout_width="100dp"
         android:layout_height="20dp"
-        android:background="@android:color/white"
+      android:textStyle="bold"
         android:layout_x="40dp"
         android:textColor="@android:color/black"
         android:layout_y="220dp"
@@ -78,28 +78,41 @@
 
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:layout_x="280dp"
+        android:layout_x="295dp"
         android:layout_y="220dp"
-       
+       android:textStyle="bold"
         android:id="@+id/itemCountTextView"/>
 
+    <!--Order Number-->
+    <TextView
+      android:layout_width="500dp"
+      android:layout_height="20dp"
+      android:text="Order Number:"
+     android:id="@+id/OrderNumID"
+     android:textColor="@android:color/black"
+     android:layout_y="165dp"
+    android:layout_x="28dp"/>
 
+    <!--Pice without GST-->
 
         <TextView 
         android:textStyle="bold"
         android:text="Total Price: "
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="110dp"
+        android:layout_x="130dp"
         android:textSize="15dp"
         android:layout_y="430dp"
         android:id="@+id/totalPriceTextViewGST"
         android:textColor="@android:color/black"/>
+
+    <!--Price With GST-->
+
     <TextView 
-        android:text="Total Price (inc GST): "
+        android:text="Subtotal (inc GST): "
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_x="95dp"
+        android:layout_x="85dp"
         android:textSize="15dp"
         android:layout_y="470dp"
         android:textStyle="bold"
@@ -167,7 +180,7 @@
         android:layout_y="640dp"
         android:textSize="12dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 

@@ -148,7 +148,7 @@
         android:layout_y="640dp"
         android:textSize="12dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonContactUs"/>
     <!--Profile button-->
