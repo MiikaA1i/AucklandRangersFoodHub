@@ -68,7 +68,7 @@
     <!--Time edit text-->
         <EditText
         android:layout_x="100dp"
-        android:layout_y="330dp"
+        android:layout_y="310dp"
         android:background="@drawable/Underline"  
         android:textColorHint="@android:color/black"
         android:hint="Time"
@@ -86,8 +86,20 @@
         android:background="@drawable/roundbuttonblack"
         android:layout_x="115dp"
         android:padding="10dp"
-        android:layout_y="450dp"
+        android:layout_y="520dp"
         />
+
+    <!--Number of people button-->
+     <EditText
+        android:layout_x="100dp"
+        android:layout_y="400dp"
+        android:background="@drawable/Underline"  
+        android:textColorHint="@android:color/black"
+        android:hint="Number of people"
+        android:textColor="@android:color/black"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editNumofPeople"/>
 
 
  <!--Bottom Of Page-->
@@ -137,7 +149,7 @@
         android:layout_y="640dp"
         android:textSize="12dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:id="@id/ButtonCart"/>
 

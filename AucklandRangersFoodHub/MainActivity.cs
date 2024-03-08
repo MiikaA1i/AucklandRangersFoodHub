@@ -977,7 +977,7 @@ namespace AucklandRangersFoodHub
     {
         string username;
         bool isSignedIn;
-        EditText EditTextTableName, EditTextTableNumber, EditTextTime;
+        EditText EditTextTableName, EditTextTableNumber, EditTextTime, editNumofPeople;
         ImageButton ButtonProfileIcon, ButtonBackButton;
         Button? ButtonMenu, ButtonCart, ButtonContactUs, ButtonProfile, ButtonCreateReservation;
         DataManager dataManager;
@@ -1012,6 +1012,8 @@ namespace AucklandRangersFoodHub
 
             EditTextTime = FindViewById<EditText>(Resource.Id.editTextTime);
 
+            editNumofPeople = FindViewById<EditText>(Resource.Id.editNumofPeople);
+
             dataManager = new DataManager();
         }
         void ButtonBackButtonClick(object sender, EventArgs e)
@@ -1026,7 +1028,8 @@ namespace AucklandRangersFoodHub
             {
                 Table_Number = EditTextTableNumber.Text,
                 ReservationName = EditTextTableName.Text,
-                Time = EditTextTime.Text
+                Time = EditTextTime.Text,
+               
             };
             dataManager.InsertReservation(reservationsInfo);
 
