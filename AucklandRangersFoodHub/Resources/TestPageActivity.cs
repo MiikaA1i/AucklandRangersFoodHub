@@ -56,14 +56,14 @@ namespace AucklandRangersFoodHub
             SignUp selectedRow = userDetails[e.Position];
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetTitle("Choose an option");
-            builder.SetNegativeButton("Delete", (s,a) => DeleteRow(selectedRow));
-            builder.SetPositiveButton("Cancel", (s,a) => CancelButton());
+            builder.SetNegativeButton("Delete", (s, a) => DeleteRow(selectedRow));
+            builder.SetPositiveButton("Cancel", (s, a) => CancelButton());
             builder.SetNeutralButton("Update", (s, a) => UpdateUser(selectedRow));
             builder.Show();
         }
         void UpdateUser(SignUp user)
         {
-            Intent intent = new Intent(this, typeof(UpdateUsersActivity) );
+            Intent intent = new Intent(this, typeof(UpdateUsersActivity));
             intent.PutExtra("UserId", user.Id);
             StartActivity(intent);
         }

@@ -45,11 +45,11 @@
 
 <!--Middle Of Page-->
     <TextView 
-        android:text="Checkout"
+        android:text="CHECKOUT"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_x="30dp"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:layout_y="115dp"
         android:textStyle="bold"
         android:id="@+id/textView1"

@@ -294,6 +294,7 @@ namespace AucklandRangersFoodHub
         private void GenerateAndDisplayOrderNumber()
         {
             int customerId = 1;
+            int orderCounter = 1;
             string orderNumber = GenerateOrderNumber(customerId);
             TextView orderNumberTextView = FindViewById<TextView>(Resource.Id.OrderNumID);
             orderNumberTextView.Text = "Order Number: " + orderNumber;
@@ -301,10 +302,11 @@ namespace AucklandRangersFoodHub
 
         }
 
+        private static int orderCounter = 1;
         private string GenerateOrderNumber(int customerId)
         {
-            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-            return $"O{customerId}-{timestamp}";
+            
+            return $"O{customerId}-{orderCounter++}";
         }
 
         void OnProceedButtonClicked(object sender, EventArgs e)
@@ -1185,7 +1187,7 @@ namespace AucklandRangersFoodHub
             dataManager.InsertUser(signup);
             Toast.MakeText(this, "Details have been saved", ToastLength.Short).Show();
 
-            Intent intent = new Intent(this, typeof(TestPageActivity));
+            Intent intent = new Intent(this, typeof(MainActivity));
             intent.PutExtra("username", username);
             StartActivity(intent);
         }
