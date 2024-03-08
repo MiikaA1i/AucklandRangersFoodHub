@@ -73,5 +73,9 @@ namespace AucklandRangersFoodHub
         {
             return connection.Table<SignUp>().FirstOrDefault(d => d.UserName == username);
         }
+        public List<ReservationsPage> GetReservationsByUser(string user)
+        {
+            return connection.Table<ReservationsPage>().Where(d => d.name == user).ToList();
+        }
     }   
 }
