@@ -25,7 +25,7 @@ namespace AucklandRangersFoodHub
             string combinepath = Path.Combine(directorypath, "AucklandRangers_data.db");
 
             connection = new SQLiteConnection(combinepath);
-
+            connection.CreateTable<ReservationsPage>();
             connection.CreateTable<SignUp>();
         }
         public void UpdateUser(SignUp user)
