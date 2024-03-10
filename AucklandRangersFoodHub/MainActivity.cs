@@ -9,6 +9,7 @@ using System.Text.Json.Nodes;
 using System.Text;
 using Android.Views;
 using Android.Graphics.Drawables;
+using Java.Util;
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
@@ -2004,41 +2005,60 @@ namespace AucklandRangersFoodHub
         TextView TextViewDisplay;
         private const string ApiKey = "2250c37f83084e18ae9707ea15352a30";
         private const string ApiUrl = "https://api.spoonacular.com/recipes/complexSearch";
+
+        // Override the OnCreate method
         protected override async void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            // Get username from intent
             username = Intent.GetStringExtra("username");
+
+           // Set the content view to the SearchPage layout
             SetContentView(Resource.Layout.SearchPage);
+
+            // Find TextView by its id
             TextViewDisplay = FindViewById<TextView>(Resource.Id.textViewdisplay);
+
+            // Get search data from intent
             string searchData = Intent.GetStringExtra("searchData");
+
+            // Build the search query with the API key and search data
             string searchQuery = $"{ApiUrl}?apiKey={ApiKey}&query={searchData}";
+
+            // Display search results in the TextView
             TextViewDisplay.Text = await SearchRecipes(searchQuery);
         }
+
+        // Method to perform recipe search
         private async Task<string> SearchRecipes(string api)
         {
+            // Send a GET request to the API
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage httpResponseMessage = await client.GetAsync(api);
                 try
                 {
+                    // Check if the response is successful
                     if (httpResponseMessage.IsSuccessStatusCode)
-                    {
+                    {   // Read and deserialize the content into recipe objects
                         string content = await httpResponseMessage.Content.ReadAsStringAsync();
                         var recipes = JsonConvert.DeserializeObject<Root>(content);
+                        // Build a string with recipe information
                         StringBuilder stringBuilder = new StringBuilder();
                         foreach (var recipe in recipes.results)
                         {
                             stringBuilder.AppendLine($"Recipe Id : {recipe.id} \n Recipe Name : {recipe.title}\n");
                         }
-                        return stringBuilder.ToString();
+                        return stringBuilder.ToString(); // Return the formatted recipe information
                     }
                     else
-                    {
+                    {    // Return an error message if the response is not successful
                         return $"Error:{httpResponseMessage.StatusCode} - {httpResponseMessage.ReasonPhrase}";
                     }
                 }
                 catch (Exception ex)
-                {
+                {   // Return an error message if an exception occurs
                     return $"Error:{ex.Message}";
                 }
             }
