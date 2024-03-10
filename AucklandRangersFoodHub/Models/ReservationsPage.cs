@@ -11,9 +11,11 @@ namespace AucklandRangersFoodHub.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public string name { get; set; }
         public string Table_Number { get; set; }
         public string Time { get; set; }
         public string ReservationName { get; set; }
+
     }
 }
 

@@ -855,7 +855,7 @@ namespace AucklandRangersFoodHub
         }
         void Display()
         {
-            ReservationsDetails = dataManager.GetReservations();
+            ReservationsDetails = dataManager.GetReservationsByUser(username);
             ArrayAdapter arrayAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1);
             foreach (var item in ReservationsDetails)
             {
@@ -1027,10 +1027,10 @@ namespace AucklandRangersFoodHub
         {
             ReservationsPage reservationsInfo = new ReservationsPage()
             {
+                name = username,
                 Table_Number = EditTextTableNumber.Text,
                 ReservationName = EditTextTableName.Text,
                 Time = EditTextTime.Text,
-               
             };
             dataManager.InsertReservation(reservationsInfo);
 
