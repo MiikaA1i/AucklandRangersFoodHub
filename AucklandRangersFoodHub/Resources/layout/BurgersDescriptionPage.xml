@@ -116,10 +116,9 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"/>
 
- <!--Bottom Of Page-->
+    <!--Bottom Of Page-->
 
-
-     <!--Menu button-->
+    <!--Menu button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -127,7 +126,7 @@
         android:layout_x="10dp"
         android:layout_y="640dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:textSize="12dp"
         android:id="@id/ButtonMenu"/>

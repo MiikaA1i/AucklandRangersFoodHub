@@ -10,6 +10,8 @@ using System.Text;
 using Android.Views;
 using Android.Graphics.Drawables;
 using Java.Util;
+using Android;
+
 namespace AucklandRangersFoodHub
 {
     [Activity(Label = "Auckland Rangers Food Hub", MainLauncher = false)]
@@ -228,6 +230,7 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
+
     [Activity(Label = "Cart Page")]
     public class CartActivity : Activity
     {
@@ -695,7 +698,7 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonViewReservationClicked(object sender, EventArgs args)
         {
-            Intent intent = new Intent(this, typeof(ReservationsScreenActivity));
+            Intent intent = new Intent(this, typeof(ReserveEditActivity));
             intent.PutExtra("username", username);
             StartActivity(intent);
         }
@@ -859,10 +862,11 @@ namespace AucklandRangersFoodHub
             ArrayAdapter arrayAdapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1);
             foreach (var item in ReservationsDetails)
             {
-                arrayAdapter.Add($"{item.ReservationName}/{item.Table_Number}/{item.Time}");
+                arrayAdapter.Add($"Table: {item.Table_Number} RESERVED");
             }
             ListViewReservations.Adapter = arrayAdapter;
         }
+       
         protected override void OnResume()
         {
             base.OnResume();
@@ -1191,7 +1195,7 @@ namespace AucklandRangersFoodHub
             dataManager.InsertUser(signup);
             Toast.MakeText(this, "Details have been saved", ToastLength.Short).Show();
 
-            Intent intent = new Intent(this, typeof(MainActivity));
+            Intent intent = new Intent(this, typeof(TestPageActivity));
             intent.PutExtra("username", username);
             StartActivity(intent);
         }
@@ -1466,30 +1470,38 @@ namespace AucklandRangersFoodHub
     [Activity(Label = "Ultimate Stack Tower")]
     public class UltimateTowerStackActivity : Activity
     {
+        string username;
         float Price = 40;//price for a burger
         float TotalPrice;
         int Count;
-        string username;
+        double TotalPriceGST;
         bool isSignedIn;
         TextView TextViewQuantity;
-        TextView TextViewTotalPrice;
-
-        ImageButton BackButton;//leads back to main page.xml
+        TextView totalPriceTextView;
+        TextView DishNameText;
+        Button AddtoCart;
+        Button BackButton; //leads back to main page.xml
         Button ButtonViewDescription;
-        Button ButtonPlus;
-        Button ButtonMinus;
+        ImageButton ButtonPlus;
+        ImageButton ButtonMinus;
         Button ButtonMenu;
         Button ButtonCart;
         Button ButtonContactUs;
         ImageButton ButtonProfileIcon;
+        TextView hiddenKPtxt;
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.DoubleBurger);
+            SetContentView(Resource.Layout.UltimateTowerStack);
 
+            hiddenKPtxt = FindViewById<TextView>(Resource.Id.hiddenKPtxt);
+
+            AddtoCart = FindViewById<Button>(Resource.Id.AddtoCart);
+            AddtoCart.Click += OnAddtoCartClicked;
+            username = Intent.GetStringExtra("username");
             ButtonMenu = FindViewById<Button>(Resource.Id.ButtonMenu);
             ButtonMenu.Click += OnButtonMenuClicked;
-            username = Intent.GetStringExtra("username");
+
             ButtonCart = FindViewById<Button>(Resource.Id.ButtonCart);
             ButtonCart.Click += OnButtonCartClicked;
 
@@ -1499,21 +1511,21 @@ namespace AucklandRangersFoodHub
             ButtonContactUs = FindViewById<Button>(Resource.Id.ButtonContactUs);
             ButtonContactUs.Click += OnButtonContactUsClicked;
 
-            ButtonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            ButtonPlus = FindViewById<ImageButton>(Resource.Id.ButtonPlus);
             ButtonPlus.Click += OnButtonPlusClicked;
 
-            ButtonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
+            ButtonMinus = FindViewById<ImageButton>(Resource.Id.ButtonMinus);
             ButtonMinus.Click += OnButtonMinusClicked;
 
             TextViewQuantity = FindViewById<TextView>(Resource.Id.TextViewQuantity);
 
-            TextViewTotalPrice = FindViewById<TextView>(Resource.Id.TextViewTotalPrice);
+            totalPriceTextView = FindViewById<TextView>(Resource.Id.totalPriceTextView);
 
             ButtonViewDescription = FindViewById<Button>(Resource.Id.ButtonViewDescription);
             ButtonViewDescription.Click += OnButtonViewDescription;
 
-            BackButton = FindViewById<ImageButton>(Resource.Id.BackButton);
-            BackButton.Click += OnBackButtonClicked;
+            //BackButton = FindViewById<Button>(Resource.Id.BackButton);
+            //BackButton.Click += OnBackButtonClicked;
         }
         void OnBackButtonClicked(object sender, EventArgs e)
         {
@@ -1523,28 +1535,50 @@ namespace AucklandRangersFoodHub
         }
         void OnButtonViewDescription(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(UltimateBurgerStackActivity));
-
+            Intent intent = new Intent(this, typeof(BurgerDescriptionActivity));
+            intent.PutExtra("username", username);
             StartActivity(intent);
         }
         void OnButtonMinusClicked(object sender, EventArgs e)
         {
             Count--;
+
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
-            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+            totalPriceTextView.Text = "Total Cost: $" + TotalPrice.ToString();
         }
         void OnButtonPlusClicked(object sender, EventArgs e)
         {
             Count++;
+
+            hiddenKPtxt.Text = "Ultimate Tower Stack";
+
             TextViewQuantity.Text = "Qty: " + Count.ToString();
             TotalPrice = Count * Price;
-            TextViewTotalPrice.Text = "Total price: " + TotalPrice.ToString();
+
+            TotalPriceGST = TotalPrice;
+
+            totalPriceTextView.Text = "Total Cost: $" + TotalPriceGST.ToString();
+
+        }
+        void OnAddtoCartClicked(object sender, EventArgs e)
+        {
+
+            Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("username", username);
+            intent.PutExtra("ItemCount", Count);
+            intent.PutExtra("TotalPrice", TotalPriceGST);
+            intent.PutExtra("Ultimate Tower Stack", "Ultimate Tower Stack");
+
+
+            StartActivity(intent);
         }
         void OnButtonCartClicked(object sender, EventArgs e)//Goes to the cart page
         {
             Intent intent = new Intent(this, typeof(CartActivity));
+            intent.PutExtra("ItemCount", Count);
             intent.PutExtra("username", username);
+            intent.PutExtra("TotalPrice", TotalPriceGST);
             StartActivity(intent);
         }
         void OnButtonMenuClicked(object sender, EventArgs e)//Goes to the main page
@@ -1566,7 +1600,6 @@ namespace AucklandRangersFoodHub
             StartActivity(intent);
         }
     }
-
     [Activity(Label = "Burger description activity")]
     public class BurgerDescriptionActivity : Activity
     {

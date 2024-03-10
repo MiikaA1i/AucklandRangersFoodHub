@@ -172,7 +172,7 @@
         android:layout_x="10dp"
         android:layout_y="640dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:background="@drawable/roundbuttonblack"
         style="?android:attr/borderlessButtonStyle"
         android:textSize="12dp"
         android:id="@id/ButtonMenu"/>
